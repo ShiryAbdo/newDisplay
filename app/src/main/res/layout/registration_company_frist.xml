@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/smoke_chimney_industrial_29465_copy_2"
+    tools:context="com.example.shaymaa.finalproject.activites.RegistrationUser">
+
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_marginTop="@dimen/_13sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_50sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:id="@+id/imageView"
+            android:background="@drawable/storage_copy"
+            />
+        <TextView
+            android:textColor="#01048e"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:text="تسجيل  الشركات والمؤسسات "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginRight="@dimen/_35sdp"
+            android:layout_gravity="right"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:padding="@dimen/_8sdp"
+            android:textStyle="bold"
+            android:text="الموافقه على سياسه استخدام الاعلان والعموله "
+            android:layoutDirection="rtl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox" />
+
+        <EditText
+            android:background="@drawable/fild_redise_blue"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_240sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:drawablePadding="@dimen/_15sdp"
+            android:inputType="textPersonName"
+            android:hint="اسم المستخدم"
+            android:ems="10"
+            android:drawableRight="@drawable/ic_person_outline_white_24dp"
+            android:id="@+id/editText"
+
+            />
+
+        <EditText
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/fild_redise_blue"
+            android:drawableRight="@drawable/ic_mail_outline_black_24dp"
+            android:hint="البريد الالكترونى"
+            android:drawablePadding="@dimen/_15sdp"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/editText2" />
+
+        <EditText
+            android:hint="رقم الجوال"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:padding="@dimen/_10sdp"
+            android:paddingRight="@dimen/_15sdp"
+            android:drawablePadding="@dimen/_15sdp"
+            android:background="@drawable/fild_redise_blue"
+            android:drawableRight="@drawable/ic_phone_android_black_24dp"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/editText3" />
+
+        <Spinner
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:padding="@dimen/_10sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:background="@drawable/fild_redise_blue"
+
+
+            android:id="@+id/spinner" />
+
+        <EditText
+            android:gravity="right"
+            android:padding="@dimen/_10sdp"
+            android:hint="أسم الشركه بالعربي"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/_15sdp"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:paddingBottom="@dimen/_7sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:background="@drawable/fild_redise_blue"
+            android:drawableRight="@drawable/ic_lock_outline_white_24dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editText4" />
+
+        <EditText
+            android:gravity="right"
+            android:padding="@dimen/_10sdp"
+            android:hint=" أسم الشركة بالإنجلش"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
+             android:drawablePadding="@dimen/_15sdp"
+            android:drawableRight="@drawable/ic_lock_outline_white_24dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:background="@drawable/round_white"
+            android:inputType="textPersonName"            android:ems="10"
+            android:id="@+id/editText5" />
+
+
+        <Button
+            android:textColor="#ffffff"
+            android:background="@drawable/login_btn"
+            android:layout_gravity="center"
+            android:text="@string/conplet_regstration"
+            android:textSize="20sp"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:id="@+id/register_as_moassa" />
+
+
+    </LinearLayout>
+</FrameLayout>
+

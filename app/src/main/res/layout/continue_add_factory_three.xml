@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_add_factory"
+    tools:context="com.example.shaymaa.finalproject.activites.RegistrationUser">
+
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_add_factory"
+        >
+        <ImageView
+            android:contentDescription="@string/add_your_factory"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_50sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:id="@+id/imageView"
+            android:background="@drawable/factory"
+            />
+        <TextView
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/add_your_factory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginEnd="@dimen/_35sdp"
+            android:layout_gravity="end"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:padding="@dimen/_8sdp"
+            android:textStyle="bold"
+            android:text=""
+            android:layoutDirection="rtl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox" />
+
+        <Spinner
+            android:background="@drawable/fild_redise_white"
+            android:drawableRight="@drawable/hammer"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_240sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:drawablePadding="@dimen/_15sdp"
+            android:inputType="textPersonName"
+            android:hint="@string/owner_name_of_factory"
+            android:ems="10"
+            android:id="@+id/editText"
+
+            />
+
+        <Spinner
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/fild_redise_white"
+            android:drawableRight="@drawable/factory_icon"
+            android:hint="@string/factory_name"
+            android:drawablePadding="@dimen/_15sdp"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/editText2" />
+
+        <Spinner
+            android:hint="@string/ether_phone_factory"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:padding="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:paddingStart="@dimen/_15sdp"
+            android:drawablePadding="@dimen/_15sdp"
+            android:background="@drawable/fild_redise_white"
+            android:drawableRight="@drawable/ic_phone_android_white"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/ether_phone_factory" />
+
+        <Spinner
+            android:hint="@string/phone_numbe_add"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:padding="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:paddingStart="@dimen/_15sdp"
+            android:drawablePadding="@dimen/_15sdp"
+            android:background="@drawable/fild_redise_white"
+            android:drawableRight="@drawable/ic_phone__white"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/phone_numbe" />
+
+        <EditText
+            android:gravity="end"
+            android:padding="@dimen/_10sdp"
+            android:hint=" وصف مبسط لمكان  المصنع "
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+             android:drawablePadding="@dimen/_15sdp"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_95sdp"
+            android:paddingBottom="@dimen/_7sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:background="@drawable/fild_redise_white"
+             android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editText4" />
+
+
+
+
+        <Button
+            android:textColor="#ffffff"
+            android:background="@drawable/login_btn"
+            android:layout_gravity="center"
+            android:text="@string/contuio"
+            android:textSize="20sp"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:id="@+id/cuttong_adding" />
+
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

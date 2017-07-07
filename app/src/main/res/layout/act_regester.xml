@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/smoke_chimney_industrial_29465_copy_2"
+
+    >
+    <LinearLayout
+        android:background="#6bffffff"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <ImageView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:id="@+id/imageView"
+        android:background="@drawable/curriculum_copy"
+        />
+        <TextView
+            android:textColor="#01048e"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:text="تسجيل الافراد"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    <EditText
+        android:background="@drawable/fild_redise_blue"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:inputType="textPersonName"
+        android:hint="اسم المستخدم"
+        android:ems="10"
+        android:drawableRight="@drawable/ic_person_outline_white_24dp"
+        android:id="@+id/editText"
+
+        />
+
+    <EditText
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:background="@drawable/fild_redise_blue"
+        android:drawableRight="@drawable/ic_mail_outline_black_24dp"
+        android:hint="البريد الالكترونى"
+
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editText2" />
+
+    <EditText
+        android:hint="رقم الجوال"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:background="@drawable/fild_redise_blue"
+        android:drawableRight="@drawable/ic_phone_android_black_24dp"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/editText3" />
+
+    <Spinner
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:background="@drawable/fild_redise_blue"
+
+
+        android:id="@+id/spinner" />
+
+    <EditText
+        android:gravity="right"
+            android:hint="كلمه المرور"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:background="@drawable/fild_redise_blue"
+        android:drawableRight="@drawable/ic_lock_outline_white_24dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText4" />
+
+    <EditText
+        android:gravity="right"
+        android:hint="تاكيد كلمه المرور"
+        android:drawableRight="@drawable/ic_lock_outline_white_24dp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:background="@drawable/fild_redise_blue"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText5" />
+
+    <CheckBox
+        android:layout_marginRight="@dimen/_35sdp"
+        android:layout_gravity="right"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:text="الموافقه على سياسه استخدام الاعلان والعموله "
+        android:layoutDirection="rtl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox" />
+
+        <Button
+            android:textColor="#ffffff"
+            android:background="@drawable/login_btn"
+            android:layout_gravity="center"
+            android:text="التسجيل "
+            android:textSize="20sp"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:id="@+id/button2" />
+
+
+    </LinearLayout>
+</RelativeLayout>

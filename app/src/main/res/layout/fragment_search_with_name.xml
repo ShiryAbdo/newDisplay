@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:background="@drawable/smoke_chimney_industrial_29465"
+    >
+
+    <ImageView
+         android:layout_gravity="center"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        app:srcCompat="@drawable/search_engine"
+        android:id="@+id/imageView" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:text="@string/serach_with_name_or_ma3rof"
+        android:layout_marginBottom="@dimen/_20sdp"
+        />
+    <TextView
+        android:background="@drawable/sa"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:drawableEnd="@drawable/ic_ser"
+        android:textColor="#fff"
+        android:textSize="17sp"
+        android:hint="ادخل اسم المصنع او رقم السجل او رمز المصنع "
+        />
+
+    <Button
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textColor= "@color/white"
+        android:background="@drawable/login_btn"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:text="أبحث"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:layout_marginTop="@dimen/_15sdp"
+         android:layout_marginBottom="@dimen/_20sdp"
+        />
+
+</LinearLayout>
