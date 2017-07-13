@@ -12,7 +12,7 @@ public class Factory_data {
     private String ver;
     private String name;
     private String api;
-
+public Factory_data(String a,String b,String c ){}
     public String getVer() {
         return ver;
     }

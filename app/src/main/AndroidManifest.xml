@@ -32,14 +32,12 @@
         <activity
             android:name=".activites.splashScreen"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activites.LoginActvity"
@@ -73,27 +71,30 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".activites.ProductesActivity" />
+        <activity android:name=".activites.ProductesActivity" >
+
+        </activity>
         <activity android:name=".activites.FactoryParts" />
         <activity android:name=".activites.SupportActivity" />
         <activity android:name=".activites.Wassf_asnaa_mape_oOne" />
         <activity android:name=".activites.ForgetPassword" />
-        <activity
-            android:name=".activites.MapsActivity"
-            android:label="@string/title_activity_maps" />
         <activity android:name=".maps.MapWassf">
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
         </activity>
-        <activity android:name=".activites.Forgitpassword" />
         <activity
             android:name=".maps.CountinuAdding"
             android:label="@string/title_activity_countinu_adding"></activity>
+
+        <service
+            android:name=".GeocodeAddressIntentService"
+            android:exported="false"></service>
+
+        <activity
+            android:name=".activites.wasffWithTabb"
+            android:label="@string/title_activity_wasff_with_tabb"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

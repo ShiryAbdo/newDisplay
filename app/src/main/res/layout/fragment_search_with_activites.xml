@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/smoke_chimney_industrial_29465_copy_2"
-    tools:context="com.example.shaymaa.uicompany.activites.RegistrationUser">
+    tools:context="com.example.shaymaa.finalproject.SearchWithActivites">
 
 
     <LinearLayout
