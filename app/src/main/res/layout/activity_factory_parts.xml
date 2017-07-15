@@ -13,5 +13,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
-        tools:targetApi="m" />
+        tools:targetApi="m" >
+        <com.example.shaymaa.finalproject.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#fff"
+            android:text="قطع غيار المصنع"
+            android:id="@+id/wasf_titel"
+            />
+
+        <ImageView
+            android:layout_gravity="end"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/go_back"
+            android:contentDescription="@string/bake_icon" />
+    </android.support.v7.widget.Toolbar>
 </android.support.constraint.ConstraintLayout>

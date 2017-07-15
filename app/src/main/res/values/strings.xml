@@ -45,4 +45,8 @@
     <string name="wasf_elmontag">وصف المنتج</string>
     <string name="title_activity_map_wassf">Map</string>
     <string name="title_activity_countinu_adding">Map</string>
+    <string name="title_activity_wasff_with_tabb">wasffWithTabb</string>
+    <string name="owener_factor">اسم صاحب المصنع:</string>
+    <string name="email_hint">البريد الإلكتروني</string>
+    <string name="bake_icon">bake icon</string>
 </resources>

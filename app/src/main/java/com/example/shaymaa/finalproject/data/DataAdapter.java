@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.shaymaa.finalproject.R;
 import com.example.shaymaa.finalproject.activites.Wassf_asnaa_mape_oOne;
+import com.example.shaymaa.finalproject.activites.wasffWithTabb;
 
 import java.util.ArrayList;
 
@@ -47,7 +48,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context,Wassf_asnaa_mape_oOne.class));
+                context.startActivity(new Intent(context,wasffWithTabb.class));
             }
         });
         setAnimation(viewHolder.card, i);

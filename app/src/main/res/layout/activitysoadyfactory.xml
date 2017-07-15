@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+     android:layout_width="match_parent"
     android:background="@drawable/bg_first_page"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -14,7 +13,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
-        />
+        >
+        <com.example.shaymaa.finalproject.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#fff"
+            android:text="البحث عن المصانع"
+            android:id="@+id/wasf_titel"
+            />
+        <ImageView
+            android:layout_gravity="end"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/go_back"
+            android:contentDescription="@string/bake_icon" />
+    </android.support.v7.widget.Toolbar>
+
 
     <ImageView
         android:layout_marginTop="24dp"

@@ -1,14 +1,11 @@
 package com.example.shaymaa.finalproject.activites;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
-
 import com.example.shaymaa.finalproject.R;
 import com.example.shaymaa.finalproject.data.Factory_data;
 import com.example.shaymaa.finalproject.data.DataAdapter;
@@ -38,7 +35,7 @@ public class AllFactores extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        setTitle("المصانع");
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
 

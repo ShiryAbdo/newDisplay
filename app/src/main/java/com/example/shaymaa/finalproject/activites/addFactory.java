@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+ import android.support.v7.widget.Toolbar;
+ import android.view.View;
 import android.widget.Button;
 
 import com.example.shaymaa.finalproject.R;
@@ -21,6 +22,8 @@ public class addFactory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_factory);
         cuttong_adding =(Button)findViewById(R.id.cuttong_adding);
+
+
         cuttong_adding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

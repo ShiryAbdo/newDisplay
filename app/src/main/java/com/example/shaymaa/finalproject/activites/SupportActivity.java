@@ -3,6 +3,7 @@ package com.example.shaymaa.finalproject.activites;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.example.shaymaa.finalproject.R;
 
@@ -15,6 +16,6 @@ public class SupportActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setTitle("الدعم الفني");
+
     }
 }

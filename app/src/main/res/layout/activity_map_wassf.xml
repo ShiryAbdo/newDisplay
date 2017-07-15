@@ -48,6 +48,7 @@
                 android:text="عن صاحب المصنع"
                 android:textAlignment="center"
                 android:textSize="16sp" />
+
             <com.example.shaymaa.finalproject.MyTextView
                 android:layout_marginRight="@dimen/_1sdp"
                 android:layout_margin="@dimen/_2sdp"

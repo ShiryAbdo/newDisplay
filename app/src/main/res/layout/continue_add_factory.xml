@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-     android:id="@+id/container"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/bg_add_factory"
-    android:paddingTop="@dimen/_2sdp"
-    android:paddingBottom="@dimen/_2sdp"
-    >
+    tools:context="com.example.shaymaa.finalproject.maps.CountinuAdding">
     <LinearLayout
         android:gravity="center"
         android:layout_gravity="center"
@@ -17,12 +15,13 @@
 
         <ImageView
             android:src="@drawable/factory"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_60sdp"
-            android:padding="@dimen/_5sdp"
-            />
-        <TextView
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:paddingTop="0dp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:contentDescription="@string/add_factory" />
+        <com.example.shaymaa.finalproject.MyTextView
             android:textColor="@color/white"
             android:gravity="center"
             android:layout_gravity="center"
@@ -38,19 +37,20 @@
             />
 
         <LinearLayout
+            android:background="@drawable/fild_redise_white"
             android:textColor="@color/white"
             android:gravity="center"
             android:layout_gravity="center"
             android:orientation="vertical"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_250sdp"
-
+            android:layout_width="@dimen/_280sdp"
+            android:layout_height="@dimen/_260sdp"
+            android:padding="@dimen/_5sdp"
             >
 
-            <TextView
+            <com.example.shaymaa.finalproject.MyTextView
                 android:textColor="@color/white"
                 android:gravity="center"
-                android:drawableRight="@drawable/ic_mail_outline_black_24dp"
+                android:drawableRight="@drawable/ic_location_on_black_24dp"
                 android:drawablePadding="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:layout_gravity="right"
@@ -61,18 +61,22 @@
                 />
 
             <RelativeLayout
+                android:background="@drawable/fild_redise_white"
+                android:layout_margin="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.google.android.gms.maps.MapView
+                <fragment
+                    android:background="@drawable/fild_redise_white"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/mapView2" />
+                    android:id="@+id/map" />
             </RelativeLayout>
 
         </LinearLayout>
 
-        <Button
+        <com.example.shaymaa.finalproject.Buttonplus
             android:textColor="@color/white"
             android:layout_marginTop="@dimen/_10sdp"
             android:gravity="center"

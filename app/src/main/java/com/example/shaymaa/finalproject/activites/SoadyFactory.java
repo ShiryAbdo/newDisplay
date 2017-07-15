@@ -20,7 +20,7 @@ public class SoadyFactory extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setTitle("البحث عن المصانع");
+
 
         search_factors_layout   = (LinearLayout) findViewById(R.id.search_factors_layout);
         layou_over_all_factores = (LinearLayout) findViewById(R.id.layou_over_all_factores);
