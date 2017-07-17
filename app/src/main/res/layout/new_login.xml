@@ -69,7 +69,7 @@
             android:layoutDirection="rtl"
             android:id="@+id/editText3"
             android:layout_width="@dimen/_240sdp"
-            android:layout_height="@dimen/_45sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_gravity="center"
             android:gravity="right"
             android:layout_marginBottom="@dimen/_15sdp"
@@ -99,7 +99,7 @@
                 />
         </LinearLayout>
 
-        <Button
+        <com.example.shaymaa.finalproject.Buttonplus
             android:id="@+id/loginbutton"
             android:layout_width="@dimen/_220sdp"
             android:layout_height="@dimen/_35sdp"

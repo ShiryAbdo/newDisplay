@@ -1,17 +1,13 @@
 package com.example.shaymaa.finalproject.activites;
 
- import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
- import android.support.v7.widget.Toolbar;
+ import android.content.Intent;
+ import android.support.v7.app.AppCompatActivity;
+ import android.os.Bundle;
  import android.view.View;
 import android.widget.Button;
 
 import com.example.shaymaa.finalproject.R;
-import com.example.shaymaa.finalproject.fragments.AddFactoryTwo;
-import com.example.shaymaa.finalproject.fragments.RegisterCompletTwo;
+ import com.example.shaymaa.finalproject.maps.CountinuAdding;
 
 public class addFactory extends AppCompatActivity {
 
@@ -27,11 +23,8 @@ public class addFactory extends AppCompatActivity {
         cuttong_adding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddFactoryTwo fr = new AddFactoryTwo();
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.container, fr);
-                fragmentTransaction.commit();
+                Intent intent = new Intent(addFactory.this, CountinuAdding.class);
+                startActivity(intent);
             }
         });
     }

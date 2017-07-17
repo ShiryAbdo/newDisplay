@@ -24,6 +24,15 @@
 
     <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="custom_dialog_theme"  >
+        <item name="android:windowBackground">@color/dialog_background_color</item>
+         <item name="android:maxHeight">300dp</item>
+        <item name="android:maxWidth">300dp</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">300dp</item>
+        <item name="android:windowFullscreen">false</item>
+       </style>
+
     <!--AIzaSyD4CNcm3V79lHuPibggumTedOAy9JsjAVs-->
 
 

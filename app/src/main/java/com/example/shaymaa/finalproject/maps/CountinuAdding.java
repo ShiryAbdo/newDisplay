@@ -1,20 +1,30 @@
 package com.example.shaymaa.finalproject.maps;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.provider.Settings;
 import android.support.v13.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.location.LocationListener;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.shaymaa.finalproject.R;
+import com.example.shaymaa.finalproject.fragments.AddFactoryThree;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -30,10 +40,11 @@ import java.util.Locale;
 public class CountinuAdding extends FragmentActivity implements OnMapReadyCallback ,LocationListener{
 
     private GoogleMap mMap;
-    double  newLatitude ;
+    double  newLatitude;
     double newLongitude ;
     LatLng newpoint ;
     String title ;
+    Button countinu ;
 //    static final LatLng HAMBURG = new LatLng(53.558, 9.927);
 Context context ;
     LocationManager locationManager;
@@ -47,6 +58,18 @@ Context context ;
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
          context =  CountinuAdding.this ;
+        displayPromptForEnablingGPS(CountinuAdding.this);
+        countinu = (Button)findViewById(R.id.continu_add_factor);
+        countinu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddFactoryThree fr = new AddFactoryThree();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.container, fr);
+                fragmentTransaction.commit();
+            }
+        });
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -63,6 +86,30 @@ Context context ;
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1, 1, this);
 
 //        title= getGeocodeName(newLatitude,newLongitude);
+    }
+
+    public static void displayPromptForEnablingGPS(final Activity activity)
+    {
+
+        final AlertDialog.Builder builder =  new AlertDialog.Builder(activity);
+        final String action = Settings.ACTION_LOCATION_SOURCE_SETTINGS;
+        final String message = "Do you want open GPS setting?";
+
+        builder.setMessage(message)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface d, int id) {
+                                activity.startActivity(new Intent(action));
+                                d.dismiss();
+                            }
+                        })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface d, int id) {
+                                d.cancel();
+                            }
+                        });
+        builder.create().show();
     }
 
 
@@ -162,33 +209,13 @@ Context context ;
 
         String cn = address.getCountryName();
 
-
-//            if(cn != null && !cn.isEmpty()){
-//             return unknown;
-//
-//        }
-//        unknown = ", " + cn;
-//        String mainLocality = address.getLocality();
-
         String city = addresses.get(0).getLocality();
         String state = addresses.get(0).getAdminArea();
         String country = addresses.get(0).getCountryName();
         String postalCode = addresses.get(0).getPostalCode();
         String knownName = addresses.get(0).getFeatureName();
         String mainLocality = address.getSubAdminArea();
-//        if(postalCode != null && !postalCode.isEmpty()){
-////        if (empty(mainLocality)) {
-//            mainLocality = address.getSubAdminArea();
-//
-//            if(mainLocality != null && !mainLocality.isEmpty()){
-////            if (empty(mainLocality)) {
-//                mainLocality = address.getAdminArea();
-//                if(mainLocality != null && !mainLocality.isEmpty()){
-////                if (empty(mainLocality)) {
-//                    return unknown;
-//                }
-//            }
-//        }
+
         return city + ", " + state+ ", " +country;
     }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/smoke_chimney_industrial_29465_copy_2"
+    android:background="@drawable/smoke_chimney_industrial_29465"
     tools:context="com.example.shaymaa.finalproject.activites.RegistrationUser">
 
 
@@ -83,7 +83,7 @@
             android:id="@+id/editText5" />
 
 
-        <Button
+        <com.example.shaymaa.finalproject.Buttonplus
             android:textColor="#ffffff"
             android:background="@drawable/login_btn"
             android:layout_gravity="center"

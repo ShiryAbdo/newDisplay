@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -43,6 +44,14 @@ public class LoginActvity extends AppCompatActivity   {
         });
 
 
+        forget_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActvity.this,ForgetPassword.class);
+                startActivity(intent);
+
+            }
+        });
 
         acount_new.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,10 +66,13 @@ public class LoginActvity extends AppCompatActivity   {
                     manager.beginTransaction().remove(frag).commit();
                 }
 
+//                R.style.custom_dialog_theme
 
                 // custom dialog
-                final Dialog dialog = new Dialog(context);
+                final Dialog dialog = new Dialog(LoginActvity.this,R.style.custom_dialog_theme);
                 dialog.setContentView(R.layout.custom);
+
+//                requestWindowFeature(Window.FEATURE_NO_TITLE);
                  // set the custom dialog components - text, image and button
                 Button as_moassa = (Button) dialog.findViewById(R.id.as_moassa);
                 // if button is clicked, close the custom dialog
@@ -85,7 +97,10 @@ public class LoginActvity extends AppCompatActivity   {
                     }
                 });
 
+//                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.show();
+
+
             }
 
 
