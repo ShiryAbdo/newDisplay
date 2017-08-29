@@ -21,8 +21,10 @@
         android:required="true" />
 
     <application
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
@@ -32,7 +34,7 @@
         <activity
             android:name=".activites.splashScreen"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -71,30 +73,28 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".activites.ProductesActivity" >
-
-        </activity>
+        <activity android:name=".activites.ProductesActivity" />
         <activity android:name=".activites.FactoryParts" />
         <activity android:name=".activites.SupportActivity" />
         <activity android:name=".activites.Wassf_asnaa_mape_oOne" />
         <activity android:name=".activites.ForgetPassword" />
-        <activity android:name=".maps.MapWassf">
-
-        </activity>
+        <activity android:name=".maps.MapWassf" />
         <activity
             android:name=".maps.CountinuAdding"
-            android:label="@string/title_activity_countinu_adding"></activity>
+            android:label="@string/title_activity_countinu_adding" />
 
         <service
             android:name=".GeocodeAddressIntentService"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <activity
             android:name=".activites.wasffWithTabb"
             android:label="@string/title_activity_wasff_with_tabb"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activites.AcountUser" />
+        <activity android:name=".activites.BankActivity" />
+        <activity android:name=".activites.LOgActivty" />
+        <activity android:name=".activites.e3lanatActivity"></activity>
     </application>
 
 </manifest>

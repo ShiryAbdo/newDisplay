@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.shaymaa.finalproject.R;
-import com.example.shaymaa.finalproject.data.Factory_data;
 import com.example.shaymaa.finalproject.data.DataAdapter;
+import com.example.shaymaa.finalproject.data.Factory_data;
 import com.example.shaymaa.finalproject.data.JSONResponse;
 import com.example.shaymaa.finalproject.interfaces.RequestInterface;
 
@@ -20,12 +20,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
- import retrofit2.Callback;
- import retrofit2.Retrofit;
+import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AllFactores extends AppCompatActivity {
+public class e3lanatActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ArrayList<Factory_data> data;
@@ -35,7 +35,8 @@ public class AllFactores extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recyclewiew_test);
+        setContentView(R.layout.activity_e3lanat);
+
         initViews();
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
@@ -46,18 +47,13 @@ public class AllFactores extends AppCompatActivity {
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AllFactores.this, SoadyFactory.class);
+                Intent intent = new Intent(e3lanatActivity.this, SoadyFactory.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
             }
         });
-
-
-
-
     }
-
     private void initViews(){
         recyclerView = (RecyclerView)findViewById(R.id.card_recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -80,7 +76,7 @@ public class AllFactores extends AppCompatActivity {
 
                 JSONResponse jsonResponse = response.body();
                 data = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
-                adapter = new DataAdapter(data,AllFactores.this);
+                adapter = new DataAdapter(data,e3lanatActivity.this);
                 recyclerView.setAdapter(adapter);
             }
 

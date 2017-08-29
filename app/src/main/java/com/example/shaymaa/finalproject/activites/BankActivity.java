@@ -11,31 +11,31 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.shaymaa.finalproject.R;
-import com.example.shaymaa.finalproject.data.Factory_data;
-import com.example.shaymaa.finalproject.data.DataAdapter;
-import com.example.shaymaa.finalproject.data.JSONResponse;
-import com.example.shaymaa.finalproject.interfaces.RequestInterface;
+import com.example.shaymaa.finalproject.data.AdaptorBank;
+import com.example.shaymaa.finalproject.data.BankJSONResponse;
+ import com.example.shaymaa.finalproject.data.Factory_data;
+ import com.example.shaymaa.finalproject.interfaces.ApiInterfaceBank;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
- import retrofit2.Callback;
- import retrofit2.Retrofit;
+import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AllFactores extends AppCompatActivity {
-
+public class BankActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<Factory_data> data;
-    private DataAdapter adapter ;
-    ImageView go_back ;
+    private AdaptorBank adapter ;
+    ImageView go_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recyclewiew_test);
+        setContentView(R.layout.activity_bank);
+
         initViews();
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
@@ -46,16 +46,12 @@ public class AllFactores extends AppCompatActivity {
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AllFactores.this, SoadyFactory.class);
+                Intent intent = new Intent(  BankActivity.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
             }
         });
-
-
-
-
     }
 
     private void initViews(){
@@ -67,25 +63,27 @@ public class AllFactores extends AppCompatActivity {
 
         loadJSON();
     }
+
+
     private void loadJSON(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.learn2crack.com")
+                .baseUrl("http://ksafactory.com/API/banks/index.php")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        RequestInterface request = retrofit.create(RequestInterface.class);
-        Call<JSONResponse> call = request.getJSON();
-        call.enqueue(new Callback<JSONResponse>() {
+        ApiInterfaceBank request = retrofit.create(ApiInterfaceBank.class);
+        Call<BankJSONResponse> call = request.getJSON();
+        call.enqueue(new Callback<BankJSONResponse>() {
             @Override
-            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+            public void onResponse(Call<BankJSONResponse> call, Response<BankJSONResponse> response) {
 
-                JSONResponse jsonResponse = response.body();
-                data = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
-                adapter = new DataAdapter(data,AllFactores.this);
+                BankJSONResponse bankJSONResponse = response.body();
+                data = new ArrayList<>(Arrays.asList(bankJSONResponse.getBanks()));
+                adapter = new AdaptorBank(data, BankActivity.this);
                 recyclerView.setAdapter(adapter);
             }
 
             @Override
-            public void onFailure(Call<JSONResponse> call, Throwable t) {
+            public void onFailure(Call<BankJSONResponse> call, Throwable t) {
                 Log.d("Error",t.getMessage());
             }
         });

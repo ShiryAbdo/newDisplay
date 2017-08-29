@@ -29,7 +29,7 @@ public class splashScreen extends AppCompatActivity {
                 splashScreen.this.runOnUiThread(new TimerTask() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(splashScreen.this, LoginActvity.class);
+                        Intent intent = new Intent(splashScreen.this,   LOgActivty.class);
                         startActivity(intent);
                         finish();
                     }

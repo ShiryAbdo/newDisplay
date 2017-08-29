@@ -40,7 +40,7 @@
             android:textSize="14sp"
             android:padding="@dimen/_2sdp"
             android:textStyle="bold"
-            android:text="الموافقه على سياسه استخدام الاعلان والعموله "
+            android:text="___________________________________________ "
             android:layoutDirection="rtl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

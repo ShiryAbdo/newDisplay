@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UIcompany</string>
+    <string name="app_name">Soady Factory</string>
     <string name="title_activity_serch_factory">serchFactoryActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

@@ -23,6 +23,18 @@
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <ImageView
+                android:id="@+id/go_back"
+                android:layout_gravity="end"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/go_back"
+                android:contentDescription="@string/bake_icon" />
+
             <com.example.shaymaa.finalproject.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,15 +43,6 @@
                 android:text="البحث عن المصانع"
                 android:id="@+id/wasf_titel"
                 />
-            <ImageView
-                android:layout_gravity="end"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_margin="@dimen/_10sdp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/go_back"
-                android:contentDescription="@string/bake_icon" />
 
         </android.support.v7.widget.Toolbar>
 
