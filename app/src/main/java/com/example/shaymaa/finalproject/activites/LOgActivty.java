@@ -5,10 +5,10 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Paint;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.text.TextUtils;
+ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -49,12 +49,12 @@ public class LOgActivty extends AppCompatActivity {
         singelCheckBox = (CheckBox) findViewById(R.id.singelCheckBox);
         loginbutton = (Button) findViewById(R.id.loginbutton);
 
-//        if (moasa_chekBox.isChecked()) {
-            type = "2";
-//        }
-//        if (singelCheckBox.isChecked()) {
-            type = "1";
-//        }
+                if (moasa_chekBox.isChecked()) {
+        type = "2";
+                }
+                if (singelCheckBox.isChecked()) {
+        type = "1";
+                }
 
 
         loginbutton = (Button) findViewById(R.id.loginbutton);
@@ -69,27 +69,28 @@ public class LOgActivty extends AppCompatActivity {
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                checkLogin(check_the_EditText(editText_email), check_the_EditText(editText2_password), type);
 
-
-                // Prompt user to enter credentials
-                Toast.makeText(getApplicationContext(),
-                        " Click", Toast.LENGTH_LONG)
-                        .show();
-                String email = editText_email.getText().toString().trim();
-                String password = editText2_password.getText().toString().trim();
-                // Check for empty data in the form
-                if (!email.isEmpty() && !password.isEmpty()) {
+//                checkLogin(the_returnData(editText_email), the_returnData(editText2_password), type);
+                  /*  // Prompt user to enter credentials
                     Toast.makeText(getApplicationContext(),
-                            "passs", Toast.LENGTH_LONG)
+                            " Click", Toast.LENGTH_LONG)
                             .show();
-                    // login user
-                    checkLogin(email, password, type);
-                } else {
-                    // Prompt user to enter credentials
-                    Toast.makeText(getApplicationContext(),
-                            "Please enter the credentials!", Toast.LENGTH_LONG)
-                            .show();
-                }
+                    String email = editText_email.getText().toString().trim();
+                    String password = editText2_password.getText().toString().trim();
+                    // Check for empty data in the form
+                    if (!email.isEmpty() && !password.isEmpty()) {
+                        Toast.makeText(getApplicationContext(),
+                                "passs", Toast.LENGTH_LONG)
+                                .show();
+                        // login user
+                        checkLogin(the_returnData(editText_email), the_returnData(editText2_password), type);
+                    } else {
+                        // Prompt user to enter credentials
+                        Toast.makeText(getApplicationContext(),
+                                "Please enter the credentials!", Toast.LENGTH_LONG)
+                                .show();
+                    }*/
 
             }
         });
@@ -106,13 +107,13 @@ public class LOgActivty extends AppCompatActivity {
                     manager.beginTransaction().remove(frag).commit();
                 }
 
-//                R.style.custom_dialog_theme
+                //                R.style.custom_dialog_theme
 
                 // custom dialog
                 final Dialog dialog = new Dialog(LOgActivty.this, R.style.custom_dialog_theme);
                 dialog.setContentView(R.layout.custom);
 
-//                requestWindowFeature(Window.FEATURE_NO_TITLE);
+                //                requestWindowFeature(Window.FEATURE_NO_TITLE);
                 // set the custom dialog components - text, image and button
                 Button as_moassa = (Button) dialog.findViewById(R.id.as_moassa);
                 // if button is clicked, close the custom dialog
@@ -121,7 +122,7 @@ public class LOgActivty extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent intent = new Intent(getApplicationContext(), RegistrationCompany.class);
                         startActivity(intent);
-//                        dialog.dismiss();
+                        //                        dialog.dismiss();
                     }
                 });
 
@@ -133,11 +134,11 @@ public class LOgActivty extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent intent = new Intent(getApplicationContext(), RegistrationUser.class);
                         startActivity(intent);
-//                        dialog.dismiss();
+                        //                        dialog.dismiss();
                     }
                 });
 
-//                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                //                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.show();
 
 
@@ -149,33 +150,15 @@ public class LOgActivty extends AppCompatActivity {
     }
 
     private void checkLogin(String email, String password, String typee) {
-//        Toast.makeText(getApplicationContext(),
-//                "colled", Toast.LENGTH_LONG).show();
-
-        Uri.Builder builder = new Uri.Builder();
-//        "http://ksafactory.com/API/login/index.php?email=m@gmail.com&password=6666&type=1"
-//        http://ksafactory.com/API/login/index.php
-        builder.scheme("http")
-                .authority("www.ksafactory.com")
-                .appendPath("API")
-                .appendPath("login")
-                .appendPath("index.php")
-                .appendQueryParameter("email", editText_email.getText().toString().trim())
-                .appendQueryParameter("password", editText2_password.getText().toString().trim())
-                .appendQueryParameter("type", type);
-        myUrl = builder.build().toString();
-        Toast.makeText(getApplicationContext(),
-                myUrl, Toast.LENGTH_LONG).show();
-
-
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, myUrl
+        String url= "http://ksafactory.com/API/login/index.php"+"?email="+email+"&password="+password+"&type="+typee;
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url
                 , null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(),
                         "recuest" +response , Toast.LENGTH_LONG).show();
-                 try {
+                try {
                     JSONArray user = response.getJSONArray("login");
                     // Error in login. Get the error message
                     Toast.makeText(getApplicationContext(),
@@ -209,7 +192,7 @@ public class LOgActivty extends AppCompatActivity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-//                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                //                VolleyLog.d(TAG, "Error: " + error.getMessage());
                 Toast.makeText(getApplicationContext(),
                         error.getMessage(), Toast.LENGTH_SHORT).show();
                 // hide the progress dialog
@@ -219,7 +202,18 @@ public class LOgActivty extends AppCompatActivity {
         // Adding request to request queue
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonObjReq);
-//        AppController.getInstance().addToRequestQueue(jsonObjReq);
+        //        AppController.getInstance().addToRequestQueue(jsonObjReq);
+    }
+
+    private String check_the_EditText(EditText Text){
+        String the_returnData="";
+        if(TextUtils.isEmpty(Text.getText().toString())){
+            Text.setError("Requier");
+        }else{
+            the_returnData= Text.getText().toString()   ;
+
+        }
+        return the_returnData;
     }
 
 

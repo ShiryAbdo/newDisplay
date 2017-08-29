@@ -7,4 +7,25 @@ package com.example.shaymaa.finalproject.data;
 public class e3lanatData {
     private String mImageURL;
     private String mTitle;
+
+    public e3lanatData(String mImageURL, String mTitle) {
+        this.mImageURL = mImageURL;
+        this.mTitle = mTitle;
+    }
+
+    public String getmImageURL() {
+        return mImageURL;
+    }
+
+    public void setmImageURL(String mImageURL) {
+        this.mImageURL = mImageURL;
+    }
+
+    public String getmTitle() {
+        return mTitle;
+    }
+
+    public void setmTitle(String mTitle) {
+        this.mTitle = mTitle;
+    }
 }

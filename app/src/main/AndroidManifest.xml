@@ -91,10 +91,11 @@
             android:name=".activites.wasffWithTabb"
             android:label="@string/title_activity_wasff_with_tabb"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activites.AcountUser" />
+        <activity android:name=".activites.UpdateAcountUser" />
         <activity android:name=".activites.BankActivity" />
         <activity android:name=".activites.LOgActivty" />
-        <activity android:name=".activites.e3lanatActivity"></activity>
+        <activity android:name=".activites.e3lanatActivity" />
+        <activity android:name=".activites.AcountUser"></activity>
     </application>
 
 </manifest>
