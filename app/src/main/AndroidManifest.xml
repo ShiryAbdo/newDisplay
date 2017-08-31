@@ -95,7 +95,9 @@
         <activity android:name=".activites.BankActivity" />
         <activity android:name=".activites.LOgActivty" />
         <activity android:name=".activites.e3lanatActivity" />
-        <activity android:name=".activites.AcountUser"></activity>
+        <activity android:name=".activites.AcountUser" />
+        <activity android:name=".activites.RegisterCompletTwo" />
+        <activity android:name=".activites.RegisterCompletThree"></activity>
     </application>
 
 </manifest>

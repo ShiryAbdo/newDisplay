@@ -49,4 +49,26 @@
     <string name="owener_factor">اسم صاحب المصنع:</string>
     <string name="email_hint">البريد الإلكتروني</string>
     <string name="bake_icon">bake icon</string>
+
+
+    <string name="select">Choose an object</string>
+
+    <string-array name="object_array">
+
+        <item>House</item>
+
+        <item>Car</item>
+
+        <item>Cake</item>
+
+        <item>Money</item>
+
+        <item>Food</item>
+
+        <item>Phone</item>
+
+        <item>Laptop</item>
+
+    </string-array>
+
 </resources>

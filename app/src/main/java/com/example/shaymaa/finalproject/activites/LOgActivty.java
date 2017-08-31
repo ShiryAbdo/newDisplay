@@ -5,10 +5,10 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Paint;
- import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
- import android.view.View;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -19,11 +19,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
+ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.shaymaa.finalproject.AppController;
-import com.example.shaymaa.finalproject.R;
+ import com.example.shaymaa.finalproject.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,12 +47,6 @@ public class LOgActivty extends AppCompatActivity {
         singelCheckBox = (CheckBox) findViewById(R.id.singelCheckBox);
         loginbutton = (Button) findViewById(R.id.loginbutton);
 
-                if (moasa_chekBox.isChecked()) {
-        type = "2";
-                }
-                if (singelCheckBox.isChecked()) {
-        type = "1";
-                }
 
 
         loginbutton = (Button) findViewById(R.id.loginbutton);
@@ -69,28 +61,16 @@ public class LOgActivty extends AppCompatActivity {
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (moasa_chekBox.isChecked()) {
+                    type = "2";
+                }
+                if (singelCheckBox.isChecked()) {
+                    type = "1";
+                }
                 checkLogin(check_the_EditText(editText_email), check_the_EditText(editText2_password), type);
 
-//                checkLogin(the_returnData(editText_email), the_returnData(editText2_password), type);
-                  /*  // Prompt user to enter credentials
-                    Toast.makeText(getApplicationContext(),
-                            " Click", Toast.LENGTH_LONG)
-                            .show();
-                    String email = editText_email.getText().toString().trim();
-                    String password = editText2_password.getText().toString().trim();
-                    // Check for empty data in the form
-                    if (!email.isEmpty() && !password.isEmpty()) {
-                        Toast.makeText(getApplicationContext(),
-                                "passs", Toast.LENGTH_LONG)
-                                .show();
-                        // login user
-                        checkLogin(the_returnData(editText_email), the_returnData(editText2_password), type);
-                    } else {
-                        // Prompt user to enter credentials
-                        Toast.makeText(getApplicationContext(),
-                                "Please enter the credentials!", Toast.LENGTH_LONG)
-                                .show();
-                    }*/
+
 
             }
         });
@@ -120,6 +100,8 @@ public class LOgActivty extends AppCompatActivity {
                 as_moassa.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(),
+                                "Clicled" , Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), RegistrationCompany.class);
                         startActivity(intent);
                         //                        dialog.dismiss();
@@ -132,6 +114,7 @@ public class LOgActivty extends AppCompatActivity {
                 as_singel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         Intent intent = new Intent(getApplicationContext(), RegistrationUser.class);
                         startActivity(intent);
                         //                        dialog.dismiss();
@@ -157,12 +140,12 @@ public class LOgActivty extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(),
-                        "recuest" +response , Toast.LENGTH_LONG).show();
+                        "recuest" +response , Toast.LENGTH_SHORT).show();
                 try {
-                    JSONArray user = response.getJSONArray("login");
+                    JSONArray user = response.getJSONArray("user");
                     // Error in login. Get the error message
                     Toast.makeText(getApplicationContext(),
-                            "recuest", Toast.LENGTH_LONG).show();
+                            "recuest", Toast.LENGTH_SHORT).show();
 
                     for (int n = 0; n < user.length(); n++) {
                         JSONObject object = user.getJSONObject(n);
@@ -173,9 +156,14 @@ public class LOgActivty extends AppCompatActivity {
                         type = object.getString("type");
 
                     }
+                    String su=response.getString("success");
+                    if (su.equals("1")){
+                        Toast.makeText(getApplicationContext(),
+                                "Toast" + su+"done" , Toast.LENGTH_SHORT).show();
 
+                    }
                     Toast.makeText(getApplicationContext(),
-                            "ceart acount", Toast.LENGTH_LONG).show();
+                            "ceart acount", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LOgActivty.this,
                             MainActivity.class);
                     startActivity(intent);

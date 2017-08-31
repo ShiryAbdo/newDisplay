@@ -145,8 +145,7 @@ public class RegistrationUser extends AppCompatActivity {
                 params.put(KEY_PHONE,mobile);
                 params.put(kEY_CITY,password);
                 params.put(KEY_PASSWORD,city);
-                params.put("id","1");
-                 return params;
+                  return params;
             }
 
         };
