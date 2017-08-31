@@ -6,6 +6,7 @@ import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -53,7 +54,8 @@ public class LoginActvity extends AppCompatActivity   {
      public  String username  ,emaili ,passwordd  , uid ,type  ,myUrl ;
 
     CheckBox moasa_chekBox ,singelCheckBox;
-
+     SharedPreferences.Editor editor;
+     SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,11 +64,20 @@ public class LoginActvity extends AppCompatActivity   {
         editText_email=(EditText)findViewById(R.id.editText_email) ;
         moasa_chekBox=(CheckBox) findViewById(R.id.moasa_chekBox);
         singelCheckBox=(CheckBox)findViewById(R.id.singelCheckBox);
+        sharedPref = getApplicationContext().getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
         if( moasa_chekBox.isChecked()){
             type="2";
         }if (singelCheckBox.isChecked()){
             type="1";
         }
+
+
+        String emailShared = sharedPref.getString("email", "null");
+        String passwordShared = sharedPref.getString("password", "null");
+        String typeShared = sharedPref.getString("type", "null");
+        final SharedPreferences.Editor editor = sharedPref.edit();
+
 
 
 
@@ -227,6 +238,11 @@ public class LoginActvity extends AppCompatActivity   {
                           // Launch main activity
                           Intent intent = new Intent( LoginActvity.this,
                                   MainActivity.class);
+                    editor.putString("email", emaili);
+                    editor.putString("password", passwordd);
+                    editor.putString("type", type);
+
+                    editor.commit();
                           startActivity(intent);
                           finish();
 //                      }    else {
