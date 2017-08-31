@@ -2,13 +2,14 @@ package com.example.shaymaa.finalproject;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.os.ResultReceiver;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.example.shaymaa.finalproject.others.Constants;
 
 import java.io.IOException;
 import java.util.ArrayList;
