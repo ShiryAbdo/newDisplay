@@ -9,20 +9,17 @@ public class Factory_data {
     //  must  rename  variables lik  in dtatbase
     // to get it cirrectely
 
-    private String ver;
-    private String name;
+    private String company_category_id;
+    private String company_category_name;
     private String api;
 public Factory_data(String a,String b,String c ){}
-    public String getVer() {
-        return ver;
+    public String getcompany_category_id() {
+        return company_category_id;
     }
 
-    public String getName() {
-        return name;
+    public String getcompany_category_name() {
+        return company_category_name;
     }
 
-    public String getApi()
-    {
-        return api;
-    }
+
 }

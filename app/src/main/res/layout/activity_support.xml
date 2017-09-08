@@ -13,7 +13,7 @@
         android:background="@color/colorPrimaryDark"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp" >
-        <com.example.shaymaa.finalproject.MyTextView
+        <com.example.shaymaa.finalproject.others.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -102,7 +102,7 @@
                  android:drawableRight="@drawable/ic_phone_android_white"
                 android:hint="رقم الجوال"
                 android:drawablePadding="@dimen/_15sdp"
-                android:inputType="textPersonName"
+                android:inputType="textPhonetic"
                 android:ems="10"
                 android:id="@+id/editText_phone" />
 
@@ -118,7 +118,7 @@
                 android:textColorHint="#fff"
                 android:textColor="#fff"
                 android:drawablePadding="@dimen/_15sdp"
-                 android:inputType="textPersonName"
+                 android:inputType="textEmailAddress"
                 android:drawableRight="@drawable/ic_mail_outline_blwhitk_24dp"
                 android:ems="10"
                 android:id="@+id/editText_email" />
@@ -134,7 +134,7 @@
                 android:textColorHint="#fff"
                 android:textColor="#fff"
                 android:drawablePadding="@dimen/_15sdp"
-                 android:inputType="textPersonName"
+                 android:inputType="text"
                 android:drawableRight="@drawable/ic_mail_outline_blwhitk_24dp"
                 android:ems="10"
                 android:id="@+id/editText_address" />
@@ -155,7 +155,7 @@
                 android:drawableRight="@drawable/ic_mail_outline_blwhitk_24dp"
                 android:paddingBottom="@dimen/_8sdp"
                 android:background="@drawable/round_white"
-                android:inputType="textPersonName"            android:ems="10"
+                android:inputType="text"            android:ems="10"
                 android:id="@+id/contain_massge" />
 
 

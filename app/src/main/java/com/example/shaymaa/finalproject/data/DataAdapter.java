@@ -42,9 +42,19 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(DataAdapter.ViewHolder viewHolder, int i) {
 
-        viewHolder.factory_name.setText(androidList.get(i).getName());
-        viewHolder.cintery_name.setText(androidList.get(i).getVer());
-        viewHolder.email_factory.setText(androidList.get(i).getApi());
+        viewHolder.factory_name.setText(androidList.get(i).getcompany_category_name().substring(20).replace("\";}", ""));
+//        String rt = androidList.get(i).getcompany_category_name().substring(20).replace("\";}", "");
+
+//        String S = "a:1:{s:2:\"ar\";s:2:\"مصانع البلاستيك\";}";
+//
+//        String sub = S.substring(20);
+//
+//        String requiredString = sub.replace("\";}", "");
+        viewHolder.cintery_name.setText(androidList.get(i).getcompany_category_id());
+
+//         viewHolder.email_factory.setText(androidList.get(i).getApi());
+
+
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,7 +91,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
             card=(CardView)view.findViewById(R.id.card);
             factory_name = (TextView)view.findViewById(R.id.name_factory);
             cintery_name = (TextView)view.findViewById(R.id.counter_name);
-            email_factory = (TextView)view.findViewById(R.id.email_factory);
+//            email_factory = (TextView)view.findViewById(R.id.email_factory);
 
         }
     }

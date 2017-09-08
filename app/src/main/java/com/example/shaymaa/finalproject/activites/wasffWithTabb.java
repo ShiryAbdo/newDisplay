@@ -20,11 +20,10 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.shaymaa.finalproject.CustomTabLayout;
-import com.example.shaymaa.finalproject.MyTextView;
+import com.example.shaymaa.finalproject.others.CustomTabLayout;
+import com.example.shaymaa.finalproject.others.MyTextView;
 import com.example.shaymaa.finalproject.R;
 import com.example.shaymaa.finalproject.fragments.AboutOFowner;
 import com.example.shaymaa.finalproject.fragments.AboutOFactory;

@@ -15,7 +15,7 @@
              android:orientation="vertical"
              android:layout_height="match_parent"
              android:layout_weight="1">
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                  android:textColor="@color/colorAccent"
                   android:textSize="12sp"
                  android:text=" اسم صاحب المصنع  :"
@@ -26,7 +26,7 @@
                  android:layout_width="@dimen/_150sdp"
                  android:layout_height="wrap_content" />
 
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                  android:textColor="@color/colorAccent"
                   android:textSize="12sp"
                  android:padding="@dimen/_5sdp"
@@ -36,7 +36,7 @@
                  android:layout_gravity="center"
                  android:layout_width="@dimen/_150sdp"
                  android:layout_height="wrap_content" />
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                  android:textColor="@color/colorAccent"
                   android:textSize="12sp"
                  android:padding="@dimen/_5sdp"
@@ -46,19 +46,19 @@
                  android:layout_gravity="center"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content" />
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                   android:layout_weight="3"
                  android:gravity="right"
                  android:layout_gravity="center"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content" />
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                   android:layout_weight="3"
                  android:gravity="right"
                  android:layout_gravity="center"
                  android:layout_width="@dimen/_150sdp"
                  android:layout_height="wrap_content" />
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                   android:layout_weight="3"
                  android:gravity="right"
                  android:layout_gravity="center"
@@ -73,7 +73,7 @@
              android:orientation="vertical"
              android:layout_height="match_parent">
 
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                  android:padding="@dimen/_5sdp"
                  android:textSize="12sp"
                  android:hint="اسم المصنع "
@@ -83,7 +83,7 @@
                  android:layout_width="@dimen/_150sdp"
                  android:layout_height="wrap_content" />
 
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                  android:padding="@dimen/_5sdp"
                  android:textSize="12sp"
                  android:hint="12345678 "
@@ -92,7 +92,7 @@
                  android:layout_gravity="center"
                  android:layout_width="@dimen/_150sdp"
                  android:layout_height="wrap_content" />
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                  android:padding="@dimen/_5sdp"
                  android:textSize="12sp"
                  android:hint="@string/email_hint"
@@ -101,19 +101,19 @@
                  android:layout_gravity="center"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content" />
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                  android:layout_weight="3"
                  android:gravity="right"
                  android:layout_gravity="center"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content" />
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                  android:layout_weight="3"
                  android:gravity="right"
                  android:layout_gravity="center"
                  android:layout_width="@dimen/_150sdp"
                  android:layout_height="wrap_content" />
-             <com.example.shaymaa.finalproject.MyTextView
+             <com.example.shaymaa.finalproject.others.MyTextView
                  android:layout_weight="3"
                  android:gravity="right"
                  android:layout_gravity="center"

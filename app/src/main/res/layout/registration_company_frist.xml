@@ -141,7 +141,7 @@
             android:id="@+id/name_comany_english" />
 
 
-        <com.example.shaymaa.finalproject.Buttonplus
+        <com.example.shaymaa.finalproject.others.Buttonplus
             android:textColor="#ffffff"
             android:background="@drawable/login_btn"
             android:layout_gravity="center"

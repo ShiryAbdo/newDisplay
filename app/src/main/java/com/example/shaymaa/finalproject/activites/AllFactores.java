@@ -69,7 +69,7 @@ public class AllFactores extends AppCompatActivity {
     }
     private void loadJSON(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.learn2crack.com")
+                .baseUrl("http://ksafactory.com/API/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RequestInterface request = retrofit.create(RequestInterface.class);

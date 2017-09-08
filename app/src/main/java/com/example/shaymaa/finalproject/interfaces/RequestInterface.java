@@ -11,6 +11,6 @@ import retrofit2.http.GET;
 
 public interface RequestInterface {
 
-    @GET("android/jsonandroid")
+    @GET("company_categories/index.php?company_category")
     Call<JSONResponse> getJSON();
 }

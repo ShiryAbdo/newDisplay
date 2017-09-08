@@ -3,7 +3,9 @@ package com.example.shaymaa.finalproject.activites;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,9 +21,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
- import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
- import com.example.shaymaa.finalproject.R;
+import com.example.shaymaa.finalproject.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,16 +38,28 @@ public class LOgActivty extends AppCompatActivity {
     public String username, emaili, passwordd, uid, type, myUrl;
     TextView forget_password, acount_new;
 
-
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPref = getApplicationContext().getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+        String emailShared = sharedPref.getString("email", "null");
+        String passwordShared = sharedPref.getString("password", "null");
+        String typeShared = sharedPref.getString("type", "null");
+
+        if (!emailShared.equals("null"))
+            checkLogin(emailShared, passwordShared, typeShared);
+
         setContentView(R.layout.new_login);
         editText2_password = (EditText) findViewById(R.id.editText2_password);
         editText_email = (EditText) findViewById(R.id.editText_email);
         moasa_chekBox = (CheckBox) findViewById(R.id.moasa_chekBox);
         singelCheckBox = (CheckBox) findViewById(R.id.singelCheckBox);
         loginbutton = (Button) findViewById(R.id.loginbutton);
+
 
 
 
@@ -132,7 +146,7 @@ public class LOgActivty extends AppCompatActivity {
 
     }
 
-    private void checkLogin(String email, String password, String typee) {
+    private void checkLogin(final String email, final String password, final String typee) {
         String url= "http://ksafactory.com/API/login/index.php"+"?email="+email+"&password="+password+"&type="+typee;
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url
                 , null, new Response.Listener<JSONObject>() {
@@ -161,7 +175,16 @@ public class LOgActivty extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),
                                 "Toast" + su+"done" , Toast.LENGTH_SHORT).show();
 
+                        String id = uid;
+
                     }
+                    editor.putString("id", uid);
+                    editor.putString("email", email);
+                    editor.putString("password", password);
+                    editor.putString("type", typee);
+                    editor.commit();
+
+
                     Toast.makeText(getApplicationContext(),
                             "ceart acount", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LOgActivty.this,

@@ -21,7 +21,7 @@
         android:required="true" />
 
     <application
-        android:name=".AppController"
+        android:name=".others.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -41,9 +41,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activites.LoginActvity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activites.RegistrationUser"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -84,7 +81,7 @@
             android:label="@string/title_activity_countinu_adding" />
 
         <service
-            android:name=".GeocodeAddressIntentService"
+            android:name=".others.GeocodeAddressIntentService"
             android:exported="false" />
 
         <activity
@@ -97,7 +94,12 @@
         <activity android:name=".activites.e3lanatActivity" />
         <activity android:name=".activites.AcountUser" />
         <activity android:name=".activites.RegisterCompletTwo" />
-        <activity android:name=".activites.RegisterCompletThree"></activity>
+        <activity android:name=".activites.RegisterCompletThree" />
+        <activity android:name=".activites.A3lanActivityItem" />
+        <activity android:name=".activites.Industrial_cities" />
+        <activity android:name=".activites.Part_Industrial_cities" />
+        <activity android:name=".activites.Show_Industrial_cities" />
+        <activity android:name=".activites.CuntinoAddTWO"></activity>
     </application>
 
 </manifest>

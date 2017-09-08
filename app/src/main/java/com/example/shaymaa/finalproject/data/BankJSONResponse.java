@@ -5,9 +5,9 @@ package com.example.shaymaa.finalproject.data;
  */
 
 public class BankJSONResponse {
-    private Factory_data[] banks;
+    private Bank_data[] banks;
 
-    public  Factory_data[] getBanks() {
+    public  Bank_data[] getBanks() {
         return banks;
     }
 }

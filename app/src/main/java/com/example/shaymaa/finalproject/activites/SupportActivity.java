@@ -5,8 +5,10 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.example.shaymaa.finalproject.AppController;
+import com.example.shaymaa.finalproject.others.AppController;
 import com.example.shaymaa.finalproject.R;
 
 import java.util.HashMap;
@@ -23,7 +25,7 @@ import java.util.Map;
 
 public class SupportActivity extends AppCompatActivity {
     ImageView go_back ;
-    TextView editText_nam , editText_phone, editText_email, editText_address,contain_massge;
+    EditText editText_nam , editText_phone, editText_email, editText_address,contain_massge;
     Button sed_button;
     String name,phone ,email ,address,massage ,myUrl;
 
@@ -44,11 +46,11 @@ public class SupportActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        editText_nam=(TextView)findViewById(R.id.editText_nam) ;
-        editText_phone=(TextView)findViewById(R.id.editText_phone) ;
-        editText_email=(TextView)findViewById(R.id.editText_email) ;
-        editText_address=(TextView)findViewById(R.id.editText_address) ;
-        contain_massge=(TextView)findViewById(R.id.contain_massge) ;
+        editText_nam=(EditText)findViewById(R.id.editText_nam) ;
+        editText_phone=(EditText)findViewById(R.id.editText_phone) ;
+        editText_email=(EditText)findViewById(R.id.editText_email) ;
+        editText_address=(EditText)findViewById(R.id.editText_address) ;
+        contain_massge=(EditText)findViewById(R.id.contain_massge) ;
 
 
 
@@ -74,14 +76,11 @@ public class SupportActivity extends AppCompatActivity {
         sed_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!name.isEmpty() && !phone.isEmpty() && !email.isEmpty()&&!email.isEmpty()&&!massage.isEmpty()) {
 
-                    senData(name, phone, email, address, massage);
 
-                }else {
-                    Toast.makeText(getApplicationContext(), "details!", Toast.LENGTH_LONG).show();
+        senData(check_the_EditText(editText_nam), check_the_EditText(editText_phone), check_the_EditText(editText_email),
+          check_the_EditText(editText_address),check_the_EditText(contain_massge));
 
-                }
 
             }
         });
@@ -104,13 +103,13 @@ public class SupportActivity extends AppCompatActivity {
         builder.scheme("http")
                 .authority("www.ksafactory.com")
                 .appendPath("API")
-                .appendPath("contact_us/")
+                .appendPath("contact_us")
                 .appendPath("index.php")
-                .appendQueryParameter("name",namee)
-                .appendQueryParameter("mobile", phonee)
-                .appendQueryParameter("message_title",adresse)
-                .appendQueryParameter("email",emaile)
-                .appendQueryParameter("content",massagee) ;
+                .appendQueryParameter("name",editText_nam.getText().toString().trim())
+                .appendQueryParameter("mobile", editText_phone.getText().toString().trim())
+                .appendQueryParameter("message_title",editText_address.getText().toString().trim())
+                .appendQueryParameter("email",editText_email.getText().toString().trim())
+                .appendQueryParameter("content",contain_massge.getText().toString().trim()) ;
          myUrl= builder.build().toString();
         String tag_string_req = "req_register";
 
@@ -150,4 +149,18 @@ public class SupportActivity extends AppCompatActivity {
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(stringRequest, tag_string_req);
     }
+
+
+
+    private String check_the_EditText(EditText Text){
+        String the_returnData="";
+        if(TextUtils.isEmpty(Text.getText().toString())){
+            Text.setError("Requier");
+        }else{
+            the_returnData= Text.getText().toString()   ;
+
+        }
+        return the_returnData;
+    }
+
 }

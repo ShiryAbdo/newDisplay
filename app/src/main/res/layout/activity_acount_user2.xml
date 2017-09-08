@@ -15,7 +15,7 @@
         android:background="@color/colorPrimaryDark"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp" >
-        <com.example.shaymaa.finalproject.MyTextView
+        <com.example.shaymaa.finalproject.others.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -153,7 +153,7 @@
                 android:text=  "المنتجات المفضله"
                  android:textColor="#182156"
                 android:id="@+id/fevourt_adds" />
-            <EditText
+            <TextView
                 android:background="@drawable/rounded_border_edittext"
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:layout_gravity="center"
@@ -165,7 +165,7 @@
                 android:text= "المتابعين"
                 android:textColor="#182156"
                 android:id="@+id/flowers"/>
-            <EditText
+            <TextView
                 android:background="@drawable/rounded_border_edittext"
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:layout_gravity="center"
@@ -186,7 +186,7 @@
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="wrap_content">
-            <EditText
+            <TextView
                 android:background="@drawable/rounded_border_edittext"
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:layout_gravity="center"
@@ -198,7 +198,7 @@
                 android:text=  "إضافه إعلان"
                 android:textColor="#182156"
                 android:id="@+id/add_adds"/>
-            <EditText
+            <TextView
                 android:background="@drawable/rounded_border_edittext"
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:layout_gravity="center"

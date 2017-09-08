@@ -24,7 +24,7 @@ public class ForgetPassword extends AppCompatActivity {
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ForgetPassword.this, MainActivity.class);
+                Intent intent = new Intent(ForgetPassword.this,  LOgActivty.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();

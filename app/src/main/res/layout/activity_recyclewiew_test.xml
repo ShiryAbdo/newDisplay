@@ -27,11 +27,14 @@
             android:src="@drawable/go_back"
             android:contentDescription="@string/bake_icon" />
 
-        <com.example.shaymaa.finalproject.MyTextView
+        <com.example.shaymaa.finalproject.others.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textColor="#fff"
+
+            android:layout_gravity="center"
+            android:gravity="center"
             android:text="المصانع"
             android:id="@+id/wasf_titel"
             />

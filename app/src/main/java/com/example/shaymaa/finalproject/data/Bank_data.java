@@ -6,25 +6,25 @@ package com.example.shaymaa.finalproject.data;
 
 public class Bank_data {
 
-    private String bank;
+    private String Namebank;
     private String bank_number;
     private String company_name;
     private String bank_ipan;
 
-    public Bank_data(String bank, String bank_number, String company_name, String bank_ipan) {
-        this.bank = bank;
+    public Bank_data(String Namebank, String bank_number, String company_name, String bank_ipan) {
+        this.Namebank = Namebank;
         this.bank_number = bank_number;
         this.company_name = company_name;
         this.bank_ipan = bank_ipan;
     }
 
     public String getBank() {
-        return bank;
+        return Namebank;
 
     }
 
     public void setBank(String bank) {
-        this.bank = bank;
+        this.Namebank = bank;
     }
 
     public String getBank_number() {

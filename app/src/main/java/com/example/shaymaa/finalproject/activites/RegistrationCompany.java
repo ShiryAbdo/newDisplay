@@ -44,12 +44,10 @@ public class RegistrationCompany extends AppCompatActivity  implements OnItemSel
 
         // Spinner Drop down elements
         List<String> categories = new ArrayList<String>();
-        categories.add("Automobile");
-        categories.add("Business Services");
-        categories.add("Computers");
-        categories.add("Education");
-        categories.add("Personal");
-        categories.add("Travel");
+        categories.add("الرياض");
+        categories.add("الدوحه");
+        categories.add("مكه");
+        categories.add("المدينه");
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
