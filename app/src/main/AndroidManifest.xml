@@ -99,7 +99,12 @@
         <activity android:name=".activites.Industrial_cities" />
         <activity android:name=".activites.Part_Industrial_cities" />
         <activity android:name=".activites.Show_Industrial_cities" />
-        <activity android:name=".activites.CuntinoAddTWO"></activity>
+        <activity android:name=".activites.CuntinoAddTWO" />
+        <activity android:name=".activites.Spasial_cityActivity" />
+        <activity android:name=".activites.Cites_stand_upActivity" />
+        <activity android:name=".activites.Area_tqnyActivity" />
+        <activity android:name=".activites.Wahat_elmodinActivity" />
+        <activity android:name=".activites.Industrial_cities_detalis"></activity>
     </application>
 
 </manifest>

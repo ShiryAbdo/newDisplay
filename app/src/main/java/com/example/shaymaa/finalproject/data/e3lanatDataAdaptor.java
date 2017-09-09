@@ -14,9 +14,7 @@ import android.widget.TextView;
 
 import com.example.shaymaa.finalproject.R;
 import com.example.shaymaa.finalproject.activites.A3lanActivityItem;
-import com.example.shaymaa.finalproject.activites.MainActivity;
-import com.example.shaymaa.finalproject.activites.wasffWithTabb;
-import com.squareup.picasso.Picasso;
+ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -44,7 +42,7 @@ public class e3lanatDataAdaptor  extends RecyclerView.Adapter<e3lanatDataAdaptor
     }
 
     @Override
-    public void onBindViewHolder(e3lanatDataAdaptor.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final e3lanatDataAdaptor.ViewHolder viewHolder, final int i) {
 
    if(androidList.get(i).getAds_title().contains("ar")){
        text= androidList.get(i).getAds_title().substring(20).replace("\";}", "");
@@ -52,13 +50,19 @@ public class e3lanatDataAdaptor  extends RecyclerView.Adapter<e3lanatDataAdaptor
    }else {
        text=  androidList.get(i).getAds_title();
    }
-
-         viewHolder.description_add.setText(text);
-         Picasso.with(context).load(androidList.get(i).getAds_image_name()).error(android.R.drawable.stat_notify_error).fit().into(viewHolder.imageView_add);
+          viewHolder.description_add.setText(text);
+        final String imagee ="http://ksafactory.com/files/frontend/"+ androidList.get(i).getAds_image_name();
+         Picasso.with(context).load(imagee).error(android.R.drawable.stat_notify_error).fit().into(viewHolder.imageView_add);
           viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context,  A3lanActivityItem.class));
+                Intent intent = new Intent(context,A3lanActivityItem.class);
+
+                intent.putExtra("ads_id",androidList.get(i).getAds_id());
+                intent.putExtra("image",imagee);
+                context.startActivity(intent);
+
+//                context.startActivity(new Intent(context,  A3lanActivityItem.class));
             }
         });
         setAnimation(viewHolder.cardView, i);

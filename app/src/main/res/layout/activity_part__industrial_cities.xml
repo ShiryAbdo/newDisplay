@@ -129,7 +129,7 @@
         android:layout_weight=".5"
         android:layout_marginRight="@dimen/_2sdp"
         android:layout_marginLeft="@dimen/_2sdp"
-        android:id="@+id/search_factors_layout"
+        android:id="@+id/area_tqny_layout"
         android:layout_width="@dimen/_155sdp"
         android:layout_height="@dimen/_120sdp"
         android:adjustViewBounds="true"

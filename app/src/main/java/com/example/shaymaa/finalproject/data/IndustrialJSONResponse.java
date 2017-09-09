@@ -12,3 +12,4 @@ public class IndustrialJSONResponse {
         return factory;
     }
 }
+

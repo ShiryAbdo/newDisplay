@@ -1,7 +1,6 @@
 package com.example.shaymaa.finalproject.interfaces;
 
-import com.example.shaymaa.finalproject.data.BankJSONResponse;
-import com.example.shaymaa.finalproject.data.IndustrialJSONResponse;
+ import com.example.shaymaa.finalproject.data.IndustrialJSONResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -12,6 +11,6 @@ import retrofit2.http.GET;
 
 public interface Industrial_cities_Interface {
 
-    @GET("factories_categories/index.php?factory_type")
+    @GET("factories/index1.php?factories ")
     Call<IndustrialJSONResponse> getJSON();
 }

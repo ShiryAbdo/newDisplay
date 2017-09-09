@@ -19,33 +19,33 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 /**
- * Created by shirya on 31/08/17.
+ * Created by shirya on 09/09/17.
  */
 
-public class Adaptor_Industrial_cities extends RecyclerView.Adapter<Adaptor_Industrial_cities.ViewHolder> {
-    private ArrayList<Industrial_cities_Data> androidList;
+public class cites_stand_up_Adaptor  extends RecyclerView.Adapter<cites_stand_up_Adaptor.ViewHolder> {
+    private ArrayList<cites_stand_up_data> androidList;
     private Context context;
     private int lastPosition=-1;
     String city_name ,factory_space, factory_title;
 
 
-    public Adaptor_Industrial_cities(ArrayList<Industrial_cities_Data> android,Context c) {
+    public cites_stand_up_Adaptor(ArrayList<cites_stand_up_data> android,Context c) {
         this.androidList = android;
         this.context=c;
     }
 
     @Override
-    public Adaptor_Industrial_cities.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public cites_stand_up_Adaptor.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.  industrial_cities_row, viewGroup, false);
 
 
-        return new Adaptor_Industrial_cities.ViewHolder(view);
+        return new cites_stand_up_Adaptor.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(Adaptor_Industrial_cities.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(cites_stand_up_Adaptor.ViewHolder viewHolder, int i) {
         if(androidList.get(i).getCity_name()!=null){
-                        viewHolder.city_name.setText(androidList.get(i).getCity_name().substring(20).replace("\";}", ""));
+            viewHolder.city_name.setText(androidList.get(i).getCity_name().substring(20).replace("\";}", ""));
 
         }else {
             viewHolder.city_name.setText(androidList.get(i).getCity_name());
@@ -66,7 +66,7 @@ public class Adaptor_Industrial_cities extends RecyclerView.Adapter<Adaptor_Indu
         viewHolder.factory_space.setText(androidList.get(i).getFactory_space());
         viewHolder.factory_title.setText(androidList.get(i).getFactory_title());
         String imageUr ="http://ksafactory.com/files/frontend/"+androidList.get(i). getFactory_image();
-                Picasso.with(context).load(imageUr).error(android.R.drawable.stat_notify_error).fit().into(viewHolder.factory_image);
+        Picasso.with(context).load(imageUr).error(android.R.drawable.stat_notify_error).fit().into(viewHolder.factory_image);
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
