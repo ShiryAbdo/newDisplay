@@ -27,10 +27,12 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay">
 
-            <com.example.shaymaa.finalproject.MyTextView
+            <com.example.shaymaa.finalproject.others.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:textColor="#fff"
                 android:text="وصف المصنع"
                 android:id="@+id/wasf_titel"
@@ -68,7 +70,7 @@
                 android:id="@+id/map" />
 
 
-        <com.example.shaymaa.finalproject.CustomTabLayout
+        <com.example.shaymaa.finalproject.others.CustomTabLayout
             android:id="@+id/tabs"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
