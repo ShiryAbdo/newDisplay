@@ -45,7 +45,7 @@ public class Adaptor_Industrial_cities extends RecyclerView.Adapter<Adaptor_Indu
     @Override
     public void onBindViewHolder(Adaptor_Industrial_cities.ViewHolder viewHolder, int i) {
         if(androidList.get(i).getCity_name()!=null){
-                        viewHolder.city_name.setText(androidList.get(i).getCity_name().substring(20).replace("\";}", ""));
+        viewHolder.city_name.setText(androidList.get(i).getCity_name().substring(20).replace("\";}", ""));
 
         }else {
             viewHolder.city_name.setText(androidList.get(i).getCity_name());
@@ -54,8 +54,8 @@ public class Adaptor_Industrial_cities extends RecyclerView.Adapter<Adaptor_Indu
 ////        String city_name;
 //        if(androidList.get(i).getCity_name().contains("ar")){
 //            viewHolder.city_name.setText(androidList.get(i).getCity_name().substring(20).replace("\";}", ""));
-//            city_name= androidList.get(i).getCity_name().substring(18).replace("\";}", "");
-
+////            city_name= androidList.get(i).getCity_name().substring(18).replace("\";}", "");
+//
 //        }else {
 //            viewHolder.city_name.setText(androidList.get(i).getCity_name());
 //        }

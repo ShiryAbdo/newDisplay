@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
      xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:background="@drawable/bg_copy"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context="com.example.shaymaa.finalproject.activites.ProductesActivity">
 
     <android.support.v7.widget.Toolbar
@@ -24,6 +26,19 @@
             android:layout_centerVertical="true"
             android:src="@drawable/go_back"
             android:contentDescription="@string/bake_icon" />
+
+
+        <com.example.shaymaa.finalproject.others.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:text="إضافة منتج"
+            android:layout_gravity="start"
+            android:gravity="center"
+            android:id="@+id/add_montage"
+            />
+
         <com.example.shaymaa.finalproject.others.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,13 +51,12 @@
             />
 
     </android.support.v7.widget.Toolbar>
-
-
-
-    <WebView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/card_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/webview"
-        />
+        android:scrollbars="vertical" />
+
+
 
 </LinearLayout>

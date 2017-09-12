@@ -6,7 +6,7 @@
     android:background="@drawable/bg_copy"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.example.shaymaa.finalproject.activites.AllFactores">
+    tools:context="com.example.shaymaa.finalproject.activites.AllFactores_Category">
 
 
     <android.support.v7.widget.Toolbar

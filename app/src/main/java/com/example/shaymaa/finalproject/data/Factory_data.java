@@ -11,6 +11,8 @@ public class Factory_data {
 
     private String company_category_id;
     private String company_category_name;
+
+
     private String api;
 public Factory_data(String a,String b,String c ){}
     public String getcompany_category_id() {

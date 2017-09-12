@@ -63,9 +63,9 @@
             android:layout_marginRight="@dimen/_35sdp"
             android:layout_gravity="center"
             android:textColor="#ffffff"
-            android:textSize="14sp"
+            android:textSize="18sp"
             android:layout_marginLeft="@dimen/_30sdp"
-            android:padding="@dimen/_2sdp"
+            android:padding="@dimen/_10sdp"
             android:textStyle="bold"
             android:text= "الإسم"
             android:textAlignment="center"
@@ -75,39 +75,9 @@
             android:id="@+id/username"
             />
 
-        <TextView
-            android:background="@drawable/login_btn"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_2sdp"
-            android:layout_gravity="center"
-            android:textColor="#ffffff"
-            android:paddingLeft="@dimen/_5sdp"
-             android:paddingRight="@dimen/_10sdp"
-            android:gravity="center"
-            android:textSize="@dimen/_16sdp"
-              android:layout_width="@dimen/_180sdp"
-             android:layout_height="@dimen/_40sdp"
-             android:text="الأشعارات"
-             android:drawableRight="@drawable/ic_perm_identity_white_"
-            android:id="@+id/notivication"
 
-            />
 
-        <TextView
-            android:background="@drawable/login_btn"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginBottom="@dimen/_8sdp"
-            android:layout_gravity="center"
-            android:textColor="#ffffff"
-            android:paddingLeft="@dimen/_5sdp"
-            android:paddingRight="@dimen/_10sdp"
-            android:gravity="center"
-            android:textSize="@dimen/_16sdp"
-            android:layout_width="@dimen/_180sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:text="الرسائل"
-            android:drawableRight="@drawable/ic_perm_identity_white_"
-            android:id="@+id/massage" />
+
 
         <TextView
             android:background="@drawable/login_btn"
@@ -210,6 +180,36 @@
                 android:text=  "إعلاناتي"
                 android:textColor="#182156"
                 android:id="@+id/my_adds"/>
+
+
+
+            <TextView
+                android:background="@drawable/rounded_border_edittext"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/_16sdp"
+                android:layout_width="@dimen/_120sdp"
+                android:padding="@dimen/_5sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:text=  "المنشأت المضافه"
+                android:textColor="#182156"
+                android:id="@+id/elmonshat_modafa"/>
+
+            <TextView
+                android:background="@drawable/rounded_border_edittext"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/_16sdp"
+                android:layout_width="@dimen/_120sdp"
+                android:padding="@dimen/_5sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:text=  "إضافه منشأه"
+                android:textColor="#182156"
+                android:id="@+id/add_elmonshat"/>
+
+
         </LinearLayout>
 
     </LinearLayout>

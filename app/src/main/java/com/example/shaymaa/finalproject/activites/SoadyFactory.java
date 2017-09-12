@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -59,11 +58,11 @@ public class SoadyFactory extends AppCompatActivity implements View.OnClickListe
 
         case R.id.layou_over_all_factores:
 
-            Move_on(AllFactores.class);
+            Move_on(AllFactores_Category.class);
             break;
 
             case R.id.search_factors_layout:
-                Move_on(SearchActivity.class);
+                Move_on( SearchWithNameActivity.class);
                 break;
         }
     }

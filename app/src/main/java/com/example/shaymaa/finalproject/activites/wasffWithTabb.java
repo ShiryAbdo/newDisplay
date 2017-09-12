@@ -21,7 +21,15 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.shaymaa.finalproject.fragments.MapWasfFactory;
 import com.example.shaymaa.finalproject.others.CustomTabLayout;
 import com.example.shaymaa.finalproject.others.MyTextView;
 import com.example.shaymaa.finalproject.R;
@@ -34,12 +42,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;
 
-public class wasffWithTabb extends AppCompatActivity implements OnMapReadyCallback,LocationListener {
-    MyTextView title;
+public class wasffWithTabb extends AppCompatActivity {
+    MyTextView title ,show_productes;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private GoogleMap mMap;
@@ -47,181 +60,196 @@ public class wasffWithTabb extends AppCompatActivity implements OnMapReadyCallba
     double newLongitude ;
     LatLng newpoint ;
     LocationManager locationManager;
-    ImageView go_back ;
+    ImageView go_back ,image_wasf;
 
+    Bundle bundle;
+    String ads__id ,image,company_category_name;
+    Bundle bundle2 ,bundle3 ,bundle4;
+    String company_name,company_mobile,company_tel,company_fax,company_email,
+            company_site,company_address,company_times,city_name,company_latitude,
+
+    company_longitude,company_image_name;
+    CustomTabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wasff_with_tabb);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+
+        bundle4= new Bundle();
+        bundle2= new Bundle();
+        bundle3= new Bundle();
+        bundle=getIntent().getExtras();
+
+
+        if (bundle!=null){
+
+            ads__id= bundle.getString("company_id");
+            image=bundle.getString("image");
+            company_category_name=bundle.getString("company_category_name");
+        }
+
 
         title=(MyTextView)findViewById(R.id.wasf_titel);
+        show_productes=(MyTextView)findViewById(R.id.show_productes);
 
+
+        show_productes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(wasffWithTabb.this,    ProductesActivity.class);
+                intent.putExtra("id",ads__id);
+                 startActivity(intent);
+                finish();
+
+            }
+        });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
+        getAddsDtaied(ads__id);
         go_back =(ImageView)findViewById(R.id.go_back);
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(wasffWithTabb.this,   AllFactores.class);
+                Intent intent = new Intent(wasffWithTabb.this,   AllFactores_Category.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
             }
         });
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        image_wasf=(ImageView)findViewById(R.id.image_wasf);
+        if(image!=null){
+//            Picasso.with( this).load(image).error(android.R.drawable.stat_notify_error).fit().into(image_wasf);
 
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.Tabcontainer);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        }else {
 
-        CustomTabLayout tabLayout = (CustomTabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-//        Intent gpsOptionsIntent = new Intent(
-//                android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-//        startActivity(gpsOptionsIntent);
-
-
-
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            //    here to request the missing permissions, and then overriding
-            //    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            //    to handle the case where the user grants the permission. See the documentation
-            //    for ActivityCompat#requestPermissions for more details.
-            return;
+//            image_wasf.setImageResource(R.drawable.bg_add_factory);
         }
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1, 1, this);
+
+
+
+         tabLayout = (CustomTabLayout) findViewById(R.id.tabs);
 
 
 
     }
 
-    @Override
-    public void onLocationChanged(Location location) {
 
+    private void  getAddsDtaied (final String id ) {
 
-//        mMap.clear();
-        LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
-
-
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(currentLocation);
-        markerOptions.title(getGeocodeName(location.getLatitude(),location.getLongitude()));
-
-
-        // ROSE color icon
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-
-        mMap.addMarker(markerOptions);
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 10.0f));
-
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 10.0f));
-
-    }
-
-    @Override
-    public void onStatusChanged(String s, int i, Bundle bundle) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String s) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String s) {
-
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-
-        if (android.support.v4.app.ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && android.support.v4.app.ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        mMap.setMyLocationEnabled(true);
-
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+        String url= "http://ksafactory.com/API/view_company_details/index.php?company_id="+id;
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url
+                , null, new Response.Listener<JSONObject>() {
 
             @Override
-            public void onMapClick(LatLng point) {
+            public void onResponse(JSONObject response) {
+//
+                try {
+                    JSONArray ads = response.getJSONArray("company");
 
-                MarkerOptions marker = new MarkerOptions().position(
-                        new LatLng(point.latitude, point.longitude)).title(getGeocodeName(point.latitude, point.longitude));
-                marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-                mMap.addMarker(marker);
-                //to add to data base
-                newLatitude =point.latitude ;
-                newLongitude =point.longitude ;
-                newpoint= point;
 
-            }        });
+                    for (int n = 0; n < ads.length(); n++) {
+                        JSONObject object = ads.getJSONObject(n);
+                        company_name = object.getString("company_name");
+                        company_mobile = object.getString("company_mobile");
+                        company_tel = object.getString("company_tel");
+                        company_fax = object.getString("company_fax");
+                        company_email = object.getString("company_email");
+                        company_site = object.getString("company_site");
+                        company_address = object.getString("company_address");
 
+                        company_times = object.getString("company_times");
+                        city_name = object.getString("city_name");
+//                        رقم الأعلان
+                        company_latitude = object.getString("company_latitude");
+//                        عدد المشاهداات
+                        company_longitude = object.getString("company_longitude");
+                        company_image_name = object.getString("company_image_name");
+
+
+
+//                        if(ads_title.contains("ar")){
+//                            wasf_titel.setText(ads_title.substring(20).replace("\";}", ""));
+//
+//
+//                        }
+
+///                    frist tab
+                        bundle2.putString("company_category_name", company_category_name);
+                        bundle2.putString("company_site", object.getString("company_site"));
+                        bundle2.putString("company_times", object.getString("company_times"));
+///                     second tab
+
+                        bundle3.putString("company_mobile",object.getString("company_mobile"));
+                        bundle3.putString("company_tel", object.getString("company_tel"));
+                        bundle3.putString("company_fax", object.getString("company_fax"));
+                        bundle3.putString("company_email", object.getString("company_email"));
+                        bundle3.putString("company_address", object.getString("company_address"));
+                        bundle3.putString("city_name", object.getString("city_name"));
+///                     thred tab
+                        bundle4.putString("company_latitude", object.getString("company_latitude"));
+                        bundle4.putString("company_longitude", object.getString("company_longitude"));
+
+
+                    }
+                    String su=response.getString("success");
+                    if (su.equals("1")){
+                        Toast.makeText(getApplicationContext(),
+                                company_email, Toast.LENGTH_SHORT).show();
+                        title.setText(company_name);
+                        if(company_image_name.equals("")){
+                            image_wasf.setImageResource(R.drawable.bg_add_factory);
+
+                        }else {
+                            final String imagee ="http://ksafactory.com/files/frontend/"+company_image_name;
+                            Picasso.with(getApplicationContext()).load(imagee).error(android.R.drawable.stat_notify_error).fit().into(image_wasf);
+                        }
+
+                        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+                        // Set up the ViewPager with the sections adapter.
+                        mViewPager = (ViewPager) findViewById(R.id.Tabcontainer);
+                        mViewPager.setAdapter(mSectionsPagerAdapter);
+                        tabLayout.setupWithViewPager(mViewPager);
+
+                    }else {
+
+//
+//                        mViewPager = (ViewPager) findViewById(R.id.Tabcontainer);
+//                        mViewPager.setAdapter(mSectionsPagerAdapter);
+//                        tabLayout.setupWithViewPager(mViewPager);
+
+
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                // hide the progress dialog
+            }
+        });
+
+        // Adding request to request queue
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonObjReq);
+        //        AppController.getInstance().addToRequestQueue(jsonObjReq);
     }
-
-
-
-
-    //addresses == null ||
-    public String getGeocodeName(double latitude, double longitude) {
-        Context context = getApplicationContext();
-
-        Geocoder geocoder = new Geocoder( context);
-        List<Address> addresses = null;
-        String unknown ="Unknown Location";
-        try {
-            addresses = geocoder.getFromLocation(latitude, longitude, 1);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            return unknown;
-        }
-        if ( addresses == null ||addresses.size() == 0) {
-            return unknown;
-        }
-        Address address = addresses.get(0);
-
-
-
-        String cn = address.getCountryName();
-
-        String city = addresses.get(0).getLocality();
-        String state = addresses.get(0).getAdminArea();
-        String country = addresses.get(0).getCountryName();
-        String postalCode = addresses.get(0).getPostalCode();
-        String knownName = addresses.get(0).getFeatureName();
-        String mainLocality = address.getSubAdminArea();
-
-        return city + ", " + state+ ", " +country;
-    }
-
 
 
     /**
@@ -238,12 +266,21 @@ public class wasffWithTabb extends AppCompatActivity implements OnMapReadyCallba
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
+                    AboutOFowner aboutOFowner = new AboutOFowner();
+                    aboutOFowner.setArguments(bundle2);
+                    return aboutOFowner;
+
+                case 1:
                     AboutOFactory aboutOFactory = new AboutOFactory();
+                    aboutOFactory.setArguments(bundle3);
 
                     return aboutOFactory;
-                case 1:
-                     AboutOFowner aboutOFowner = new AboutOFowner();
-                    return aboutOFowner;
+                case 2:
+                    MapWasfFactory  mapWasfFactory = new MapWasfFactory();
+                    mapWasfFactory.setArguments(bundle4);
+
+                    return mapWasfFactory;
+
 
             }
             return null;
@@ -252,7 +289,7 @@ public class wasffWithTabb extends AppCompatActivity implements OnMapReadyCallba
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 2;
+            return 3;
         }
 
         @Override
@@ -261,10 +298,14 @@ public class wasffWithTabb extends AppCompatActivity implements OnMapReadyCallba
             switch (position) {
                 case 0:
 
-                    return "عن المصنع " ;
+                    return "نظرة عامة" ;
 
                 case 1:
-                    return  " عن صاحب المصنع ";
+                    return  "تفاصيل الإتصال";
+
+
+                case 2:
+                    return  " الخريطه";
 
 
             }

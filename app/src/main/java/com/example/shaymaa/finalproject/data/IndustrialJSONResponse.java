@@ -6,10 +6,10 @@ package com.example.shaymaa.finalproject.data;
 
 public class IndustrialJSONResponse {
 
-    private Industrial_cities_Data[] factory;
+    private Industrial_cities_Data[] factories;
 
     public  Industrial_cities_Data[] getfactory() {
-        return factory;
+        return factories;
     }
 }
 

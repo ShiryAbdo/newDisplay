@@ -8,20 +8,43 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shaymaa.finalproject.R;
+import com.example.shaymaa.finalproject.others.MyTextView;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class AboutOFactory extends Fragment {
 
-
-
+ String company_mobile,company_tel,company_fax,company_email,company_address,city_name;
+    MyTextView companymobile,companytel,companyfax,companyemail,cityname,companyaddress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about_factory, container, false);
+        View rootView =inflater.inflate(R.layout.fragment_about_factory, container, false);
+        company_mobile= getArguments().getString("company_mobile");
+        company_tel= getArguments().getString("company_tel");
+        company_fax= getArguments().getString("company_fax");
+        company_email= getArguments().getString("company_email");
+        company_address= getArguments().getString("company_address");
+        city_name= getArguments().getString("city_name");
+
+        companymobile=(MyTextView)rootView.findViewById(R.id.companymobile);
+        companytel=(MyTextView)rootView.findViewById(R.id.companytel);
+        companyfax=(MyTextView)rootView.findViewById(R.id.companyfax);
+        companyemail=(MyTextView)rootView.findViewById(R.id.companyemail);
+        cityname=(MyTextView)rootView.findViewById(R.id.cityname);
+        companyaddress=(MyTextView)rootView.findViewById(R.id.companyaddress);
+
+        companymobile.setText(company_mobile);
+        companytel.setText(company_tel);
+        companyfax.setText(company_fax);
+        companyemail.setText(company_email);
+        companyaddress.setText(company_address);
+        cityname.setText(city_name.substring(20).replace("\";}", ""));
+
+
+
+        return rootView;
     }
 
 }

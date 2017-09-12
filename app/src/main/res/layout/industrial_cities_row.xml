@@ -26,6 +26,7 @@
             <ImageView
                 android:id="@+id/factory_image"
                 android:layout_width="match_parent"
+                android:src="@drawable/ad_icon"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"

@@ -27,7 +27,8 @@ public class e3lanatData {
         this.ads_id = ads_id;
     }
 
-    public String getUsername() {
+    public String getUsername()
+    {
         return username;
     }
 

@@ -20,16 +20,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.home_main);
 
 //
-        productesImage_layout= (LinearLayout)findViewById(R.id.productesImage_layout);
-        productesImage_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),ProductesActivity.class);
-                startActivity(intent);
-
-            }
-        });
+//        productesImage_layout= (LinearLayout)findViewById(R.id.productesImage_layout);
+//        productesImage_layout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(),ProductesActivity.class);
+//                startActivity(intent);
 //
+//            }
+//        });
+////
         layou_factory= (LinearLayout)findViewById(R.id.layou_factory);
         layou_factory.setOnClickListener(new View.OnClickListener() {
             @Override

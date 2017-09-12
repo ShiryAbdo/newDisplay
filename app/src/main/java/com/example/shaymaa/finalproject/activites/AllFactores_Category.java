@@ -25,7 +25,7 @@ import retrofit2.Response;
  import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AllFactores extends AppCompatActivity {
+public class AllFactores_Category extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ArrayList<Factory_data> data;
@@ -46,7 +46,7 @@ public class AllFactores extends AppCompatActivity {
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AllFactores.this, SoadyFactory.class);
+                Intent intent = new Intent(AllFactores_Category.this, SoadyFactory.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -80,7 +80,7 @@ public class AllFactores extends AppCompatActivity {
 
                 JSONResponse jsonResponse = response.body();
                 data = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
-                adapter = new DataAdapter(data,AllFactores.this);
+                adapter = new DataAdapter(data,AllFactores_Category.this);
                 recyclerView.setAdapter(adapter);
             }
 

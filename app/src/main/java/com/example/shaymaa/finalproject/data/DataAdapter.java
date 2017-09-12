@@ -12,6 +12,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.example.shaymaa.finalproject.R;
+import com.example.shaymaa.finalproject.activites.A3lanActivityItem;
+import com.example.shaymaa.finalproject.activites.Compa_Of_Factory;
 import com.example.shaymaa.finalproject.activites.Wassf_asnaa_mape_oOne;
 import com.example.shaymaa.finalproject.activites.wasffWithTabb;
 
@@ -40,26 +42,24 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(DataAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(DataAdapter.ViewHolder viewHolder, final int i) {
 
         viewHolder.factory_name.setText(androidList.get(i).getcompany_category_name().substring(20).replace("\";}", ""));
-//        String rt = androidList.get(i).getcompany_category_name().substring(20).replace("\";}", "");
 
-//        String S = "a:1:{s:2:\"ar\";s:2:\"مصانع البلاستيك\";}";
-//
-//        String sub = S.substring(20);
-//
-//        String requiredString = sub.replace("\";}", "");
         viewHolder.cintery_name.setText(androidList.get(i).getcompany_category_id());
 
-//         viewHolder.email_factory.setText(androidList.get(i).getApi());
 
 
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context,wasffWithTabb.class));
-            }
+
+                Intent intent = new Intent(context,Compa_Of_Factory.class);
+
+                intent.putExtra("company_category_id",androidList.get(i).getcompany_category_id());
+                intent.putExtra("company_category_name",androidList.get(i).getcompany_category_name());
+                 context.startActivity(intent);
+             }
         });
         setAnimation(viewHolder.card, i);
 

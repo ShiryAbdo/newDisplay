@@ -26,6 +26,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.shaymaa.finalproject.R;
 import com.example.shaymaa.finalproject.fragments.A3lanatDetails;
  import com.example.shaymaa.finalproject.fragments.ElasfE3lanFragment;
+import com.example.shaymaa.finalproject.fragments.MapWasfFactory;
 import com.example.shaymaa.finalproject.others.MyTextView;
 import com.squareup.picasso.Picasso;
 
@@ -39,7 +40,7 @@ public class A3lanActivityItem extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
     Bundle bundle;
     String ads__id ,image;
-    Bundle bundle2;
+    Bundle bundle2 ,bundle3 ,bundle4;
     private ViewPager mViewPager;
     ImageView go_back ;
     MyTextView wasf_titel;
@@ -47,13 +48,15 @@ public class A3lanActivityItem extends AppCompatActivity {
             ,ads_type_name,ads_model_name,ads_price,ads_city_name
             ,date_insert,ads_id,ads_visited,ads_latitude,ads_longitude ;
     ImageView imagE3lan;
-
+    TabLayout tabLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activityv);
 
+        bundle4= new Bundle();
         bundle2= new Bundle();
+        bundle3= new Bundle();
         bundle=getIntent().getExtras();
 
 
@@ -63,6 +66,7 @@ public class A3lanActivityItem extends AppCompatActivity {
             image=bundle.getString("image");
         }
         getAddsDtaied(ads__id);
+
 
         wasf_titel=(MyTextView)findViewById(R.id.wasf_titel);
 
@@ -85,18 +89,14 @@ public class A3lanActivityItem extends AppCompatActivity {
         });
         imagE3lan=(ImageView)findViewById(R.id.imagE3lan);
         Picasso.with( this).load(image).error(android.R.drawable.stat_notify_error).fit().into(imagE3lan);
- if (ads_longitude!=null){
+// if (ads_longitude!=null){
 
-     mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-     // Set up the ViewPager with the sections adapter.
-     mViewPager = (ViewPager) findViewById(R.id.Tabcontainer);
-     mViewPager.setAdapter(mSectionsPagerAdapter);
 
-     TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-     tabLayout.setupWithViewPager(mViewPager);
+         tabLayout = (TabLayout) findViewById(R.id.tabs);
 
- }
+
+
 
 
 
@@ -111,13 +111,10 @@ public class A3lanActivityItem extends AppCompatActivity {
 
             @Override
             public void onResponse(JSONObject response) {
-//                Toast.makeText(getApplicationContext(),
-//                        "response///" +response , Toast.LENGTH_SHORT).show();
+//
                 try {
                     JSONArray  ads = response.getJSONArray("ads");
-                    // Error in login. Get the error message
-                    Toast.makeText(getApplicationContext(),
-                            "recuest", Toast.LENGTH_SHORT).show();
+
 
                     for (int n = 0; n < ads.length(); n++) {
                         JSONObject object = ads.getJSONObject(n);
@@ -140,18 +137,41 @@ public class A3lanActivityItem extends AppCompatActivity {
 
 
 
+                        if(ads_title.contains("ar")){
+                            wasf_titel.setText(ads_title.substring(20).replace("\";}", ""));
+
+                        }else {
+                            wasf_titel.setText(ads_title);
+                        }
+
                         bundle2.putString("ads_category_name", object.getString("ads_category_name"));
                         bundle2.putString("ads_type_name",object.getString("ads_type_name"));
                         bundle2.putString("ads_model_name", object.getString("ads_model_name"));
                         bundle2.putString("ads_price", object.getString("ads_price"));
+                        bundle2.putString("date_insert", object.getString("date_insert"));
                         bundle2.putString("ads_city_name", object.getString("ads_city_name"));
                         bundle2.putString("ads_id", object.getString("ads_id"));
                         bundle2.putString("ads_visited", object.getString("ads_visited"));
+
+//                        bundle3.putString("ads_visited", object.getString("ads_visited"));
+
+                        bundle4.putString("company_latitude", object.getString("ads_latitude"));
+                        bundle4.putString("company_longitude", object.getString("ads_longitude"));
+
+
                     }
                     String su=response.getString("success");
                     if (su.equals("1")){
                         Toast.makeText(getApplicationContext(),
                                 user_name, Toast.LENGTH_SHORT).show();
+                        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+                        // Set up the ViewPager with the sections adapter.
+                        mViewPager = (ViewPager) findViewById(R.id.Tabcontainer);
+                        mViewPager.setAdapter(mSectionsPagerAdapter);
+
+                        mSectionsPagerAdapter.notifyDataSetChanged();
+                        tabLayout.setupWithViewPager(mViewPager);
 
 
                     }
@@ -215,12 +235,14 @@ public class A3lanActivityItem extends AppCompatActivity {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
+
             switch (position) {
                 case 0:
                     A3lanatDetails a3lanatDetails =new A3lanatDetails();
@@ -229,7 +251,13 @@ public class A3lanActivityItem extends AppCompatActivity {
                     return a3lanatDetails;
                 case 1:
                     ElasfE3lanFragment elasfE3lanFragment = new ElasfE3lanFragment();
+                    elasfE3lanFragment.setArguments(bundle2);
                       return elasfE3lanFragment;
+
+                case 2:
+                    MapWasfFactory mapWasfFactory = new MapWasfFactory();
+                    mapWasfFactory.setArguments(bundle4);
+                    return mapWasfFactory;
 
             }
             return null;
@@ -238,7 +266,7 @@ public class A3lanActivityItem extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 2  ;
+            return 3  ;
         }
 
         @Override
@@ -248,6 +276,8 @@ public class A3lanActivityItem extends AppCompatActivity {
                     return " الوصف";
                 case 1:
                     return " المواصفات ";
+                case 2:
+                    return "الخريطه";
 
             }
             return null;

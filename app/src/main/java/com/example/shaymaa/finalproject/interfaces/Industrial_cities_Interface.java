@@ -11,6 +11,6 @@ import retrofit2.http.GET;
 
 public interface Industrial_cities_Interface {
 
-    @GET("factories/index1.php?factories ")
+    @GET("factories/index1.php?factories")
     Call<IndustrialJSONResponse> getJSON();
 }

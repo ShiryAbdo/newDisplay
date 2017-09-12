@@ -76,7 +76,7 @@ public class BankActivity extends AppCompatActivity {
         call.enqueue(new Callback<BankJSONResponse>() {
             @Override
             public void onResponse(Call<BankJSONResponse> call, Response<BankJSONResponse> response) {
-
+                data=new ArrayList<Bank_data>();
                 BankJSONResponse bankJSONResponse = response.body();
                 data = new ArrayList<>(Arrays.asList(bankJSONResponse.getBanks()));
                 adapter = new AdaptorBank(data, BankActivity.this);

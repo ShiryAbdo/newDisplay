@@ -31,82 +31,49 @@
         android:layout_marginTop="@dimen/_6sdp"
         android:layout_marginStart="@dimen/_30sdp"
         android:layout_marginEnd="@dimen/_30sdp"
+         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/layou_media"
-            android:gravity="center"
-             android:layout_weight=".3"
-            android:layout_height="@dimen/_98sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:layout_width="0dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/back"
-            android:orientation="vertical"
-            android:scaleType="fitCenter">
-
-
-            <ImageView
-                android:layout_weight=".7"
-                android:id="@+id/mediaImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/sooady_factores"
-                android:src="@drawable/mediaa"
-                android:paddingBottom="@dimen/_5sdp"
-                android:paddingEnd="@dimen/_15sdp"
-                android:paddingStart="@dimen/_15sdp"
-                android:paddingTop="@dimen/_18sdp"
-                  />
-
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="الإعلانات"
-                android:padding="@dimen/_5sdp"
-                android:textAlignment="center"
-                android:textColor="#ffffff"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:background="@drawable/back"
-             android:id="@+id/productesImage_layout"
-            android:gravity="center"
-            android:layout_weight=".3"
-            android:layout_height="@dimen/_98sdp"
-             android:layout_marginStart="@dimen/_5sdp"
-            android:layout_width="0dp"
+         <LinearLayout
+             android:id="@+id/layout_acount_user"
+             android:gravity="center"
+              android:layout_height="@dimen/_98sdp"
+             android:background="@drawable/back"
+             android:layout_marginEnd="@dimen/_5sdp"
+             android:layout_width="@dimen/_100sdp"
              android:adjustViewBounds="true"
              android:orientation="vertical"
-            android:scaleType="fitCenter">
+             android:scaleType="fitCenter">
 
 
-            <ImageView
-                android:id="@+id/productesImages"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:contentDescription="@string/prodectes"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
+             <ImageView
+                 android:id="@+id/moassa_registerImage"
+                 android:layout_width="match_parent"
+                 android:layout_height="0dp"
+                 android:layout_weight="1"
+                 android:layout_gravity="center"
+                 android:adjustViewBounds="true"
+                 android:contentDescription="@string/singel_register"
+                 android:paddingBottom="@dimen/_5sdp"
+                 android:paddingStart="@dimen/_15sdp"
                  android:paddingEnd="@dimen/_15sdp"
-                android:paddingStart="@dimen/_15sdp"
-                android:paddingTop="@dimen/_18sdp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/industrial_robot" />
+                 android:paddingTop="@dimen/_15sdp"
+                 android:scaleType="fitCenter"
 
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_7sdp"
-                android:text="@string/prodectes"
-                android:textAlignment="center"
-                android:textColor="#ffffff"
-                android:textSize="20sp" />
+                 android:src="@drawable/usericon" />
+             <com.example.shaymaa.finalproject.others.MyTextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:padding="@dimen/_7sdp"
+                 android:text="حسابي"
+                 android:textAlignment="center"
+                 android:textColor="#ffffff"
+                 android:textSize="17sp" />
 
-        </LinearLayout>
+         </LinearLayout>
+
+
 
 
     </LinearLayout>
@@ -285,42 +252,42 @@
         android:layout_marginEnd="@dimen/_30sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
-            android:id="@+id/layout_acount_user"
+            android:id="@+id/layou_media"
             android:gravity="center"
             android:layout_weight=".3"
             android:layout_height="@dimen/_98sdp"
-            android:background="@drawable/back"
             android:layout_marginEnd="@dimen/_5sdp"
             android:layout_width="0dp"
-             android:adjustViewBounds="true"
+            android:adjustViewBounds="true"
+            android:background="@drawable/back"
             android:orientation="vertical"
             android:scaleType="fitCenter">
 
 
             <ImageView
-                android:id="@+id/moassa_registerImage"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"
+                android:layout_weight=".7"
+                android:id="@+id/mediaImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:contentDescription="@string/singel_register"
+                android:contentDescription="@string/sooady_factores"
+                android:src="@drawable/mediaa"
                 android:paddingBottom="@dimen/_5sdp"
-                android:paddingStart="@dimen/_15sdp"
                 android:paddingEnd="@dimen/_15sdp"
-                android:paddingTop="@dimen/_15sdp"
-                android:scaleType="fitCenter"
+                android:paddingStart="@dimen/_15sdp"
+                android:paddingTop="@dimen/_18sdp"
+                />
 
-                android:src="@drawable/usericon" />
             <com.example.shaymaa.finalproject.others.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/_7sdp"
-                android:text="حسابي"
+                android:text="الإعلانات"
+                android:padding="@dimen/_5sdp"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
-                android:textSize="17sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 

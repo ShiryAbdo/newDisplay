@@ -176,8 +176,10 @@ public class LOgActivty extends AppCompatActivity {
                                 "Toast" + su+"done" , Toast.LENGTH_SHORT).show();
 
                         String id = uid;
+                        editor.putString("username", username);
 
                     }
+
                     editor.putString("id", uid);
                     editor.putString("email", email);
                     editor.putString("password", password);

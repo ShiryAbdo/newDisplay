@@ -8,230 +8,276 @@
     tools:context="com.example.shaymaa.finalproject.fragments.AboutOFactory">
 
     <LinearLayout
-        android:layout_margin="@dimen/_5sdp"
+        android:layout_margin="@dimen/_2sdp"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_height="match_parent">
         <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
+             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.example.shaymaa.finalproject.others.MyTextView
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            android:text= " قسم الإعلان : "
+            android:layout_weight="1"
+
+
+            android:padding="@dimen/_2sdp"
+            android:gravity="right"
+             android:layout_gravity="center"
+             android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+            <com.example.shaymaa.finalproject.others.MyTextView
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            android:hint="  قسم اللإعلان  :"
+            android:id="@+id/ads_category_name"
+            android:layout_weight="2"
+            android:padding="@dimen/_2sdp"
+            android:gravity="right"
+            android:layout_gravity="center"
             android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <com.example.shaymaa.finalproject.others.MyTextView
                 android:textColor="@color/colorAccent"
                 android:textSize="12sp"
-                android:text= "      قسم الإعلان : "
-                android:layout_weight=".1"
+                android:text= " نوع الإعلان : "
+                android:layout_weight="1"
 
 
-                android:padding="@dimen/_5sdp"
+                android:padding="@dimen/_2sdp"
                 android:gravity="right"
-                android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
+                 android:layout_gravity="center"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <com.example.shaymaa.finalproject.others.MyTextView
                 android:textColor="@color/colorAccent"
                 android:textSize="12sp"
-                android:padding="@dimen/_5sdp"
-                android:text=" نوع  الإعلان       :"
-                android:layout_weight=".1"
+                android:hint="   نوع اللإعلان  :"
+                android:id="@+id/ads_type_name"
+                android:layout_weight="2"
+                android:padding="@dimen/_2sdp"
                 android:gravity="right"
-
                 android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <com.example.shaymaa.finalproject.others.MyTextView
                 android:textColor="@color/colorAccent"
                 android:textSize="12sp"
-                android:padding="@dimen/_5sdp"
-                android:text=" تصنيف الإعلان : "
-                android:layout_weight=".1"
-                android:gravity="right"
+                android:text= " تصنيف الإعلان : "
+                android:layout_weight="1"
 
-                android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:textSize="12sp"
-                android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-                android:text=" السعر : "
 
-                android:layout_weight=".1"
+                android:padding="@dimen/_2sdp"
                 android:gravity="right"
-                android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:layout_weight=".1"
-                android:textSize="12sp"
-                android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-                android:text=" المدينة : "
-
-                android:gravity="right"
-                android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="wrap_content" />
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:textSize="12sp"
-                android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-
-                android:text="   تاريخ الإعلان : "
-                android:layout_weight=".1"
-                android:gravity="right"
-                android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
+                 android:layout_gravity="center"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <com.example.shaymaa.finalproject.others.MyTextView
-                android:textSize="12sp"
                 android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-                android:text="  رقم الإعلان  : "
-
-                android:layout_weight=".1"
+                android:textSize="12sp"
+                android:hint="    تصنيف اللإعلان  :"
+                android:id="@+id/ads_model_name"
+                android:layout_weight="2"
+                android:padding="@dimen/_2sdp"
                 android:gravity="right"
                 android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <com.example.shaymaa.finalproject.others.MyTextView
-                android:textSize="12sp"
                 android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-                android:text="    عدد المشاهدات : "
-                android:layout_weight=".1"
+                android:textSize="12sp"
+                android:text= " السعر : "
+                android:layout_weight="1"
 
+
+                android:padding="@dimen/_2sdp"
                 android:gravity="right"
-                android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
+                 android:layout_gravity="center"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content" />
-
-
 
             <com.example.shaymaa.finalproject.others.MyTextView
-                android:textSize="12sp"
                 android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-                android:layout_weight="3"
+                android:textSize="12sp"
+                android:hint="السعر  :"
+                android:id="@+id/ads_price"
+                android:layout_weight="2"
+                android:padding="@dimen/_2sdp"
                 android:gravity="right"
                 android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.example.shaymaa.finalproject.others.MyTextView
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:text= "المدينة : "
+                android:layout_weight="1"
+
+
+                android:padding="@dimen/_2sdp"
+                android:gravity="right"
+                 android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <com.example.shaymaa.finalproject.others.MyTextView
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:hint="     المدينة  :"
+                android:id="@+id/ads_city_name"
+                android:layout_weight="2"
+                android:padding="@dimen/_2sdp"
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.example.shaymaa.finalproject.others.MyTextView
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:text= "تاريخ الإعلان : "
+                android:layout_weight="1"
+
+
+                android:padding="@dimen/_2sdp"
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <com.example.shaymaa.finalproject.others.MyTextView
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:hint="      تاريخ الإعلان   :"
+                android:id="@+id/date_insert"
+                android:layout_weight="2"
+                android:padding="@dimen/_2sdp"
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
 
         </LinearLayout>
         <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <com.example.shaymaa.finalproject.others.MyTextView
                 android:textColor="@color/colorAccent"
                 android:textSize="12sp"
-                android:hint="  قسم اللإعلان  :"
-                android:id="@+id/ads_category_name"
-                android:layout_weight=".1"
-                android:padding="@dimen/_5sdp"
+                android:text= "رقم الإعلان  : "
+                android:layout_weight="1"
+
+
+                android:padding="@dimen/_2sdp"
                 android:gravity="right"
                 android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <com.example.shaymaa.finalproject.others.MyTextView
                 android:textColor="@color/colorAccent"
                 android:textSize="12sp"
-                android:padding="@dimen/_5sdp"
-                android:hint=" نوع الإعلان       :"
-                android:layout_weight=".1"
-                android:gravity="right"
-                android:id="@+id/ads_type_name"
-                android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="wrap_content" />
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:textColor="@color/colorAccent"
-                android:textSize="12sp"
-                android:padding="@dimen/_5sdp"
-                android:hint="  تصنيف الإعلان : "
-                android:layout_weight=".1"
-                android:gravity="right"
-                android:id="@+id/ads_model_name"
-                android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:textSize="12sp"
-                android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-                android:hint="  السعر : "
-                android:layout_weight=".1"
-                android:id="@+id/ads_price"
-                android:gravity="right"
-                android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:layout_weight=".1"
-                android:textSize="12sp"
-                android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-                android:hint=" المدينه : "
-                android:id="@+id/ads_city_name"
-                android:gravity="right"
-                android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="wrap_content" />
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:textSize="12sp"
-                android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-                android:hint="  ناريخ الإعلان : "
-                android:layout_weight=".1"
-                android:id="@+id/date_insert"
-                android:gravity="right"
-                android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="wrap_content" />
-
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:textSize="12sp"
-                android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-                android:hint="  رقم الإعلان : "
-                android:layout_weight=".1"
-                android:gravity="right"
+                android:hint="       رقم الإعلان   :"
                 android:id="@+id/ads_id"
-                android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="wrap_content" />
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:textSize="12sp"
-                android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-                android:hint="    عدد المشاهدات : "
-                android:layout_weight=".1"
-                android:id="@+id/ads_visited"
+                android:layout_weight="2"
+                android:padding="@dimen/_2sdp"
                 android:gravity="right"
                 android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="wrap_content" />
-
-
-
-            <com.example.shaymaa.finalproject.others.MyTextView
-                android:textSize="12sp"
-                android:textColor="@color/colorAccent"
-                android:padding="@dimen/_5sdp"
-                android:layout_weight="3"
-                android:gravity="right"
-                android:layout_gravity="center"
-                android:layout_width="@dimen/_150sdp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
 
         </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.example.shaymaa.finalproject.others.MyTextView
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:text= "عدد المشاهدات  : "
+                android:layout_weight="1"
+
+
+                android:padding="@dimen/_2sdp"
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <com.example.shaymaa.finalproject.others.MyTextView
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:hint="رقم الإعلان   :"
+                android:id="@+id/ads_visited"
+                android:layout_weight="2"
+                android:padding="@dimen/_2sdp"
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </FrameLayout>

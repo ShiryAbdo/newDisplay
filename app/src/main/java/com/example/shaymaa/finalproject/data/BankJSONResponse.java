@@ -11,3 +11,4 @@ public class BankJSONResponse {
         return banks;
     }
 }
+
