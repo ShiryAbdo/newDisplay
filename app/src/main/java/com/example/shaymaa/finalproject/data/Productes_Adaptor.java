@@ -22,13 +22,13 @@ import java.util.ArrayList;
  */
 
 public class Productes_Adaptor   extends RecyclerView.Adapter<Productes_Adaptor.ViewHolder> {
-    private ArrayList<Productes_data> androidList;
+    private ArrayList<Show_productis_data> androidList;
     private Context context;
     private int lastPosition=-1;
     String city_name ,factory_space, factory_title;
 
 
-    public Productes_Adaptor(ArrayList<Productes_data> android,Context c) {
+    public Productes_Adaptor(ArrayList<Show_productis_data> android,Context c) {
         this.androidList = android;
         this.context=c;
     }

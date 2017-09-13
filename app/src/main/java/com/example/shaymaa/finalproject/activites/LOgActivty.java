@@ -82,7 +82,13 @@ public class LOgActivty extends AppCompatActivity {
                 if (singelCheckBox.isChecked()) {
                     type = "1";
                 }
-                checkLogin(check_the_EditText(editText_email), check_the_EditText(editText2_password), type);
+                if(editText_email.getText().toString().trim().length() > 0&&editText2_password.getText().toString().trim().length() > 0){
+                    checkLogin(check_the_EditText(editText_email), check_the_EditText(editText2_password), type);
+                }else {
+                    Toast.makeText(getApplicationContext(),
+                            "Enter Email and Password" , Toast.LENGTH_SHORT).show();
+                }
+
 
 
 
@@ -114,8 +120,7 @@ public class LOgActivty extends AppCompatActivity {
                 as_moassa.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getApplicationContext(),
-                                "Clicled" , Toast.LENGTH_SHORT).show();
+
                         Intent intent = new Intent(getApplicationContext(), RegistrationCompany.class);
                         startActivity(intent);
                         //                        dialog.dismiss();

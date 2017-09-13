@@ -7,9 +7,11 @@ import android.support.v7.widget.GridLayoutManager;
  import android.support.v7.widget.LinearLayoutManager;
  import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+ import android.text.TextUtils;
+ import android.util.Log;
  import android.view.View;
  import android.webkit.WebView;
+ import android.widget.EditText;
  import android.widget.ImageView;
  import android.widget.Toast;
 
@@ -27,6 +29,7 @@ import com.example.shaymaa.finalproject.data.Adapter_recycle_commentes;
  import com.example.shaymaa.finalproject.data.Get_Data;
  import com.example.shaymaa.finalproject.data.Productes_Adaptor;
  import com.example.shaymaa.finalproject.data.Productes_data;
+ import com.example.shaymaa.finalproject.data.Show_productis_data;
  import com.example.shaymaa.finalproject.others.MyTextView;
 
  import org.json.JSONArray;
@@ -41,9 +44,9 @@ import java.util.List;
 
 public class ProductesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private ArrayList<Productes_data> data;
+    private ArrayList<Show_productis_data> data;
     private Productes_Adaptor adapter ;
-    ImageView go_back;
+    ImageView go_back ,image;
     Bundle bundle;
     MyTextView add_montage;
     String idi;
@@ -119,21 +122,22 @@ public class ProductesActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(JSONObject response) {
-                Productes_data data ;
 
 
                 try {
                     JSONArray company = response.getJSONArray("product");
-                    ArrayList<Productes_data> data2= new ArrayList<>();
+                    ArrayList<Show_productis_data> data2= new ArrayList<>();
                     for (int n = 0; n < company.length(); n++) {
                         JSONObject object = company.getJSONObject(n);
-                        data= new Productes_data(object.getString("product_id"), object.getString("product_title"), object.getString("product_image_name"), object.getString("product_service"), object.getString("username"), object.getString("date"));
+                        Productes_data data= new Productes_data(object.getString("product_id"), object.getString("product_title"), object.getString("product_image_name"), object.getString("product_service"), object.getString("username"), object.getString("date"));
+                        Show_productis_data ewdata =new Show_productis_data(object.getString("product_id"),object.getString("product_title"),
+                                object.getString("product_image_name"), object.getString("product_service"),   object.getString("username"),object.getString("date")
+                                );
 
+//                        Toast.makeText(getApplicationContext(),
+//                                object.getString("product_image_name"), Toast.LENGTH_SHORT).show();
 
-                        Toast.makeText(getApplicationContext(),
-                                object.getString("product_image_name"), Toast.LENGTH_SHORT).show();
-
-                        data2.add(new Productes_data(object.getString("product_id"), object.getString("product_title"), object.getString("product_image_name"), object.getString("product_service"), object.getString("username"), object.getString("date")));
+                        data2.add(ewdata);
                     }
 
 
@@ -197,9 +201,9 @@ public class ProductesActivity extends AppCompatActivity {
                     }
 
 
-                    adapter = new Productes_Adaptor(data22,ProductesActivity.this);
-                    recyclerView.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
+//                    adapter = new Productes_Adaptor(data22,ProductesActivity.this);
+//                    recyclerView.setAdapter(adapter);
+//                    adapter.notifyDataSetChanged();
 
 
 
@@ -224,8 +228,6 @@ public class ProductesActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonObjReq);
     }
-
-
 
 
 

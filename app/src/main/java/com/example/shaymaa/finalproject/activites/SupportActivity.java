@@ -76,10 +76,17 @@ public class SupportActivity extends AppCompatActivity {
         sed_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(editText_nam.getText().toString().trim().length() > 0&&editText_phone.getText().toString().trim().length() > 0&&
+                        editText_email.getText().toString().trim().length() > 0&&editText_address.getText().toString().trim().length() > 0
+                        &&contain_massge.getText().toString().trim().length() > 0){
+                    senData(check_the_EditText(editText_nam), check_the_EditText(editText_phone), check_the_EditText(editText_email),
+                            check_the_EditText(editText_address),check_the_EditText(contain_massge));
 
 
-        senData(check_the_EditText(editText_nam), check_the_EditText(editText_phone), check_the_EditText(editText_email),
-          check_the_EditText(editText_address),check_the_EditText(contain_massge));
+                }else {
+                    Toast.makeText(getApplicationContext(),
+                            "أدخل البيانات" , Toast.LENGTH_SHORT).show();
+                }
 
 
             }
