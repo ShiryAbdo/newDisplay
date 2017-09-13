@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.shaymaa.finalproject.R;
+import com.example.shaymaa.finalproject.activites.CitiesDetails;
 import com.example.shaymaa.finalproject.activites.MainActivity;
 import com.squareup.picasso.Picasso;
 
@@ -43,7 +44,7 @@ public Wahat_elmodin_Adaptor.ViewHolder onCreateViewHolder(ViewGroup viewGroup, 
         }
 
 @Override
-public void onBindViewHolder(Wahat_elmodin_Adaptor.ViewHolder viewHolder, int i) {
+public void onBindViewHolder(Wahat_elmodin_Adaptor.ViewHolder viewHolder, final int i) {
         if(androidList.get(i).getCity_name()!=null){
         viewHolder.city_name.setText(androidList.get(i).getCity_name().substring(20).replace("\";}", ""));
 
@@ -65,12 +66,17 @@ public void onBindViewHolder(Wahat_elmodin_Adaptor.ViewHolder viewHolder, int i)
 
         viewHolder.factory_space.setText(androidList.get(i).getFactory_space());
         viewHolder.factory_title.setText(androidList.get(i).getFactory_title());
-        String imageUr ="http://ksafactory.com/files/frontend/"+androidList.get(i). getFactory_image();
+        final String imageUr ="http://ksafactory.com/files/frontend/"+androidList.get(i). getFactory_image();
         Picasso.with(context).load(imageUr).error(android.R.drawable.stat_notify_error).fit().into(viewHolder.factory_image);
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
 @Override
 public void onClick(View view) {
-        context.startActivity(new Intent(context, MainActivity.class));
+    Intent intent = new Intent(context,CitiesDetails.class);
+    intent.putExtra("imageUr",imageUr);
+    intent.putExtra("Factory_space",androidList.get(i).getFactory_space());
+    intent.putExtra("Factory_title",androidList.get(i).getFactory_title());
+    intent.putExtra("contant",androidList.get(i).getContent());
+    context.startActivity(intent);
         }
         });
 

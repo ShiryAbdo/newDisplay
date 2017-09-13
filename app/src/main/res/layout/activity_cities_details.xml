@@ -63,19 +63,42 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-
-
-
-
         <com.example.shaymaa.finalproject.others.MyTextView
             android:textColor="@color/colorAccent"
             android:textSize="12sp"
-            android:text= "السعر  : "
-             android:padding="@dimen/_5sdp"
+            android:text= "المدينة  : "
+            android:padding="@dimen/_5sdp"
             android:gravity="right"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <com.example.shaymaa.finalproject.others.MyTextView
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            android:text= "المساحة  : "
+            android:padding="@dimen/_5sdp"
+            android:gravity="right"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.example.shaymaa.finalproject.others.MyTextView
+        android:textColor="@color/colorAccent"
+        android:textSize="12sp"
+        android:background="#f9f9f9"
+        android:text= "السعر  : "
+        android:padding="@dimen/_5sdp"
+        android:gravity="right"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</ScrollView>
 
 
 
