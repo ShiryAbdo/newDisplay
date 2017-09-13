@@ -90,7 +90,7 @@ public class My_Fav_Productes extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        getAddsDtaied("1");
+        getAddsDtaied(idi);
 
     }
 

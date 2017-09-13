@@ -45,7 +45,7 @@
             android:layout_width="@dimen/_200sdp"
             android:padding="@dimen/_10sdp"
             android:layout_height="@dimen/_150sdp"
-            android:id="@+id/imageView"
+            android:id="@+id/add_image"
              />
 
 
@@ -64,7 +64,7 @@
             android:inputType="textPersonName"
             android:hint="عنوان الإعلان"
             android:ems="10"
-            android:id="@+id/name_of_onwe"
+            android:id="@+id/add_title"
 
             />
 
@@ -82,7 +82,7 @@
             android:drawablePadding="@dimen/_15sdp"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/name_of_factory" />
+            android:id="@+id/add_price" />
 
         <EditText
             android:hint="وسيله الإتصال"
@@ -98,7 +98,7 @@
             android:drawableRight="@drawable/ic_phone_android_white"
             android:inputType="phone"
             android:ems="10"
-            android:id="@+id/telphone_of_factory" />
+            android:id="@+id/add_content" />
 
 
         <Button

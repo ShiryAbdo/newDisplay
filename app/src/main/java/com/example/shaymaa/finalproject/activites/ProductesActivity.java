@@ -44,7 +44,7 @@ import java.util.List;
 
 public class ProductesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private ArrayList<Show_productis_data> data;
+    private ArrayList<Productes_data> data;
     private Productes_Adaptor adapter ;
     ImageView go_back ,image;
     Bundle bundle;
@@ -107,67 +107,11 @@ public class ProductesActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        getAddsProduct("2");
-
-//        getAddsDtaied("2");
+        getAddsDtaied("2");
+//
     }
 
 
-
-    private void  getAddsProduct (final String id ) {
-
-        String url= "http://ksafactory.com/API/view_products/index.php?company=2";
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url
-                , null, new com.android.volley.Response.Listener<JSONObject>() {
-
-            @Override
-            public void onResponse(JSONObject response) {
-
-
-                try {
-                    JSONArray company = response.getJSONArray("product");
-                    ArrayList<Show_productis_data> data2= new ArrayList<>();
-                    for (int n = 0; n < company.length(); n++) {
-                        JSONObject object = company.getJSONObject(n);
-                        Productes_data data= new Productes_data(object.getString("product_id"), object.getString("product_title"), object.getString("product_image_name"), object.getString("product_service"), object.getString("username"), object.getString("date"));
-                        Show_productis_data ewdata =new Show_productis_data(object.getString("product_id"),object.getString("product_title"),
-                                object.getString("product_image_name"), object.getString("product_service"),   object.getString("username"),object.getString("date")
-                                );
-
-//                        Toast.makeText(getApplicationContext(),
-//                                object.getString("product_image_name"), Toast.LENGTH_SHORT).show();
-
-                        data2.add(ewdata);
-                    }
-
-
-                    adapter = new Productes_Adaptor(data2,ProductesActivity.this);
-                    recyclerView.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
-
-
-
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-
-            }
-        }, new com.android.volley.Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(jsonObjReq);
-    }
 
 
 
@@ -180,30 +124,37 @@ public class ProductesActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(JSONObject response) {
-                Productes_data data =null;
-                ArrayList<Productes_data> data22= new ArrayList<>();
+                Productes_data data =new Productes_data();
+                ArrayList<Productes_data> addData = new ArrayList<>();
 
                 try {
                     JSONArray company = response.getJSONArray("product");
 
+
+
                     for (int n = 0; n < company.length(); n++) {
                         JSONObject object = company.getJSONObject(n);
-                        data= new Productes_data(object.getString("product_id"),
+//                        data= new Productes_data(object.getString("product_id"),
+//                                object.getString("product_title"),
+//                                object.getString("product_image_name"),
+//                                object.getString("product_service"),
+//                                object.getString("username"),
+//                                object.getString("date"));
+
+
+                        addData.add(new Productes_data(object.getString("product_id"),
                                 object.getString("product_title"),
                                 object.getString("product_image_name"),
                                 object.getString("product_service"),
                                 object.getString("username"),
-                                object.getString("date")
-                        );
-
-                        data22.add(data);
-
+                                object.getString("date")));
                     }
 
 
-//                    adapter = new Productes_Adaptor(data22,ProductesActivity.this);
-//                    recyclerView.setAdapter(adapter);
-//                    adapter.notifyDataSetChanged();
+
+                    adapter = new Productes_Adaptor(addData,ProductesActivity.this);
+                    recyclerView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
 
 
 

@@ -40,18 +40,39 @@ public class LOgActivty extends AppCompatActivity {
 
     SharedPreferences.Editor editor;
     SharedPreferences sharedPref;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
         sharedPref = getApplicationContext().getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         editor = sharedPref.edit();
         String emailShared = sharedPref.getString("email", "null");
         String passwordShared = sharedPref.getString("password", "null");
         String typeShared = sharedPref.getString("type", "null");
-
-        if (!emailShared.equals("null"))
+        if (!emailShared.equals("null")){
             checkLogin(emailShared, passwordShared, typeShared);
+
+        }else {}
+
+        Toast.makeText(getApplicationContext(),"Now onStart() calls", Toast.LENGTH_LONG).show(); //onStart Called
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+//        sharedPref = getApplicationContext().getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+//        editor = sharedPref.edit();
+//        String emailShared = sharedPref.getString("email", "null");
+//        String passwordShared = sharedPref.getString("password", "null");
+//        String typeShared = sharedPref.getString("type", "null");
+//
+//        if (!emailShared.equals("null")){
+//            checkLogin(emailShared, passwordShared, typeShared);
+//
+//        }else {}
+
 
         setContentView(R.layout.new_login);
         editText2_password = (EditText) findViewById(R.id.editText2_password);

@@ -23,6 +23,10 @@ public class Productes_data {
         this.date = date;
     }
 
+    public Productes_data() {
+
+    }
+
     public String getProduct_id() {
         return product_id;
     }

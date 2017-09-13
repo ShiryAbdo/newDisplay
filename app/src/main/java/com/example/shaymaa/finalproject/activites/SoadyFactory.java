@@ -1,23 +1,32 @@
 package com.example.shaymaa.finalproject.activites;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.shaymaa.finalproject.R;
 
 public class SoadyFactory extends AppCompatActivity implements View.OnClickListener {
     LinearLayout search_factors_layout ,layou_over_all_factores ,add_new_factory;
     ImageView go_back ;
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPref;
+    String idi,typeShared;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activitysoadyfactory);
+        sharedPref = getApplicationContext().getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        idi= sharedPref.getString("id", null);
+        typeShared= sharedPref.getString("type", "null");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -52,7 +61,13 @@ public class SoadyFactory extends AppCompatActivity implements View.OnClickListe
         int Id=view.getId();
         switch (Id){
             case R.id.add_new_factory:
-                Move_on(addFactory.class);
+                if(typeShared.equals("1")){
+                    Toast.makeText(SoadyFactory.this,"عليك  التسجيل كا منشأة",Toast.LENGTH_SHORT).show();
+                }
+                if (typeShared.equals("2")){
+                    Move_on(addFactory.class);
+                }
+
                 break;
 
 

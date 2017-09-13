@@ -1,4 +1,4 @@
-package com.example.shaymaa.finalproject.maps;
+package com.example.shaymaa.finalproject.activites;
 
 import android.Manifest;
 import android.app.Activity;
@@ -10,14 +10,15 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.provider.Settings;
 import android.support.v13.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
-import android.location.LocationListener;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -27,9 +28,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.shaymaa.finalproject.R;
-import com.example.shaymaa.finalproject.activites.LOgActivty;
-import com.example.shaymaa.finalproject.activites.MainActivity;
-import com.example.shaymaa.finalproject.activites.RegisterCompletThree;
+import com.example.shaymaa.finalproject.maps.CountinuAdding;
 import com.example.shaymaa.finalproject.others.AppController;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -44,83 +43,53 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CountinuAdding extends FragmentActivity implements OnMapReadyCallback ,LocationListener{
+import static com.example.shaymaa.finalproject.maps.CountinuAdding.displayPromptForEnablingGPS;
 
-    private GoogleMap mMap;
-    double  newLatitude;
-    double newLongitude ;
-    LatLng newpoint ;
-    String title ;
-    Button countinu ;
+public class Add_Ads_three extends FragmentActivity implements OnMapReadyCallback,LocationListener {
+
+    String item_type_shope_in_dasters;
+    String item_chose_class_add;
+    String item_chose_part_dasteris;
     Bundle bundle;
-
-//    static final LatLng HAMBURG = new LatLng(53.558, 9.927);
-    Context context ;
-    LocationManager locationManager;
-    String  name_of_onwe,name_of_factory ,telphone_of_factory ,phone_numbe,email_adress ,what_is_producted;
-    String city,facebook,twitter,instegrame,image ,latitude,longitude ,google,fax,site;
-
+    String add_title,add_price,add_content,image,add_contentt,latitude,longitude ;
 
 
     SharedPreferences.Editor editor;
     SharedPreferences sharedPref;
-    public static final String KEY_user_id= "user_id";
-    public static final String KEY_category= "category";
-
-
-    public static final String KEY_name= "name";
-    public static final String KEY_mobile= "name";
-    public static final String KEY_tel = "name_ar";
-    public static final String KEY_fax = "fax";
-    public static final String KEY_email = "email";
-    public static final String kEY_site ="site";
-    public static final String kEY_cite ="site";
-
-
-    public static final String kEY_address ="address";
-    public static final String kEY_times ="times";
-    public static final String kEY_facebook ="facebook";
-    public static final String kEY_twitter ="twitter";
-    public static final String kEY_google ="google";
-    public static final String kEY_instegrame ="instegrame";
-
-
-    public static final String kEY_image ="image";
-    public static final String kEY_latitude ="latitude";
-    public static final String kEY_longitude ="longitude";
-
-
-
+    private GoogleMap mMap;
+    double  newLatitude;
+    double newLongitude ;
+    LatLng newpoint ;
     String myUrl,id;
-
-
-
+    String title ;
+    Button countinu ;
+     //    static final LatLng HAMBURG = new LatLng(53.558, 9.927);
+    Context context ;
+    LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout. continue_add_factory);
-
+        setContentView(R.layout.activity_add__ads_three);
         sharedPref = getApplicationContext().getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         id= sharedPref.getString("id", null);
 
+
         bundle=getIntent().getExtras();
-        if(bundle!=null){
-            city=bundle.getString("city");
-            facebook=bundle.getString("facebook");
-            twitter=bundle.getString("twitter");
-            instegrame=bundle.getString("instegrame");
-            google=bundle.getString("google");
-            fax=bundle.getString("fax");
-            site=bundle.getString("site");
+
+
+        if (bundle!=null){
+
+            add_title= bundle.getString("add_title");
+            add_price=bundle.getString("add_price");
+            add_content=bundle.getString("add_content");
             image=bundle.getString("image");
-            name_of_onwe=bundle.getString("name_of_onwe");
-            name_of_factory=bundle.getString("name_of_factory");
-            telphone_of_factory=bundle.getString("telphone_of_factory");
-            phone_numbe=bundle.getString("phone_numbe");
-            email_adress=bundle.getString("email_adress");
-            what_is_producted=bundle.getString("what_is_producted");
-         }
+            item_type_shope_in_dasters=bundle.getString("item_type_shope_in_dasters");
+            item_chose_class_add=bundle.getString("item_chose_class_add");
+            item_chose_part_dasteris=bundle.getString("item_chose_part_dasteris");
+            add_contentt=bundle.getString("add_contentt");
+        }
+
 
 
 
@@ -129,8 +98,8 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-         context =  CountinuAdding.this ;
-        displayPromptForEnablingGPS(CountinuAdding.this);
+        context =  Add_Ads_three.this ;
+        displayPromptForEnablingGPS(Add_Ads_three.this);
         countinu = (Button)findViewById(R.id.continu_add_factor);
         countinu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,9 +109,7 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
 
 
 
-                AddFactory(id,"2036",name_of_onwe,phone_numbe,telphone_of_factory,fax,
-                        email_adress,site,what_is_producted,city,facebook,twitter,google,
-                        instegrame,image,latitude,longitude);
+
 
 
 
@@ -163,8 +130,13 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
         }
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1, 1, this);
 
-//        title= getGeocodeName(newLatitude,newLongitude);
+
+
+        Add_Adds(id,add_title,add_price,image, item_chose_class_add,item_type_shope_in_dasters,
+                item_chose_part_dasteris,latitude,longitude,add_content,add_contentt);
+
     }
+
 
     public static void displayPromptForEnablingGPS(final Activity activity)
     {
@@ -226,7 +198,7 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
 
 
 
-             }        });
+            }        });
 
     }
 
@@ -268,7 +240,7 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
 
     }
 
-//addresses == null ||
+    //addresses == null ||
     public String getGeocodeName(double latitude, double longitude) {
         Context context = getApplicationContext();
 
@@ -303,15 +275,24 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
 
 
 
-    private void  AddFactory(final String user_id ,
-        final String category , final String  name
-            , final String mobile , final String tel,
-         final String fax , final String email,
-       final String  site ,
-    final String  times , final String   city
-            , final String facebook  , final String twitter,
-   final String google, final String instegrame,
-      final String image,final String latitude, final String longitude){
+//     http://ksafactory.com/API/add_to_ads/index.php?
+//     user_id=1&ads_title=hellooo&ads_price=%D8%AD%D8%B3%D8%A8%20%D8%A7%D9%84%D8%A7%D8%AA%D9%81%D8%A7%D9%82
+//     &ads_image=165&ads_category=2006&ads_type=2100&ads_model=2131&latitude=24.53002396162187
+//     &longitude=46.7277717590332&ads_content=hhahhahhahahaahhaahhaha&contact=01991991
+
+
+    private void  Add_Adds(final String user_id ,
+                             final String ads_title ,
+                             final String  ads_price
+                             , final String ads_image ,
+                             final String ads_category,
+                             final String ads_type ,
+                             final String ads_model,
+                             final String  latitude ,
+                             final String  longitude,
+                             final String  ads_content,
+                             final String  contact
+                             ){
 
 
 
@@ -321,25 +302,19 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
         builder.scheme("http")
                 .authority("www.ksafactory.com")
                 .appendPath("API")
-                .appendPath("add_to_company")
+                .appendPath("add_to_ads")
                 .appendPath("index.php")
                 .appendQueryParameter("user_id",user_id)
-                .appendQueryParameter("category", category)
-                .appendQueryParameter("name",name)
-                .appendQueryParameter("mobile",mobile)
-                .appendQueryParameter("tel",tel)
-                .appendQueryParameter("fax",fax)
-                .appendQueryParameter("email",email)
-                .appendQueryParameter("site",site)
-                .appendQueryParameter("times",times)
-                .appendQueryParameter("city",city)
-                .appendQueryParameter("facebook",facebook)
-                .appendQueryParameter("twitter",twitter)
-                .appendQueryParameter("google",google)
-                .appendQueryParameter("instegrame",instegrame)
-                .appendQueryParameter("image",image)
+                .appendQueryParameter("ads_title", ads_title)
+                .appendQueryParameter("ads_price",ads_price)
+                .appendQueryParameter("ads_image",ads_image)
+                .appendQueryParameter("ads_category",ads_category)
+                .appendQueryParameter("ads_type",ads_type)
+                .appendQueryParameter("ads_model",ads_model)
                 .appendQueryParameter("latitude",latitude)
-                .appendQueryParameter("longitude",longitude);
+                .appendQueryParameter("longitude",longitude)
+                .appendQueryParameter("ads_content",ads_content)
+                .appendQueryParameter("contact",contact);
         myUrl= builder.build().toString();
         String tag_string_req = "req_register";
 
@@ -350,12 +325,12 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(CountinuAdding.this,response,Toast.LENGTH_LONG).show();
+                        Toast.makeText(Add_Ads_three.this,response,Toast.LENGTH_LONG).show();
 
-                        Toast.makeText( CountinuAdding.this, "you sucessfully adding your company",Toast.LENGTH_LONG).show();
+                        Toast.makeText( Add_Ads_three.this, "تم إضافه الإعلان",Toast.LENGTH_LONG).show();
 
 
-                        startActivity(new Intent(getApplicationContext(),  MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(),  AcountUser.class));
 
 
                     }
@@ -363,30 +338,24 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(CountinuAdding.this,"errrrorrr",Toast.LENGTH_LONG).show();
+                        Toast.makeText(Add_Ads_three.this,"errrrorrr",Toast.LENGTH_LONG).show();
                     }
                 }){
 
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
-                params.put(KEY_user_id,user_id);
-                params.put(KEY_category,category);
-                params.put(KEY_name,name);
-                params.put(KEY_mobile,mobile);
-                params.put(KEY_tel,tel);
-                params.put(KEY_fax,email);
-                params.put(KEY_email,fax);
-                params.put(kEY_site,site);
-                params.put(kEY_times,times);
-                params.put(kEY_cite,city);
-                params.put(kEY_facebook,facebook);
-                params.put(kEY_twitter,twitter);
-                params.put(kEY_google,google);
-                params.put(kEY_instegrame,instegrame);
-                params.put(kEY_image,image);
-                params.put(kEY_latitude,latitude);
-                params.put(kEY_longitude,longitude);
+                params.put(user_id,user_id);
+                params.put(ads_title,ads_title);
+                params.put(ads_price,ads_price);
+                params.put(ads_image,ads_image);
+                params.put(ads_category,ads_category);
+                params.put(ads_type,ads_type);
+                params.put(ads_model,ads_model);
+                params.put(latitude,latitude);
+                params.put(longitude,longitude);
+                params.put(ads_content,ads_content);
+                params.put(contact,contact);
                 return params;
             }
 
@@ -403,5 +372,6 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
 
 
     }
+
 
 }
