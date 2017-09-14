@@ -148,10 +148,10 @@ public class ProductesActivity extends AppCompatActivity {
                                 object.getString("product_service"),
                                 object.getString("username"),
                                 object.getString("date")));
-                        adapter = new Productes_Adaptor(addData,ProductesActivity.this);
+
 
                     }
-
+                    adapter = new Productes_Adaptor(addData,ProductesActivity.this);
 
 
                     recyclerView.setAdapter(adapter);

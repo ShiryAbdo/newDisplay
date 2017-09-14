@@ -35,6 +35,7 @@ public class SupportActivity extends AppCompatActivity {
     public static final String KEY_email = "message_title";
     public static final String KEY_address = "message_title";
     public static final String kEY_massage ="content";
+    String emailRegEx ;
 
 
 
@@ -61,6 +62,7 @@ public class SupportActivity extends AppCompatActivity {
         email= editText_email.getText().toString().trim();
         address= editText_address.getText().toString().trim();
         massage= contain_massge.getText().toString().trim();
+        emailRegEx = "^[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,4}$";
 
         go_back =(ImageView)findViewById(R.id.go_back);
         go_back.setOnClickListener(new View.OnClickListener() {
@@ -79,8 +81,21 @@ public class SupportActivity extends AppCompatActivity {
                 if(editText_nam.getText().toString().trim().length() > 0&&editText_phone.getText().toString().trim().length() > 0&&
                         editText_email.getText().toString().trim().length() > 0&&editText_address.getText().toString().trim().length() > 0
                         &&contain_massge.getText().toString().trim().length() > 0){
-                    senData(check_the_EditText(editText_nam), check_the_EditText(editText_phone), check_the_EditText(editText_email),
-                            check_the_EditText(editText_address),check_the_EditText(contain_massge));
+
+
+                    if (editText_email.getText().toString().matches(emailRegEx) && editText_email.getText().toString().length() > 0)
+                    {
+
+                        senData(check_the_EditText(editText_nam), check_the_EditText(editText_phone), check_the_EditText(editText_email),
+                                check_the_EditText(editText_address),check_the_EditText(contain_massge));
+                    }else {
+                        Toast.makeText(getApplicationContext(),"الإيميل غير صالح",Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+
+
 
 
                 }else {

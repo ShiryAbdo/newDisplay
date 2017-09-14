@@ -91,11 +91,16 @@ public class RegisterCompletThree extends AppCompatActivity {
         complet_register_moassa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(password.getText().toString().trim().equals(re_password.getText().toString().trim())){
+                    registerUser(name_of_comapy,name_comany_arabick,name_comany_english,email_of_comapy,box_email,postel_code,phone_of_comapy,
+                            check_the_EditText(number_of_fax),check_the_EditText(web_url),check_the_EditText(name_of_head),
+                            check_the_EditText(represint_company),check_the_EditText(represint_company),check_the_EditText(represint_company),""
+                    );
 
-                 registerUser(name_of_comapy,name_comany_arabick,name_comany_english,email_of_comapy,box_email,postel_code,phone_of_comapy,
-                        check_the_EditText(number_of_fax),check_the_EditText(web_url),check_the_EditText(name_of_head),
-                         check_the_EditText(represint_company),check_the_EditText(represint_company),check_the_EditText(represint_company),""
-                        );
+                }else {
+                    Toast.makeText(getApplicationContext(), "كلمة المرور غير  متطابقة",Toast.LENGTH_LONG).show();
+
+                }
 
 
 
@@ -103,6 +108,7 @@ public class RegisterCompletThree extends AppCompatActivity {
         });
 
     }
+
     private void registerUser(final String username , final String name_ar , final String  name_en
                              , final String email , final String mail_box, final String mail_symbol , final String phone,
                               final String  fax , final String  site, final String  manager , final String   representative
@@ -141,9 +147,8 @@ public class RegisterCompletThree extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(RegisterCompletThree.this,response,Toast.LENGTH_LONG).show();
 
-//                        Toast.makeText( RegistrationUser.this, "this error",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "تم التسجيل بنجاح",Toast.LENGTH_LONG).show();
 
 
                         startActivity(new Intent(getApplicationContext(),  LOgActivty.class));

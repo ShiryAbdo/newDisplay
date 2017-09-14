@@ -17,6 +17,8 @@ public class addFactory extends AppCompatActivity {
 
     EditText name_of_onwe , name_of_factory, telphone_of_factory,phone_numbe, email_adress,
             what_is_producted  ,site;
+     String  emailRegEx;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,21 +33,29 @@ public class addFactory extends AppCompatActivity {
         what_is_producted=(EditText)findViewById(R.id.what_is_producted);
         cuttongadding=(Button)findViewById(R.id.cuttongadding);
         site=(EditText)findViewById(R.id.site);
+        emailRegEx = "^[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,4}$";
 //
         cuttongadding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),
-                        "Clicled" , Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(addFactory.this,CuntinoAddTWO.class);
-                intent.putExtra("name_of_onwe",name_of_onwe.getText().toString().trim());
-                intent.putExtra("name_of_factory",name_of_factory.getText().toString().trim());
-                intent.putExtra("telphone_of_factory",telphone_of_factory.getText().toString().trim());
-                intent.putExtra("phone_numbe",phone_numbe.getText().toString().trim());
-                intent.putExtra("email_adress",email_adress.getText().toString().trim());
-                intent.putExtra("what_is_producted",what_is_producted.getText().toString().trim());
-                intent.putExtra("site",site.getText().toString().trim());
-                startActivity(intent);
+
+                Toast.makeText(getApplicationContext(),email_adress.getText().toString(),Toast.LENGTH_SHORT).show();
+
+ if (email_adress.getText().toString().matches(emailRegEx) && email_adress.getText().toString().length() > 0)
+                {
+                    Intent intent = new Intent(addFactory.this,CuntinoAddTWO.class);
+                    intent.putExtra("name_of_onwe",name_of_onwe.getText().toString().trim());
+                    intent.putExtra("name_of_factory",name_of_factory.getText().toString().trim());
+                    intent.putExtra("telphone_of_factory",telphone_of_factory.getText().toString().trim());
+                    intent.putExtra("phone_numbe",phone_numbe.getText().toString().trim());
+                    intent.putExtra("email_adress",email_adress.getText().toString().trim());
+                    intent.putExtra("what_is_producted",what_is_producted.getText().toString().trim());
+                    intent.putExtra("site",site.getText().toString().trim());
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(getApplicationContext(),"الإيميل غير صالح",Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

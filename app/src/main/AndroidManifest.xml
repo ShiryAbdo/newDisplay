@@ -105,7 +105,6 @@
         <activity android:name=".activites.Cites_stand_upActivity" />
         <activity android:name=".activites.Area_tqnyActivity" />
         <activity android:name=".activites.Wahat_elmodinActivity" />
-        <activity android:name=".activites.Industrial_cities_detalis" />
         <activity android:name=".activites.SearchWithNameActivity" />
         <activity android:name=".activites.Compa_Of_Factory" />
         <activity android:name=".activites.CitiesDetails" />

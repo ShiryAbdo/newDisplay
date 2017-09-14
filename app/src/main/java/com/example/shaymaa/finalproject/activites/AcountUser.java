@@ -202,13 +202,11 @@ public class AcountUser extends AppCompatActivity {
 
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(),
-                        "recuest" +response , Toast.LENGTH_SHORT).show();
+
                 try {
                     JSONArray user = response.getJSONArray("user");
                     // Error in login. Get the error message
-                    Toast.makeText(getApplicationContext(),
-                            "recuest", Toast.LENGTH_SHORT).show();
+
 
                     for (int n = 0; n < user.length(); n++) {
                         JSONObject object = user.getJSONObject(n);
@@ -223,8 +221,7 @@ public class AcountUser extends AppCompatActivity {
                     }
                     String su=response.getString("success");
                     if (su.equals("1")){
-                        Toast.makeText(getApplicationContext(),
-                                emaili , Toast.LENGTH_SHORT).show();
+
 
 
                         bundle.putString("account_about",account_about);

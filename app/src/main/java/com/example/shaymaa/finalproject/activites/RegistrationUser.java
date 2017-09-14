@@ -44,6 +44,7 @@ public class RegistrationUser extends AppCompatActivity {
     public static final String KEY_PHONE = "mobile";
     public static final String kEY_CITY ="city";
     private static final String TAG =  "tage";
+    String emailRegEx;
 
 
     @Override
@@ -59,6 +60,7 @@ public class RegistrationUser extends AppCompatActivity {
         spinner_singil_register = (Spinner) findViewById(R.id.spinner_singil_register);
         checkBox_agree = (CheckBox) findViewById(R.id.checkBox_agree);
         register_as_singile=(Button)findViewById(R.id.register_endifiual) ;
+        emailRegEx = "^[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,4}$";
 
 
 
@@ -72,11 +74,25 @@ public class RegistrationUser extends AppCompatActivity {
                 String password = editText_password.getText().toString().trim();
                 String city = editText_password.getText().toString().trim();
                  if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
-                    registerUser(name, email, password, mobile, city);
- 
-                     Toast.makeText(RegistrationUser.this, "register" +name +email+password+mobile+city, Toast.LENGTH_SHORT).show();
+
+                     if (editText_email.getText().toString().matches(emailRegEx) &&editText_email.getText().toString().length() > 0)
+                     {
+
+                         if(editText_password.getText().toString().trim().equals(editText_password.getText().toString().trim())){
+                             registerUser(name, email, password, mobile, city);
+
+                         }else {
+                             Toast.makeText(getApplicationContext(), "كلمة المرور غير  متطابقة",Toast.LENGTH_LONG).show();
+                         }
+
+
+                         Toast.makeText(RegistrationUser.this, "تم التسجيل بنجاح" +name +email+password+mobile+city, Toast.LENGTH_SHORT).show();
+                     }else {
+                         Toast.makeText(getApplicationContext(),"الإيميل غير صالح",Toast.LENGTH_SHORT).show();
+                     }
+
                 } else {
-                    Toast.makeText(getApplicationContext(), "details!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "!أضف البيانات", Toast.LENGTH_LONG).show();
 
                 }
             }

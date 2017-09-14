@@ -40,6 +40,7 @@ public class UpdateAcountUser extends AppCompatActivity {
     String account_about,user_image,usernamee,emaili,user_mobile,user_gender,user_address ,idi;
     String myUr;
     Button sed_button;
+    String emailRegEx ;
 
     public static final String KEY_user_id = "user_id";
     public static final String KEY_username = "username";
@@ -91,14 +92,43 @@ public class UpdateAcountUser extends AppCompatActivity {
         editText_address.setText(user_address);
         contain_massge.setText("");
 
+        emailRegEx = "^[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,4}$";
+
 
         sed_button=(Button)findViewById(R.id.sed_button);
         sed_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(editText_nam.getText().toString().trim().length() > 0
+                        &&editText_email.getText().toString().trim().length() > 0&&
+                        editText_phone.getText().toString().trim().length() > 0&&
+                        contain_massge.getText().toString().trim().length() > 0&&
+                        editText_address.getText().toString().trim().length() > 0
+                        ){
 
-                UpdateAcountUserA(id,editText_nam.getText().toString(),editText_email.getText().toString(),editText_phone.getText().toString(),contain_massge.getText().toString(),
-                        "countery","city",editText_address.getText().toString());
+
+
+                    if (editText_email.getText().toString().matches(emailRegEx) && editText_email.getText().toString().length() > 0)
+                    {
+
+
+
+                        UpdateAcountUserA(id,editText_nam.getText().toString(),
+                                editText_email.getText().toString(),editText_phone.getText().toString(),contain_massge.getText().toString(),
+                                "countery","city",editText_address.getText().toString());
+                    }else {
+
+                        Toast.makeText(getApplicationContext(),"الإيميل غير صالح",Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+                }else {
+
+                    Toast.makeText(getApplicationContext(),
+                            "أدخل البيانات" , Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -113,6 +143,7 @@ public class UpdateAcountUser extends AppCompatActivity {
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(UpdateAcountUser.this,  AcountUser.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);

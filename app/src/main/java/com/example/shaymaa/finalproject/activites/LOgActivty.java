@@ -43,35 +43,19 @@ public class LOgActivty extends AppCompatActivity {
 
 
     @Override
-    protected void onStart()
-    {
-        super.onStart();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         sharedPref = getApplicationContext().getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         editor = sharedPref.edit();
         String emailShared = sharedPref.getString("email", "null");
         String passwordShared = sharedPref.getString("password", "null");
         String typeShared = sharedPref.getString("type", "null");
+
         if (!emailShared.equals("null")){
             checkLogin(emailShared, passwordShared, typeShared);
 
         }else {}
-
-        Toast.makeText(getApplicationContext(),"Now onStart() calls", Toast.LENGTH_LONG).show(); //onStart Called
-    }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-//        sharedPref = getApplicationContext().getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-//        editor = sharedPref.edit();
-//        String emailShared = sharedPref.getString("email", "null");
-//        String passwordShared = sharedPref.getString("password", "null");
-//        String typeShared = sharedPref.getString("type", "null");
-//
-//        if (!emailShared.equals("null")){
-//            checkLogin(emailShared, passwordShared, typeShared);
-//
-//        }else {}
 
 
         setContentView(R.layout.new_login);
@@ -107,7 +91,7 @@ public class LOgActivty extends AppCompatActivity {
                     checkLogin(check_the_EditText(editText_email), check_the_EditText(editText2_password), type);
                 }else {
                     Toast.makeText(getApplicationContext(),
-                            "Enter Email and Password" , Toast.LENGTH_SHORT).show();
+                            "أدخل الإيميل والباس ورد" , Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -179,13 +163,11 @@ public class LOgActivty extends AppCompatActivity {
 
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(),
-                        "recuest" +response , Toast.LENGTH_SHORT).show();
+
                 try {
                     JSONArray user = response.getJSONArray("user");
                     // Error in login. Get the error message
-                    Toast.makeText(getApplicationContext(),
-                            "recuest", Toast.LENGTH_SHORT).show();
+
 
                     for (int n = 0; n < user.length(); n++) {
                         JSONObject object = user.getJSONObject(n);
@@ -198,8 +180,7 @@ public class LOgActivty extends AppCompatActivity {
                     }
                     String su=response.getString("success");
                     if (su.equals("1")){
-                        Toast.makeText(getApplicationContext(),
-                                "Toast" + su+"done" , Toast.LENGTH_SHORT).show();
+
 
                         String id = uid;
                         editor.putString("username", username);
@@ -213,8 +194,6 @@ public class LOgActivty extends AppCompatActivity {
                     editor.commit();
 
 
-                    Toast.makeText(getApplicationContext(),
-                            "ceart acount", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LOgActivty.this,
                             MainActivity.class);
                     startActivity(intent);

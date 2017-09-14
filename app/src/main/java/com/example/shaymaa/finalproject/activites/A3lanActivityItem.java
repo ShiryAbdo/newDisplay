@@ -162,8 +162,7 @@ public class A3lanActivityItem extends AppCompatActivity {
                     }
                     String su=response.getString("success");
                     if (su.equals("1")){
-                        Toast.makeText(getApplicationContext(),
-                                user_name, Toast.LENGTH_SHORT).show();
+
                         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
                         // Set up the ViewPager with the sections adapter.

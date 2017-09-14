@@ -72,7 +72,7 @@ public class Elmonshat_modafa extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        getAddsDtaied("1");
+        getAddsDtaied(idi);
 
     }
 
