@@ -17,7 +17,7 @@ public class CuntinoAddTWO extends AppCompatActivity {
     Bundle bundle;
 
     String name_of_onwe,name_of_factory,telphone_of_factory,phone_numbe,email_adress,
-            what_is_producted,site;
+            what_is_producted,site,category_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,7 @@ public class CuntinoAddTWO extends AppCompatActivity {
             email_adress=bundle.getString("email_adress");
             what_is_producted=bundle.getString("what_is_producted");
             site=bundle.getString("site");
+            category_id= bundle.getString("category_id");
         }
 
         city_name=(EditText)findViewById(R.id.city_name);
@@ -62,6 +63,7 @@ public class CuntinoAddTWO extends AppCompatActivity {
                 intent.putExtra("phone_numbe",phone_numbe);
                 intent.putExtra("email_adress",email_adress);
                 intent.putExtra("what_is_producted",what_is_producted);
+                intent.putExtra("category_id",category_id);
                 startActivity(intent);
 
             }

@@ -31,6 +31,7 @@ import com.example.shaymaa.finalproject.R;
 import com.example.shaymaa.finalproject.activites.LOgActivty;
 import com.example.shaymaa.finalproject.activites.MainActivity;
 import com.example.shaymaa.finalproject.activites.RegisterCompletThree;
+import com.example.shaymaa.finalproject.activites.SoadyFactory;
 import com.example.shaymaa.finalproject.others.AppController;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -39,6 +40,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.json.JSONArray;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -59,7 +62,7 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
     Context context ;
     LocationManager locationManager;
     String  name_of_onwe,name_of_factory ,telphone_of_factory ,phone_numbe,email_adress ,what_is_producted;
-    String city,facebook,twitter,instegrame,image ,latitude,longitude ,google,fax,site;
+    String city,facebook,twitter,instegrame,image ,latitude,longitude ,google,fax,site,category_id;
 
 
 
@@ -121,6 +124,7 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
             phone_numbe=bundle.getString("phone_numbe");
             email_adress=bundle.getString("email_adress");
             what_is_producted=bundle.getString("what_is_producted");
+            category_id=bundle.getString("category_id");
          }
 
 
@@ -138,12 +142,15 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
             public void onClick(View view) {
 
 
+              if(category_id!=null){
+
+                  AddFactory("id", "2006",name_of_onwe,phone_numbe,telphone_of_factory,fax,
+                          email_adress,site,what_is_producted,city,facebook,twitter,google,
+                          instegrame,image,latitude,longitude);
+              }
 
 
 
-                AddFactory(id,"2036",name_of_onwe,phone_numbe,telphone_of_factory,fax,
-                        email_adress,site,what_is_producted,city,facebook,twitter,google,
-                        instegrame,image,latitude,longitude);
 
 
 
@@ -213,6 +220,7 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
 
             @Override
             public void onMapClick(LatLng point) {
+                mMap.clear();
 
                 MarkerOptions marker = new MarkerOptions().position(
                         new LatLng(point.latitude, point.longitude)).title(getGeocodeName(point.latitude, point.longitude));
@@ -319,20 +327,22 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
         Uri.Builder builder = new Uri.Builder();
 //        "http://ksafactory.com/API/login/index.php?email=m@gmail.com&password=6666&type=1"
 //        http://ksafactory.com/API/login/index.php
+
+
         builder.scheme("http")
                 .authority("www.ksafactory.com")
                 .appendPath("API")
                 .appendPath("add_to_company")
                 .appendPath("index.php")
-                .appendQueryParameter("user_id",user_id)
+                .appendQueryParameter("user_id",id)
                 .appendQueryParameter("category", category)
-                .appendQueryParameter("name",name)
-                .appendQueryParameter("mobile",mobile)
-                .appendQueryParameter("tel",tel)
+                .appendQueryParameter("name",name_of_onwe)
+                .appendQueryParameter("mobile",phone_numbe)
+                .appendQueryParameter("tel",telphone_of_factory)
                 .appendQueryParameter("fax",fax)
-                .appendQueryParameter("email",email)
+                .appendQueryParameter("email",email_adress)
                 .appendQueryParameter("site",site)
-                .appendQueryParameter("times",times)
+                .appendQueryParameter("times",what_is_producted)
                 .appendQueryParameter("city",city)
                 .appendQueryParameter("facebook",facebook)
                 .appendQueryParameter("twitter",twitter)
@@ -347,16 +357,25 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
 
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, myUrl,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, myUrl,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(CountinuAdding.this,response,Toast.LENGTH_LONG).show();
+                        Log.d("CDA",  response);
+                        Log.d("CDA",  "here");
 
-                        Toast.makeText( CountinuAdding.this, "you sucessfully adding your company",Toast.LENGTH_LONG).show();
 
 
-                        startActivity(new Intent(getApplicationContext(),  MainActivity.class));
+//                        Toast.makeText( CountinuAdding.this, "you sucessfully adding your company",Toast.LENGTH_LONG).show();
+
+
+
+
+
+
+
+//                        startActivity(new Intent(getApplicationContext(),  MainActivity.class));
 
 
                     }
@@ -408,9 +427,8 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
     @Override
     public void onBackPressed() {
         Log.d("CDA", "onBackPressed Called");
-        Intent setIntent = new Intent(Intent.ACTION_MAIN);
-        setIntent.addCategory(Intent.CATEGORY_HOME);
-        setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent setIntent = new Intent(CountinuAdding.this , SoadyFactory.class);
+
         startActivity(setIntent);
     }
 

@@ -74,7 +74,7 @@ public class FolwersActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        getAddsDtaied("idi");
+        getAddsDtaied(idi);
 
     }
 

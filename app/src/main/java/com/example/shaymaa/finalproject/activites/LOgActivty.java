@@ -56,7 +56,7 @@ public class LOgActivty extends AppCompatActivity {
         if (!emailShared.equals("null")){
             checkLogin(emailShared, passwordShared, typeShared);
 
-        }else {}
+        }
 
 
         setContentView(R.layout.new_login);

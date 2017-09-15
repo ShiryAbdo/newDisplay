@@ -154,7 +154,8 @@ public class A3lanActivityItem extends AppCompatActivity {
                         bundle2.putString("ads_id", object.getString("ads_id"));
                         bundle2.putString("ads_visited", object.getString("ads_visited"));
 
-//                        bundle3.putString("ads_visited", object.getString("ads_visited"));
+                        bundle3.putString("user_name",object.getString("user_name"));
+                        bundle3.putString("ads_title",object.getString("ads_title"));
 
                         bundle4.putString("company_latitude", object.getString("ads_latitude"));
                         bundle4.putString("company_longitude", object.getString("ads_longitude"));
@@ -245,14 +246,17 @@ public class A3lanActivityItem extends AppCompatActivity {
 
             switch (position) {
                 case 0:
+                    ElasfE3lanFragment elasfE3lanFragment = new ElasfE3lanFragment();
+                    elasfE3lanFragment.setArguments(bundle3);
+
+                    return elasfE3lanFragment;
+                case 1:
+
                     A3lanatDetails a3lanatDetails =new A3lanatDetails();
                     a3lanatDetails.setArguments(bundle2);
 
-                    return a3lanatDetails;
-                case 1:
-                    ElasfE3lanFragment elasfE3lanFragment = new ElasfE3lanFragment();
-                    elasfE3lanFragment.setArguments(bundle2);
-                      return elasfE3lanFragment;
+
+                      return a3lanatDetails;
 
                 case 2:
                     MapWasfFactory mapWasfFactory = new MapWasfFactory();

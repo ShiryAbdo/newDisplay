@@ -185,6 +185,7 @@ public class Add_Ads_three extends FragmentActivity implements OnMapReadyCallbac
 
             @Override
             public void onMapClick(LatLng point) {
+                mMap.clear();
 
                 MarkerOptions marker = new MarkerOptions().position(
                         new LatLng(point.latitude, point.longitude)).title(getGeocodeName(point.latitude, point.longitude));

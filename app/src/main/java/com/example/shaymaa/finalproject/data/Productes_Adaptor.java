@@ -21,6 +21,8 @@ import java.util.ArrayList;
  * Created by shirya on 12/09/17.
  */
 
+
+
 public class Productes_Adaptor   extends RecyclerView.Adapter<Productes_Adaptor.ViewHolder> {
     private ArrayList<Productes_data> androidList;
     private Context context;

@@ -144,10 +144,11 @@ public class RegisterCompletThree extends AppCompatActivity {
 
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, myUrl,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, myUrl,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
 
                         Toast.makeText(getApplicationContext(), "تم التسجيل بنجاح",Toast.LENGTH_LONG).show();
 

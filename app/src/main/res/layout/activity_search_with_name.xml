@@ -35,7 +35,7 @@
 
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="البحث بأسم المصنع"
+            android:text="البحث بأسم المصنع "
             android:id="@+id/wasf_titel"
             />
 

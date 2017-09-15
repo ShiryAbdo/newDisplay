@@ -111,7 +111,7 @@ public class ProductesActivity extends AppCompatActivity {
 
 
 
-        getAddsDtaied("");
+        getAddsDtaied(idi);
  //
     }
 
@@ -122,7 +122,7 @@ public class ProductesActivity extends AppCompatActivity {
 
     private void  getAddsDtaied (final String id ) {
 
-        String url=  "http://ksafactory.com/API/view_products/index.php?company=2";
+        String url=  "http://ksafactory.com/API/view_products/index.php?company="+id;
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url
                 , null, new com.android.volley.Response.Listener<JSONObject>() {
 
