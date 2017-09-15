@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -16,7 +17,7 @@ public class CitiesDetails extends AppCompatActivity {
     MyTextView  space,discription,city,titel;
     ImageView go_back ;
     Bundle bundle;
-    String imageUr,Factory_space,Factory_title,contant;
+    String imageUr,Factory_space,Factory_title,contant ,city_name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,7 @@ public class CitiesDetails extends AppCompatActivity {
             Factory_space=bundle.getString("Factory_space");
             Factory_title=bundle.getString("Factory_title");
             contant=bundle.getString("contant");
+            city_name=bundle.getString("city_name");
         }
 
 
@@ -40,7 +42,7 @@ public class CitiesDetails extends AppCompatActivity {
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CitiesDetails.this, MainActivity.class);
+                Intent intent = new Intent(CitiesDetails.this,   Show_Industrial_cities.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -55,9 +57,24 @@ public class CitiesDetails extends AppCompatActivity {
         space.setText(Factory_space);
         discription.setText(contant);
         titel.setText(Factory_title);
-//        city.setText(city);
+
+        if(city_name!=""&&city_name!=null){
+            city.setText(city_name.substring(20).replace("\";}", ""));
+
+        }else {
+            city.setText(city_name);
+           }
+
 //
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(CitiesDetails.this,  Show_Industrial_cities.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }

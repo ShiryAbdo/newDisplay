@@ -75,7 +75,7 @@ public class DetalisOfProduction_WitAdd extends AppCompatActivity {
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(  DetalisOfProduction_WitAdd.this, MainActivity.class);
+                Intent intent = new Intent(  DetalisOfProduction_WitAdd.this, ProductesActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -230,4 +230,13 @@ public class DetalisOfProduction_WitAdd extends AppCompatActivity {
 
     }
 
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent( DetalisOfProduction_WitAdd.this,  ProductesActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
 }

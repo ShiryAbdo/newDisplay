@@ -27,6 +27,8 @@ import com.example.shaymaa.finalproject.data.Adapter_recycle_commentes;
  import com.example.shaymaa.finalproject.data.Flower_Adaptor;
  import com.example.shaymaa.finalproject.data.Folwers_Data;
  import com.example.shaymaa.finalproject.data.Get_Data;
+ import com.example.shaymaa.finalproject.data.My_Fav_Adaptor;
+ import com.example.shaymaa.finalproject.data.My_Fav_Data;
  import com.example.shaymaa.finalproject.data.Productes_Adaptor;
  import com.example.shaymaa.finalproject.data.Productes_data;
  import com.example.shaymaa.finalproject.data.Show_productis_data;
@@ -66,7 +68,7 @@ public class ProductesActivity extends AppCompatActivity {
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(  ProductesActivity.this, MainActivity.class);
+                Intent intent = new Intent(  ProductesActivity.this, wasffWithTabb.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -107,8 +109,10 @@ public class ProductesActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        getAddsDtaied("2");
-//
+
+
+        getAddsDtaied("");
+ //
     }
 
 
@@ -118,42 +122,44 @@ public class ProductesActivity extends AppCompatActivity {
 
     private void  getAddsDtaied (final String id ) {
 
-        String url= "http://ksafactory.com/API/view_products/index.php?company=2";
+        String url=  "http://ksafactory.com/API/view_products/index.php?company=2";
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url
                 , null, new com.android.volley.Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
-                Productes_data data =new Productes_data();
-                ArrayList<Productes_data> addData = new ArrayList<>();
+                Productes_data data = new Productes_data();
+                ArrayList<Productes_data> data22= new ArrayList<>();
+
+//                Log.e("regcheck",response);
 
                 try {
                     JSONArray company = response.getJSONArray("product");
 
-
-
                     for (int n = 0; n < company.length(); n++) {
+
+
                         JSONObject object = company.getJSONObject(n);
-//                        data= new Productes_data(object.getString("product_id"),
-//                                object.getString("product_title"),
-//                                object.getString("product_image_name"),
-//                                object.getString("product_service"),
-//                                object.getString("username"),
-//                                object.getString("date"));
 
+                        String product_id =object.getString("product_id");
+                        String product_title =object.getString("product_title");
+                        String product_image_name =object.getString("product_image_name");
+                        String product_service =object.getString("product_service");
+                        String username =object.getString("product_id");
+                        String date =object.getString("product_id");
 
-                        addData.add(new Productes_data(object.getString("product_id"),
-                                object.getString("product_title"),
-                                object.getString("product_image_name"),
-                                object.getString("product_service"),
-                                object.getString("username"),
-                                object.getString("date")));
+        data= new Productes_data(product_id,product_title,product_image_name,product_service,username,date);
 
+                        data22.add(data);
+                        Toast.makeText(getApplicationContext(),
+                                product_id, Toast.LENGTH_SHORT).show();
 
                     }
-                    adapter = new Productes_Adaptor(addData,ProductesActivity.this);
 
 
+
+
+                    adapter = new Productes_Adaptor(data22,ProductesActivity.this);
                     recyclerView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
 
@@ -163,10 +169,7 @@ public class ProductesActivity extends AppCompatActivity {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                } finally {
-                //Notify adapter about data changes
-                adapter.notifyDataSetChanged();
-            }
+                }
 
 
 
@@ -186,6 +189,13 @@ public class ProductesActivity extends AppCompatActivity {
 
 
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(  ProductesActivity.this, wasffWithTabb.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
 
 }
 

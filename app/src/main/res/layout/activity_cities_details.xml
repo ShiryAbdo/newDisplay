@@ -63,23 +63,74 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-        <com.example.shaymaa.finalproject.others.MyTextView
-            android:textColor="@color/colorAccent"
-            android:textSize="12sp"
-            android:text= "المدينة  : "
-            android:padding="@dimen/_5sdp"
-            android:id="@+id/city"
-            android:gravity="right"
-            android:layout_gravity="center"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+            <com.example.shaymaa.finalproject.others.MyTextView
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:text= "المدينة: "
+                android:layout_weight="1"
+
+
+                android:padding="@dimen/_2sdp"
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <com.example.shaymaa.finalproject.others.MyTextView
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:id="@+id/city"
+                android:layout_weight="2"
+                android:padding="@dimen/_2sdp"
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.example.shaymaa.finalproject.others.MyTextView
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:text= "المساحة  :"
+                android:layout_weight="1"
+
+
+                android:padding="@dimen/_2sdp"
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <com.example.shaymaa.finalproject.others.MyTextView
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:hint="المساحة  :"
+                android:id="@+id/space"
+                android:layout_weight="2"
+                android:padding="@dimen/_2sdp"
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
 
         <com.example.shaymaa.finalproject.others.MyTextView
             android:textColor="@color/colorAccent"
-            android:textSize="12sp"
-            android:text= "المساحة  : "
-            android:id="@+id/space"
-             android:padding="@dimen/_5sdp"
             android:gravity="right"
             android:layout_gravity="center"
             android:layout_width="match_parent"
@@ -92,6 +143,7 @@
     <com.example.shaymaa.finalproject.others.MyTextView
         android:textColor="@color/colorAccent"
         android:textSize="12sp"
+        android:layout_margin="@dimen/_5sdp"
         android:background="#f9f9f9"
         android:id="@+id/discription"
         android:padding="@dimen/_5sdp"

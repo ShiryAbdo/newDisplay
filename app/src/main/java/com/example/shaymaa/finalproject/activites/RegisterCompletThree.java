@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -207,5 +208,13 @@ public class RegisterCompletThree extends AppCompatActivity {
 
         }
         return the_returnData;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(   RegisterCompletThree.this, RegisterCompletTwo.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();;
     }
 }

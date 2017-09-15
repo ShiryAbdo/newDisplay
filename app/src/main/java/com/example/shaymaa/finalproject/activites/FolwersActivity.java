@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
- import android.view.View;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -49,7 +50,7 @@ public class FolwersActivity extends AppCompatActivity {
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(  FolwersActivity.this, MainActivity.class);
+                Intent intent = new Intent(  FolwersActivity.this,  AcountUser.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -130,5 +131,13 @@ public class FolwersActivity extends AppCompatActivity {
         requestQueue.add(jsonObjReq);
      }
 
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(  FolwersActivity.this,  AcountUser.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
 
 }

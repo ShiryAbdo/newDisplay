@@ -69,6 +69,9 @@ public class UpdateAcountUser extends AppCompatActivity {
         bundle=getIntent().getExtras();
 
 
+
+
+
         if (bundle!=null){
 
             account_about= bundle.getString("account_about");
@@ -249,5 +252,13 @@ public class UpdateAcountUser extends AppCompatActivity {
 
 
 
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(UpdateAcountUser.this,  AcountUser.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
 
 }

@@ -51,6 +51,8 @@ public class Industrial_cities extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 
 
@@ -86,6 +88,13 @@ public class Industrial_cities extends AppCompatActivity {
                 Log.d("Error",t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(  Industrial_cities.this, Show_Industrial_cities.class);
+        startActivity(intent);
+        finish();
     }
 
 }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -132,5 +133,13 @@ public class ForgetPassword extends AppCompatActivity {
             the_returnData= Text.getText().toString()   ;
         }
         return the_returnData;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ForgetPassword.this,  LOgActivty.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }

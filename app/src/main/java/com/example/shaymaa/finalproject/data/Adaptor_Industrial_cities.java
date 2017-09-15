@@ -52,14 +52,6 @@ public class Adaptor_Industrial_cities extends RecyclerView.Adapter<Adaptor_Indu
             viewHolder.city_name.setText(androidList.get(i).getCity_name());
         }
 
-////        String city_name;
-//        if(androidList.get(i).getCity_name().contains("ar")){
-//            viewHolder.city_name.setText(androidList.get(i).getCity_name().substring(20).replace("\";}", ""));
-////            city_name= androidList.get(i).getCity_name().substring(18).replace("\";}", "");
-//
-//        }else {
-//            viewHolder.city_name.setText(androidList.get(i).getCity_name());
-//        }
 
 
 
@@ -73,6 +65,7 @@ public class Adaptor_Industrial_cities extends RecyclerView.Adapter<Adaptor_Indu
             public void onClick(View view) {
                 Intent intent = new Intent(context,CitiesDetails.class);
                 intent.putExtra("imageUr",imageUr);
+                intent.putExtra("city_name",androidList.get(i).getCity_name());
                 intent.putExtra("Factory_space",androidList.get(i).getFactory_space());
                 intent.putExtra("Factory_title",androidList.get(i).getFactory_title());
                 intent.putExtra("contant",androidList.get(i).getContent());

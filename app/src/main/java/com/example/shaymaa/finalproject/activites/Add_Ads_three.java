@@ -19,6 +19,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -371,6 +372,14 @@ public class Add_Ads_three extends FragmentActivity implements OnMapReadyCallbac
 
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent( Add_Ads_three.this,  Add_Ads_two.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 
 

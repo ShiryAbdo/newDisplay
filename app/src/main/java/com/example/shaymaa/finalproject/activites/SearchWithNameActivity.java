@@ -1,13 +1,16 @@
 package com.example.shaymaa.finalproject.activites;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.shaymaa.finalproject.R;
@@ -36,11 +39,29 @@ public class SearchWithNameActivity extends AppCompatActivity {
     LinearLayout search_cont1,search_cont2;
     Button search_btn1,search_btn2;
     EditText search_text1,search_text2;
+    ImageView go_back ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_with_name);
+
+
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // back to main activity
+        go_back =(ImageView)findViewById(R.id.go_back);
+        go_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchWithNameActivity.this, SoadyFactory.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         initViews();
         loadJSON();
@@ -108,5 +129,12 @@ public class SearchWithNameActivity extends AppCompatActivity {
                 Log.d("Error",t.getMessage());
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(SearchWithNameActivity.this, SoadyFactory.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }

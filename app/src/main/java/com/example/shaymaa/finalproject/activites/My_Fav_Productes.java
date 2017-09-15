@@ -56,7 +56,7 @@ public class My_Fav_Productes extends AppCompatActivity {
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(  My_Fav_Productes.this, MainActivity.class);
+                Intent intent = new Intent(  My_Fav_Productes.this, AcountUser.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -149,4 +149,12 @@ public class My_Fav_Productes extends AppCompatActivity {
     }
 
 
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(  My_Fav_Productes.this, AcountUser.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
 }

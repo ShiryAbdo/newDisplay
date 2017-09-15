@@ -70,7 +70,7 @@ public class Compa_Of_Factory extends AppCompatActivity {
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Compa_Of_Factory.this, SoadyFactory.class);
+                Intent intent = new Intent(Compa_Of_Factory.this, AllFactores_Category.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -177,5 +177,13 @@ public class Compa_Of_Factory extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonObjReq);
         //        AppController.getInstance().addToRequestQueue(jsonObjReq);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Compa_Of_Factory.this, AllFactores_Category.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }

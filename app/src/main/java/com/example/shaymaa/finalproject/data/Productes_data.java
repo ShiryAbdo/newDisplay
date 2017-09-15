@@ -5,16 +5,16 @@ package com.example.shaymaa.finalproject.data;
  */
 
 public class Productes_data {
-    private  String  product_id;
-    private  String  product_title;
-    private  String  product_image_name;
-    private  String  product_service;
-    private  String  username;
-    private  String  date;
+    private String product_id;
+    private String product_title;
+    private String product_image_name;
+    private String product_service;
+    private String username;
+    private String date;
 
 
-
-    public Productes_data(String product_id, String product_title, String product_image_name, String product_service, String username, String date) {
+    public Productes_data(String product_id, String product_title,
+                          String product_image_name, String product_service, String username, String date) {
         this.product_id = product_id;
         this.product_title = product_title;
         this.product_image_name = product_image_name;
@@ -26,6 +26,7 @@ public class Productes_data {
     public Productes_data() {
 
     }
+
 
     public String getProduct_id() {
         return product_id;

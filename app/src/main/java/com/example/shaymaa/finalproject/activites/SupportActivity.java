@@ -185,4 +185,13 @@ public class SupportActivity extends AppCompatActivity {
         return the_returnData;
     }
 
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(SupportActivity.this,    MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
+
 }

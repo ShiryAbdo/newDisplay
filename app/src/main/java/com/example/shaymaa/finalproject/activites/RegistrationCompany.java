@@ -3,7 +3,8 @@ package com.example.shaymaa.finalproject.activites;
  import android.content.Intent;
  import android.support.v7.app.AppCompatActivity;
  import android.os.Bundle;
-import android.view.View;
+ import android.util.Log;
+ import android.view.View;
  import android.widget.AdapterView;
  import android.widget.ArrayAdapter;
  import android.widget.Button;
@@ -105,5 +106,14 @@ public class RegistrationCompany extends AppCompatActivity  implements OnItemSel
     }
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(  RegistrationCompany.this,  LOgActivty.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }
