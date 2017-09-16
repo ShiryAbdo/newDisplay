@@ -347,6 +347,7 @@ public class CountinuAdding extends FragmentActivity implements OnMapReadyCallba
                 .appendQueryParameter("facebook",facebook)
                 .appendQueryParameter("twitter",twitter)
                 .appendQueryParameter("google",google)
+                .appendQueryParameter("google",google)
                 .appendQueryParameter("instegrame",instegrame)
                 .appendQueryParameter("image",image)
                 .appendQueryParameter("latitude",latitude)
