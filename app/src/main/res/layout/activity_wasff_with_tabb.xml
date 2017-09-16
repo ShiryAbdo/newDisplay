@@ -27,10 +27,25 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay">
 
-            <com.example.shaymaa.finalproject.MyTextView
+
+
+            <com.example.shaymaa.finalproject.others.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:text="عرض المنتجات"
+                android:id="@+id/show_productes"
+                />
+
+            <com.example.shaymaa.finalproject.others.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:textColor="#fff"
                 android:text="وصف المصنع"
                 android:id="@+id/wasf_titel"
@@ -53,22 +68,21 @@
     </android.support.design.widget.AppBarLayout>
 
 
-            <fragment
+            <ImageView
 
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@drawable/fild_redise_white"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
-                android:layout_width="match_parent"
+                 android:layout_width="match_parent"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:layout_height="@dimen/_140sdp"
                 android:layout_gravity="center"
                 android:padding="@dimen/_10sdp"
-                android:id="@+id/map" />
+                android:id="@+id/image_wasf" />
 
 
-        <com.example.shaymaa.finalproject.CustomTabLayout
+        <com.example.shaymaa.finalproject.others.CustomTabLayout
             android:id="@+id/tabs"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"

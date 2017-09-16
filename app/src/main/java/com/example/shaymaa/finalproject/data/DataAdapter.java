@@ -12,6 +12,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.example.shaymaa.finalproject.R;
+import com.example.shaymaa.finalproject.activites.A3lanActivityItem;
+import com.example.shaymaa.finalproject.activites.Compa_Of_Factory;
 import com.example.shaymaa.finalproject.activites.Wassf_asnaa_mape_oOne;
 import com.example.shaymaa.finalproject.activites.wasffWithTabb;
 
@@ -40,16 +42,24 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(DataAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(DataAdapter.ViewHolder viewHolder, final int i) {
 
-        viewHolder.factory_name.setText(androidList.get(i).getName());
-        viewHolder.cintery_name.setText(androidList.get(i).getVer());
-        viewHolder.email_factory.setText(androidList.get(i).getApi());
+        viewHolder.factory_name.setText(androidList.get(i).getcompany_category_name().substring(20).replace("\";}", ""));
+
+        viewHolder.cintery_name.setText(androidList.get(i).getcompany_category_id());
+
+
+
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context,wasffWithTabb.class));
-            }
+
+                Intent intent = new Intent(context,Compa_Of_Factory.class);
+
+                intent.putExtra("company_category_id",androidList.get(i).getcompany_category_id());
+                intent.putExtra("company_category_name",androidList.get(i).getcompany_category_name());
+                 context.startActivity(intent);
+             }
         });
         setAnimation(viewHolder.card, i);
 
@@ -81,7 +91,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
             card=(CardView)view.findViewById(R.id.card);
             factory_name = (TextView)view.findViewById(R.id.name_factory);
             cintery_name = (TextView)view.findViewById(R.id.counter_name);
-            email_factory = (TextView)view.findViewById(R.id.email_factory);
+//            email_factory = (TextView)view.findViewById(R.id.email_factory);
 
         }
     }

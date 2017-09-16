@@ -3,6 +3,7 @@
     package="com.example.shaymaa.finalproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
@@ -21,7 +22,7 @@
         android:required="true" />
 
     <application
-        android:name=".AppController"
+        android:name=".others.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -42,14 +43,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activites.LoginActvity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
             android:name=".activites.RegistrationUser"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".activites.RegistrationCompany" />
         <activity android:name=".activites.SoadyFactory" />
-        <activity android:name=".activites.AllFactores" />
+        <activity android:name=".activites.AllFactores_Category" />
         <activity android:name=".activites.addFactory" />
         <activity
             android:name=".activites.SearchActivity"
@@ -84,7 +82,7 @@
             android:label="@string/title_activity_countinu_adding" />
 
         <service
-            android:name=".GeocodeAddressIntentService"
+            android:name=".others.GeocodeAddressIntentService"
             android:exported="false" />
 
         <activity
@@ -97,7 +95,29 @@
         <activity android:name=".activites.e3lanatActivity" />
         <activity android:name=".activites.AcountUser" />
         <activity android:name=".activites.RegisterCompletTwo" />
-        <activity android:name=".activites.RegisterCompletThree"></activity>
+        <activity android:name=".activites.RegisterCompletThree" />
+        <activity android:name=".activites.A3lanActivityItem" />
+        <activity android:name=".activites.Industrial_cities" />
+        <activity android:name=".activites.Part_Industrial_cities" />
+        <activity android:name=".activites.Show_Industrial_cities" />
+        <activity android:name=".activites.CuntinoAddTWO" />
+        <activity android:name=".activites.Spasial_cityActivity" />
+        <activity android:name=".activites.Cites_stand_upActivity" />
+        <activity android:name=".activites.Area_tqnyActivity" />
+        <activity android:name=".activites.Wahat_elmodinActivity" />
+        <activity android:name=".activites.SearchWithNameActivity" />
+        <activity android:name=".activites.Compa_Of_Factory" />
+        <activity android:name=".activites.CitiesDetails" />
+        <activity android:name=".activites.FolwersActivity" />
+        <activity android:name=".activites.My_Fav_Productes" />
+        <activity android:name=".activites.MyAdsActivity" />
+        <activity android:name=".activites.AddProducts" />
+        <activity android:name=".activites.Add_Ads" />
+        <activity android:name=".activites.DetalisOfProduction_WitRemove" />
+        <activity android:name=".activites.Elmonshat_modafa" />
+        <activity android:name=".activites.Add_Ads_two" />
+        <activity android:name=".activites.DetalisOfProduction_WitAdd" />
+        <activity android:name=".activites.Add_Ads_three"></activity>
     </application>
 
 </manifest>

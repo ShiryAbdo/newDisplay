@@ -48,14 +48,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.shaymaa.finalproject.MyTextView
+                <com.example.shaymaa.finalproject.others.MyTextView
 
                     android:layout_weight=".5"
                     android:gravity="right"
                     android:layout_gravity="center"
                     android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content" />
-                <com.example.shaymaa.finalproject.MyTextView
+                <com.example.shaymaa.finalproject.others.MyTextView
 
                     android:textSize="18sp"
                     android:text="اسم صاحب المصنع "
@@ -70,14 +70,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.shaymaa.finalproject.MyTextView
+                <com.example.shaymaa.finalproject.others.MyTextView
 
                     android:layout_weight=".5"
                     android:gravity="right"
                     android:layout_gravity="center"
                     android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content" />
-                <com.example.shaymaa.finalproject.MyTextView
+                <com.example.shaymaa.finalproject.others.MyTextView
 
                     android:textSize="18sp"
                     android:text="رقم الجوال "
@@ -92,13 +92,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.shaymaa.finalproject.MyTextView
+                <com.example.shaymaa.finalproject.others.MyTextView
                     android:layout_weight=".5"
                     android:gravity="right"
                     android:layout_gravity="center"
                     android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content" />
-                <com.example.shaymaa.finalproject.MyTextView
+                <com.example.shaymaa.finalproject.others.MyTextView
 
                     android:textSize="18sp"
                     android:text="البريد الالكترونى"

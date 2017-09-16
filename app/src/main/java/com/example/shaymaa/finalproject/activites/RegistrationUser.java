@@ -17,14 +17,10 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.example.shaymaa.finalproject.AppConfig;
-import com.example.shaymaa.finalproject.AppController;
+import com.example.shaymaa.finalproject.others.AppController;
 import com.example.shaymaa.finalproject.R;
-import com.example.shaymaa.finalproject.SQLiteHandler;
-import com.example.shaymaa.finalproject.SessionManager;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.shaymaa.finalproject.others.SQLiteHandler;
+import com.example.shaymaa.finalproject.others.SessionManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,6 +45,7 @@ public class RegistrationUser extends AppCompatActivity {
     public static final String KEY_PHONE = "mobile";
     public static final String kEY_CITY ="city";
     private static final String TAG =  "tage";
+    String emailRegEx;
 
 
     @Override
@@ -64,6 +61,7 @@ public class RegistrationUser extends AppCompatActivity {
         spinner_singil_register = (Spinner) findViewById(R.id.spinner_singil_register);
         checkBox_agree = (CheckBox) findViewById(R.id.checkBox_agree);
         register_as_singile=(Button)findViewById(R.id.register_endifiual) ;
+        emailRegEx = "^[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,4}$";
 
 
 
@@ -77,11 +75,25 @@ public class RegistrationUser extends AppCompatActivity {
                 String password = editText_password.getText().toString().trim();
                 String city = editText_password.getText().toString().trim();
                  if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
-                    registerUser(name, email, password, mobile, city);
- 
-                     Toast.makeText(RegistrationUser.this, "register" +name +email+password+mobile+city, Toast.LENGTH_SHORT).show();
+
+                     if (editText_email.getText().toString().matches(emailRegEx) &&editText_email.getText().toString().length() > 0)
+                     {
+
+                         if(editText_password.getText().toString().trim().equals(editText_password.getText().toString().trim())){
+                             registerUser(name, email, password, mobile, city);
+
+                         }else {
+                             Toast.makeText(getApplicationContext(), "كلمة المرور غير  متطابقة",Toast.LENGTH_LONG).show();
+                         }
+
+
+                         Toast.makeText(RegistrationUser.this, "تم التسجيل بنجاح" +name +email+password+mobile+city, Toast.LENGTH_SHORT).show();
+                     }else {
+                         Toast.makeText(getApplicationContext(),"الإيميل غير صالح",Toast.LENGTH_SHORT).show();
+                     }
+
                 } else {
-                    Toast.makeText(getApplicationContext(), "details!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "!أضف البيانات", Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -164,6 +176,13 @@ public class RegistrationUser extends AppCompatActivity {
     private void hideDialog() {
         if (pDialog.isShowing())
             pDialog.dismiss();
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(  RegistrationUser.this, LOgActivty.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 
 }

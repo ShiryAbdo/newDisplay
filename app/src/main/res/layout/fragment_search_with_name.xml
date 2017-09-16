@@ -47,7 +47,7 @@
             android:textColor="#fff"
             android:textSize="17sp" />
 
-        <com.example.shaymaa.finalproject.Buttonplus
+        <com.example.shaymaa.finalproject.others.Buttonplus
             android:id="@+id/search_btn1"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="wrap_content"

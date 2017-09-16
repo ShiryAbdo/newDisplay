@@ -22,12 +22,12 @@ import java.util.ArrayList;
  */
 
 public class AdaptorBank extends RecyclerView.Adapter<AdaptorBank.ViewHolder> {
-    private ArrayList<Factory_data> androidList;
+    private ArrayList<Bank_data> androidList;
     private Context context;
     private int lastPosition=-1;
 
 
-    public AdaptorBank(ArrayList<Factory_data> android,Context c) {
+    public AdaptorBank(ArrayList<Bank_data> android,Context c) {
         this.androidList = android;
         this.context=c;
     }
@@ -43,10 +43,10 @@ public class AdaptorBank extends RecyclerView.Adapter<AdaptorBank.ViewHolder> {
     @Override
     public void onBindViewHolder(AdaptorBank.ViewHolder viewHolder, int i) {
 
-        viewHolder.name_of_bank.setText(androidList.get(i).getName());
-        viewHolder.number_of_bank.setText(androidList.get(i).getVer());
-        viewHolder.name_of_company.setText(androidList.get(i).getApi());
-        viewHolder.number_of_acount.setText(androidList.get(i).getApi());
+        viewHolder.name_of_bank.setText(androidList.get(i).getBank());
+        viewHolder.number_of_bank.setText(androidList.get(i).getBank_number());
+        viewHolder.name_of_company.setText(androidList.get(i).getCompany_name());
+        viewHolder.number_of_acount.setText(androidList.get(i).getBank_ipan());
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

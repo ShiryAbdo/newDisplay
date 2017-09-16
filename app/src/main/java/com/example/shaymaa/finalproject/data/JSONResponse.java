@@ -5,9 +5,9 @@ package com.example.shaymaa.finalproject.data;
  */
 
 public class JSONResponse {
-    private Factory_data[] android;
+    private Factory_data[] company_category;
 
     public Factory_data[] getAndroid() {
-        return android;
+        return company_category;
     }
 }

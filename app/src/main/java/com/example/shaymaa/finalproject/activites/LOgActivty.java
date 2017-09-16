@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -21,9 +22,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
- import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
- import com.example.shaymaa.finalproject.R;
+import com.example.shaymaa.finalproject.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,15 +41,11 @@ public class LOgActivty extends AppCompatActivity {
 
     SharedPreferences.Editor editor;
     SharedPreferences sharedPref;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_login);
-        editText2_password = (EditText) findViewById(R.id.editText2_password);
-        editText_email = (EditText) findViewById(R.id.editText_email);
-        moasa_chekBox = (CheckBox) findViewById(R.id.moasa_chekBox);
-        singelCheckBox = (CheckBox) findViewById(R.id.singelCheckBox);
-        loginbutton = (Button) findViewById(R.id.loginbutton);
 
         sharedPref = getApplicationContext().getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         editor = sharedPref.edit();
@@ -56,8 +53,20 @@ public class LOgActivty extends AppCompatActivity {
         String passwordShared = sharedPref.getString("password", "null");
         String typeShared = sharedPref.getString("type", "null");
 
-        if (!emailShared.equals("null"))
+        if (!emailShared.equals("null")){
             checkLogin(emailShared, passwordShared, typeShared);
+
+        }
+
+
+        setContentView(R.layout.new_login);
+        editText2_password = (EditText) findViewById(R.id.editText2_password);
+        editText_email = (EditText) findViewById(R.id.editText_email);
+        moasa_chekBox = (CheckBox) findViewById(R.id.moasa_chekBox);
+        singelCheckBox = (CheckBox) findViewById(R.id.singelCheckBox);
+        loginbutton = (Button) findViewById(R.id.loginbutton);
+
+
 
 
         loginbutton = (Button) findViewById(R.id.loginbutton);
@@ -79,7 +88,13 @@ public class LOgActivty extends AppCompatActivity {
                 if (singelCheckBox.isChecked()) {
                     type = "1";
                 }
-                checkLogin(check_the_EditText(editText_email), check_the_EditText(editText2_password), type);
+                if(editText_email.getText().toString().trim().length() > 0&&editText2_password.getText().toString().trim().length() > 0){
+                    checkLogin(check_the_EditText(editText_email), check_the_EditText(editText2_password), type);
+                }else {
+                    Toast.makeText(getApplicationContext(),
+                            "أدخل الإيميل والباس ورد" , Toast.LENGTH_SHORT).show();
+                }
+
 
 
 
@@ -111,8 +126,7 @@ public class LOgActivty extends AppCompatActivity {
                 as_moassa.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getApplicationContext(),
-                                "Clicled" , Toast.LENGTH_SHORT).show();
+
                         Intent intent = new Intent(getApplicationContext(), RegistrationCompany.class);
                         startActivity(intent);
                         //                        dialog.dismiss();
@@ -150,13 +164,11 @@ public class LOgActivty extends AppCompatActivity {
 
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(),
-                        "recuest" +response , Toast.LENGTH_SHORT).show();
+
                 try {
                     JSONArray user = response.getJSONArray("user");
                     // Error in login. Get the error message
-                    Toast.makeText(getApplicationContext(),
-                            "recuest", Toast.LENGTH_SHORT).show();
+
 
                     for (int n = 0; n < user.length(); n++) {
                         JSONObject object = user.getJSONObject(n);
@@ -169,18 +181,20 @@ public class LOgActivty extends AppCompatActivity {
                     }
                     String su=response.getString("success");
                     if (su.equals("1")){
-                        Toast.makeText(getApplicationContext(),
-                                "Toast" + su+"done" , Toast.LENGTH_SHORT).show();
+
+
+                        String id = uid;
+                        editor.putString("username", username);
 
                     }
+
+                    editor.putString("id", uid);
                     editor.putString("email", email);
                     editor.putString("password", password);
                     editor.putString("type", typee);
                     editor.commit();
 
 
-                    Toast.makeText(getApplicationContext(),
-                            "ceart acount", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LOgActivty.this,
                             MainActivity.class);
                     startActivity(intent);
@@ -221,6 +235,13 @@ public class LOgActivty extends AppCompatActivity {
         return the_returnData;
     }
 
-
+    @Override
+    public void onBackPressed() {
+        Log.d("CDA", "onBackPressed Called");
+        Intent setIntent = new Intent(Intent.ACTION_MAIN);
+        setIntent.addCategory(Intent.CATEGORY_HOME);
+        setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(setIntent);
+    }
 
 }

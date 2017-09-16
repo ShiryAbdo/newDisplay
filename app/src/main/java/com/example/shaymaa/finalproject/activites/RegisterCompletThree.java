@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.example.shaymaa.finalproject.AppController;
+import com.example.shaymaa.finalproject.others.AppController;
 import com.example.shaymaa.finalproject.R;
 
 import java.util.HashMap;
@@ -91,11 +92,16 @@ public class RegisterCompletThree extends AppCompatActivity {
         complet_register_moassa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(password.getText().toString().trim().equals(re_password.getText().toString().trim())){
+                    registerUser(name_of_comapy,name_comany_arabick,name_comany_english,email_of_comapy,box_email,postel_code,phone_of_comapy,
+                            check_the_EditText(number_of_fax),check_the_EditText(web_url),check_the_EditText(name_of_head),
+                            check_the_EditText(represint_company),check_the_EditText(represint_company),check_the_EditText(represint_company),""
+                    );
 
-                 registerUser(name_of_comapy,name_comany_arabick,name_comany_english,email_of_comapy,box_email,postel_code,phone_of_comapy,
-                        check_the_EditText(number_of_fax),check_the_EditText(web_url),check_the_EditText(name_of_head),
-                         check_the_EditText(represint_company),check_the_EditText(represint_company),check_the_EditText(represint_company),""
-                        );
+                }else {
+                    Toast.makeText(getApplicationContext(), "كلمة المرور غير  متطابقة",Toast.LENGTH_LONG).show();
+
+                }
 
 
 
@@ -103,6 +109,7 @@ public class RegisterCompletThree extends AppCompatActivity {
         });
 
     }
+
     private void registerUser(final String username , final String name_ar , final String  name_en
                              , final String email , final String mail_box, final String mail_symbol , final String phone,
                               final String  fax , final String  site, final String  manager , final String   representative
@@ -137,13 +144,13 @@ public class RegisterCompletThree extends AppCompatActivity {
 
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, myUrl,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, myUrl,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(RegisterCompletThree.this,response,Toast.LENGTH_LONG).show();
 
-//                        Toast.makeText( RegistrationUser.this, "this error",Toast.LENGTH_LONG).show();
+
+                        Toast.makeText(getApplicationContext(), "تم التسجيل بنجاح",Toast.LENGTH_LONG).show();
 
 
                         startActivity(new Intent(getApplicationContext(),  LOgActivty.class));
@@ -202,5 +209,13 @@ public class RegisterCompletThree extends AppCompatActivity {
 
         }
         return the_returnData;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(   RegisterCompletThree.this, RegisterCompletTwo.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();;
     }
 }

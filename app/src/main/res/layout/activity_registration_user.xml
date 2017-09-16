@@ -13,6 +13,8 @@
         android:id="@+id/toolbar"
         android:titleTextColor="@color/white"
         android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         >
@@ -30,12 +32,14 @@
             android:src="@drawable/go_back"
             android:contentDescription="@string/bake_icon" />
 
-        <com.example.shaymaa.finalproject.MyTextView
+        <com.example.shaymaa.finalproject.others.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textColor="#fff"
-            android:text="المصانع السعودية"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:text="رجوع"
             android:id="@+id/wasf_titel"
             />
 

@@ -28,10 +28,12 @@
             android:src="@drawable/go_back"
             android:contentDescription="@string/bake_icon" />
 
-        <com.example.shaymaa.finalproject.MyTextView
+        <com.example.shaymaa.finalproject.others.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:textColor="#fff"
             android:text="المصانع السعودية"
             android:id="@+id/wasf_titel"
@@ -71,7 +73,7 @@
        >
 
 
-        <ImageButton
+        <ImageView
             android:id="@+id/productesImage"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -85,7 +87,7 @@
 
             android:src="@drawable/factory" />
 
-        <com.example.shaymaa.finalproject.MyTextView
+        <com.example.shaymaa.finalproject.others.MyTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/back"
@@ -128,7 +130,7 @@
 
             android:src="@drawable/search_engine" />
 
-        <com.example.shaymaa.finalproject.MyTextView
+        <com.example.shaymaa.finalproject.others.MyTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/_10sdp"
@@ -169,7 +171,7 @@
             android:scaleType="fitCenter"
             />
 
-        <com.example.shaymaa.finalproject.MyTextView
+        <com.example.shaymaa.finalproject.others.MyTextView
             android:layout_width="match_parent"
             android:textSize="20sp"
              android:textAlignment="center"

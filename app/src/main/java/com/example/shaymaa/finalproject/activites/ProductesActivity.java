@@ -4,23 +4,37 @@ package com.example.shaymaa.finalproject.activites;
  import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+ import android.support.v7.widget.LinearLayoutManager;
+ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+ import android.text.TextUtils;
+ import android.util.Log;
  import android.view.View;
  import android.webkit.WebView;
+ import android.widget.EditText;
  import android.widget.ImageView;
+ import android.widget.Toast;
 
  import com.android.volley.Request;
-import com.android.volley.Response;
+ import com.android.volley.RequestQueue;
+ import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+ import com.android.volley.toolbox.JsonObjectRequest;
+ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.shaymaa.finalproject.R;
 import com.example.shaymaa.finalproject.data.Adapter_recycle_commentes;
-import com.example.shaymaa.finalproject.data.Get_Data;
+ import com.example.shaymaa.finalproject.data.Flower_Adaptor;
+ import com.example.shaymaa.finalproject.data.Folwers_Data;
+ import com.example.shaymaa.finalproject.data.Get_Data;
+ import com.example.shaymaa.finalproject.data.My_Fav_Adaptor;
+ import com.example.shaymaa.finalproject.data.My_Fav_Data;
+ import com.example.shaymaa.finalproject.data.Productes_Adaptor;
+ import com.example.shaymaa.finalproject.data.Productes_data;
+ import com.example.shaymaa.finalproject.data.Show_productis_data;
+ import com.example.shaymaa.finalproject.others.MyTextView;
 
-import org.json.JSONArray;
+ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -31,23 +45,30 @@ import java.util.List;
 
 
 public class ProductesActivity extends AppCompatActivity {
-    RecyclerView recy;
-    Adapter_recycle_commentes adapter;
-    WebView webview;
-    ImageView go_back ;
+    private RecyclerView recyclerView;
+    private ArrayList<Productes_data> data;
+    private Productes_Adaptor adapter ;
+    ImageView go_back ,image;
+    Bundle bundle;
+    MyTextView add_montage;
+    String idi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_productes);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        initViews();
+        add_montage=(MyTextView)findViewById(R.id.add_montage);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
+        // back to main activity
         go_back =(ImageView)findViewById(R.id.go_back);
         go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProductesActivity.this,  MainActivity.class);
+                Intent intent = new Intent(  ProductesActivity.this, wasffWithTabb.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -58,66 +79,126 @@ public class ProductesActivity extends AppCompatActivity {
 
 
 
-        webview= (WebView) findViewById(R.id.webview);
-        webview.getSettings().setJavaScriptEnabled(true);
-        webview.getSettings().setBuiltInZoomControls(true);
-        webview.getSettings().setLoadWithOverviewMode(true);
-        webview.getSettings().setUseWideViewPort(true);
-        webview.loadUrl("http://nre.com.sa/index.php?route=common/home");
-//        recy = (RecyclerView) findViewById(R.id.rec);
-//        get_data_fromdb();
 
+        bundle=getIntent().getExtras();
+
+
+        if (bundle!=null){
+
+            idi= bundle.getString("id");
+        }
+
+        add_montage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(  ProductesActivity.this, AddProducts.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("company_id",idi);
+                startActivity(intent);
+                finish();
+
+            }
+        });
     }
 
-    ;
 
 
-//    private void get_data_fromdb() {
-//        StringRequest request = new StringRequest(Request.Method.POST, "http://homebussines.net/udemy_courses/like.php", new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                if (response.contains("done")) {
-//                    data_convert(response);
-//                }
-//
-//            }
-//        }, new Response.ErrorListener() {
-//
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//            }
-//        });
-//        Volley.newRequestQueue(getApplicationContext()).add(request);
-//    }
+    private void initViews(){
+        recyclerView = (RecyclerView)findViewById(R.id.card_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
 
-//    void data_convert(String data) {
-//        List<Get_Data> Data_List = new ArrayList<>();
-//        try {
-//            byte[] u = data.getBytes("ISO-8859-1");
-//            data = new String(u, "UTF-8");
-//            JSONObject job = new JSONObject(data);
-//            JSONArray jsonArray = job.getJSONArray("done");
-//            Log.e("jsonarray", String.valueOf(jsonArray.length()));
-//            for (int i = 0; i <= jsonArray.length(); i++) {
-//                JSONObject jobjecte = jsonArray.getJSONObject(i);
-//                String id = jobjecte.getString("id");
-//                String thephoto = jobjecte.getString("photo");
-//                String photo = URLDecoder.decode(thephoto, "UTF-8");
-//                String like = jobjecte.getString("likeed");
-//                Get_Data data_opject = new Get_Data(id, like, photo);
-//                Data_List.add(data_opject);
-//            }
-//        } catch (JSONException e) {
-//            Log.e("ee", String.valueOf(e));
-//            e.printStackTrace();
-//        } catch (UnsupportedEncodingException e) {
-//            Log.e("ee2", String.valueOf(e));
-//            e.printStackTrace();
-//        }
-//        adapter = new Adapter_recycle_commentes(Data_List,ProductesActivity.this);
-//        recy.setLayoutManager(new GridLayoutManager(ProductesActivity.this, 2));
-//        adapter.notifyDataSetChanged();
-//        recy.setAdapter(adapter);
-//    }
+
+
+        getAddsDtaied(idi);
+ //
+    }
+
+
+
+
+
+
+    private void  getAddsDtaied (final String id ) {
+
+        String url=  "http://ksafactory.com/API/view_products/index.php?company="+id;
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url
+                , null, new com.android.volley.Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                Productes_data data = new Productes_data();
+                ArrayList<Productes_data> data22= new ArrayList<>();
+
+//                Log.e("regcheck",response);
+
+                try {
+                    JSONArray company = response.getJSONArray("product");
+
+                    for (int n = 0; n < company.length(); n++) {
+
+
+                        JSONObject object = company.getJSONObject(n);
+
+                        String product_id =object.getString("product_id");
+                        String product_title =object.getString("product_title");
+                        String product_image_name =object.getString("product_image_name");
+                        String product_service =object.getString("product_service");
+                        String username =object.getString("product_id");
+                        String date =object.getString("product_id");
+
+        data= new Productes_data(product_id,product_title,product_image_name,product_service,username,date);
+
+                        data22.add(data);
+                        Toast.makeText(getApplicationContext(),
+                                product_id, Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+
+
+                    adapter = new Productes_Adaptor(data22,ProductesActivity.this);
+                    recyclerView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+
+
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonObjReq);
+    }
+
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(  ProductesActivity.this, wasffWithTabb.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
 
 }
+
+
+
+

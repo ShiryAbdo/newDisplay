@@ -19,10 +19,10 @@
         <ImageView
             android:contentDescription="@string/add_your_factory"
             android:layout_marginTop="@dimen/_13sdp"
-            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
             android:layout_gravity="center"
             android:layout_width="@dimen/_50sdp"
-            android:padding="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
             android:layout_height="@dimen/_50sdp"
             android:id="@+id/imageView"
             android:background="@drawable/factory"
@@ -31,29 +31,18 @@
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:textSize="18sp"
-            android:padding="@dimen/_5sdp"
+            android:padding="@dimen/_2sdp"
             android:text="@string/add_your_factory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:layout_marginEnd="@dimen/_35sdp"
-            android:layout_gravity="end"
-            android:textColor="#ffffff"
-            android:textSize="14sp"
-            android:padding="@dimen/_8sdp"
-            android:textStyle="bold"
-            android:text=""
-            android:layoutDirection="rtl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkBox" />
+
 
         <EditText
             android:background="@drawable/fild_redise_white"
             android:drawableRight="@drawable/manwhite"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_gravity="center"
             android:layout_width="@dimen/_240sdp"
             android:padding="@dimen/_10sdp"
@@ -62,12 +51,12 @@
             android:inputType="textPersonName"
             android:hint="@string/owner_name_of_factory"
             android:ems="10"
-             android:id="@+id/editText"
+             android:id="@+id/name_of_onwe"
 
             />
 
         <EditText
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_gravity="center"
             android:layout_width="@dimen/_240sdp"
             android:layout_height="@dimen/_35sdp"
@@ -78,13 +67,13 @@
             android:drawableRight="@drawable/factory_icon"
             android:hint="@string/factory_name"
             android:drawablePadding="@dimen/_15sdp"
-            android:inputType="textEmailAddress"
+            android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText2" />
+            android:id="@+id/name_of_factory" />
 
         <EditText
             android:hint="@string/ether_phone_factory"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_gravity="center"
             android:layout_width="@dimen/_240sdp"
             android:layout_height="@dimen/_35sdp"
@@ -96,11 +85,11 @@
             android:drawableRight="@drawable/ic_phone_android_white"
             android:inputType="phone"
             android:ems="10"
-            android:id="@+id/ether_phone_factory" />
+            android:id="@+id/telphone_of_factory" />
 
         <EditText
             android:hint="@string/phone_numbe_add"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_gravity="center"
             android:layout_width="@dimen/_240sdp"
             android:layout_height="@dimen/_35sdp"
@@ -115,10 +104,10 @@
             android:id="@+id/phone_numbe" />
 
         <EditText
-            android:gravity="end"
+            android:gravity="right"
             android:padding="@dimen/_10sdp"
             android:hint="@string/email"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_gravity="center"
             android:drawablePadding="@dimen/_15sdp"
             android:layout_width="@dimen/_240sdp"
@@ -127,9 +116,27 @@
             android:paddingTop="@dimen/_5sdp"
             android:background="@drawable/fild_redise_white"
             android:drawableRight="@drawable/ic_mail_outline_blwhitk_24dp"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:ems="10"
-            android:id="@+id/editText4" />
+            android:id="@+id/email_adress" />
+
+
+        <EditText
+            android:gravity="right"
+            android:padding="@dimen/_10sdp"
+            android:hint="الموقع الألكتروني "
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/_15sdp"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:paddingBottom="@dimen/_7sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:background="@drawable/fild_redise_white"
+            android:drawableRight="@drawable/ic_mail_outline_blwhitk_24dp"
+            android:inputType="textUri"
+            android:ems="10"
+            android:id="@+id/site" />
 
         <EditText
             android:gravity="start"
@@ -143,12 +150,26 @@
             android:layout_gravity="center"
             android:layout_width="@dimen/_240sdp"
             android:layout_height="@dimen/_35sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:background="@drawable/round_white"
+            android:inputType="text"
+            android:ems="10"
+            android:id="@+id/what_is_producted" />
+
+        <Spinner
+            android:padding="@dimen/_10sdp"
+            android:textColor="#fff"
+            android:spinnerMode="dropdown"
+            android:drawablePadding="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_35sdp"
             android:paddingBottom="@dimen/_8sdp"
             android:paddingTop="@dimen/_8sdp"
             android:background="@drawable/round_white"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText5" />
+            android:id="@+id/catogery_of_factory" />
 
 
         <Button
@@ -159,7 +180,7 @@
             android:textSize="20sp"
             android:layout_width="@dimen/_220sdp"
             android:layout_height="@dimen/_35sdp"
-            android:id="@+id/cuttong_adding" />
+            android:id="@+id/cuttongadding" />
 
 
     </LinearLayout>

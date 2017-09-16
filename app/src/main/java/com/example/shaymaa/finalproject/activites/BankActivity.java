@@ -13,7 +13,8 @@ import android.widget.ImageView;
 import com.example.shaymaa.finalproject.R;
 import com.example.shaymaa.finalproject.data.AdaptorBank;
 import com.example.shaymaa.finalproject.data.BankJSONResponse;
- import com.example.shaymaa.finalproject.data.Factory_data;
+import com.example.shaymaa.finalproject.data.Bank_data;
+import com.example.shaymaa.finalproject.data.Factory_data;
  import com.example.shaymaa.finalproject.interfaces.ApiInterfaceBank;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BankActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private ArrayList<Factory_data> data;
+    private ArrayList<Bank_data> data;
     private AdaptorBank adapter ;
     ImageView go_back;
 
@@ -67,7 +68,7 @@ public class BankActivity extends AppCompatActivity {
 
     private void loadJSON(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://ksafactory.com/API/banks/index.php")
+                .baseUrl("http://ksafactory.com/API/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiInterfaceBank request = retrofit.create(ApiInterfaceBank.class);
@@ -75,7 +76,7 @@ public class BankActivity extends AppCompatActivity {
         call.enqueue(new Callback<BankJSONResponse>() {
             @Override
             public void onResponse(Call<BankJSONResponse> call, Response<BankJSONResponse> response) {
-
+                data=new ArrayList<Bank_data>();
                 BankJSONResponse bankJSONResponse = response.body();
                 data = new ArrayList<>(Arrays.asList(bankJSONResponse.getBanks()));
                 adapter = new AdaptorBank(data, BankActivity.this);
@@ -87,5 +88,13 @@ public class BankActivity extends AppCompatActivity {
                 Log.d("Error",t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(  BankActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }

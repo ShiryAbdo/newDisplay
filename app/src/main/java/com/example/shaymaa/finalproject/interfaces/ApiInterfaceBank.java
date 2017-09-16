@@ -12,6 +12,6 @@ import retrofit2.http.GET;
 
 public interface ApiInterfaceBank {
 
-    @GET("banks")
+    @GET("banks/index.php?banks")
     Call<BankJSONResponse> getJSON();
 }

@@ -70,5 +70,6 @@
         <item>Laptop</item>
 
     </string-array>
+    <string name="title_activity_main_activityv">MainActivityv</string>
 
 </resources>

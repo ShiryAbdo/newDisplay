@@ -3,7 +3,6 @@ package com.example.shaymaa.finalproject.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,7 +22,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.shaymaa.finalproject.R;
-import com.example.shaymaa.finalproject.activites.AllFactores;
 import com.example.shaymaa.finalproject.data.DataAdapter;
 import com.example.shaymaa.finalproject.data.Factory_data;
 
@@ -35,7 +33,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 

@@ -3,7 +3,8 @@ package com.example.shaymaa.finalproject.activites;
  import android.content.Intent;
  import android.support.v7.app.AppCompatActivity;
  import android.os.Bundle;
-import android.view.View;
+ import android.util.Log;
+ import android.view.View;
  import android.widget.AdapterView;
  import android.widget.ArrayAdapter;
  import android.widget.Button;
@@ -22,7 +23,10 @@ public class RegistrationCompany extends AppCompatActivity  implements OnItemSel
 
     String item;
     Spinner spinner;
+    String emailRegEx ;
     Button register_as_moassa ;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String emails ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +39,7 @@ public class RegistrationCompany extends AppCompatActivity  implements OnItemSel
         phone_user=(EditText)findViewById(R.id.phone_user);
         name_comany_arabick=(EditText)findViewById(R.id.name_comany_arabick);
         name_comany_english=(EditText)findViewById(R.id.name_comany_english);
-
+        emailRegEx = "^[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,4}$";
 
         spinner= (Spinner) findViewById(R.id.spinner);
 
@@ -44,12 +48,10 @@ public class RegistrationCompany extends AppCompatActivity  implements OnItemSel
 
         // Spinner Drop down elements
         List<String> categories = new ArrayList<String>();
-        categories.add("Automobile");
-        categories.add("Business Services");
-        categories.add("Computers");
-        categories.add("Education");
-        categories.add("Personal");
-        categories.add("Travel");
+        categories.add("الرياض");
+        categories.add("الدوحه");
+        categories.add("مكه");
+        categories.add("المدينه");
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
@@ -60,7 +62,7 @@ public class RegistrationCompany extends AppCompatActivity  implements OnItemSel
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
 
-
+      emails =email_user.getText().toString().trim();
 
 
 
@@ -68,14 +70,22 @@ public class RegistrationCompany extends AppCompatActivity  implements OnItemSel
         register_as_moassa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(RegistrationCompany.this,RegisterCompletTwo.class);
-                intent.putExtra("name_of_comapy",name_user.getText().toString().trim());
-                intent.putExtra("email_of_comapy",email_user.getText().toString().trim());
-                intent.putExtra("phone_of_comapy",phone_user.getText().toString().trim());
-                intent.putExtra("name_comany_arabick",name_comany_arabick.getText().toString().trim());
-                intent.putExtra("name_comany_english",name_comany_english.getText().toString().trim());
-                intent.putExtra("item_spinner",item);
-                startActivity(intent);
+                Toast.makeText(getApplicationContext(), email_user.getText().toString().trim(),Toast.LENGTH_SHORT).show();
+
+                if ( email_user.getText().toString().trim().matches(emailRegEx) && email_user.getText().toString().trim().length() > 0)
+                {
+                    Intent intent=new Intent(RegistrationCompany.this,RegisterCompletTwo.class);
+                    intent.putExtra("name_of_comapy",name_user.getText().toString().trim());
+                    intent.putExtra("email_of_comapy",email_user.getText().toString().trim());
+                    intent.putExtra("phone_of_comapy",phone_user.getText().toString().trim());
+                    intent.putExtra("name_comany_arabick",name_comany_arabick.getText().toString().trim());
+                    intent.putExtra("name_comany_english",name_comany_english.getText().toString().trim());
+                    intent.putExtra("item_spinner",item);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(getApplicationContext(),"الإيميل غير صالح",Toast.LENGTH_SHORT).show();
+                }
+
 
 
             }
@@ -96,5 +106,14 @@ public class RegistrationCompany extends AppCompatActivity  implements OnItemSel
     }
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(  RegistrationCompany.this,  LOgActivty.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }
